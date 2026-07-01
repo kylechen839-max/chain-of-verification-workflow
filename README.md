@@ -40,3 +40,48 @@ To reduce API calls while testing, set:
 ```python
 MAX_QUESTIONS = 2
 ```
+
+## Ollama Tests
+
+Ollama can run local/open models, but it cannot run proprietary ChatGPT models directly.
+For an OpenAI open-weight model on Ollama, use `gpt-oss:20b` or `gpt-oss:120b`
+on hardware with enough memory. For quick CPU tests, this project uses
+`llama3.2:1b`.
+
+Install and pull a small test model:
+
+```bash
+ollama pull llama3.2:1b
+```
+
+Run the CoVe test suite:
+
+```bash
+python3 run_ollama_cove_tests.py \
+  --model llama3.2:1b \
+  --max-questions 2 \
+  --output ollama_cove_test_results.local.json
+```
+
+If your machine has enough memory for OpenAI's open-weight Ollama model:
+
+```bash
+ollama pull gpt-oss:20b
+python3 run_ollama_cove_tests.py --model gpt-oss:20b --max-questions 2
+```
+
+## Google Compute Engine Test
+
+The same test runner can run on a Google Compute Engine VM after installing
+Ollama and copying the project files:
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+ollama pull llama3.2:1b
+python3 run_ollama_cove_tests.py \
+  --model llama3.2:1b \
+  --max-questions 2 \
+  --output ollama_cove_test_results.gce.json
+```
+
+The checked-in result files show one local run and one Google Compute Engine run.

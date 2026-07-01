@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 import re
+import urllib.error
+import urllib.request
 from typing import Any, Callable
 
 
@@ -228,5 +230,59 @@ def make_openai_call_llm(model: str = "gpt-5.5", **request_options: Any) -> Call
             **request_options,
         )
         return response.output_text
+
+    return call_llm
+
+
+def make_ollama_call_llm(
+    model: str = "llama3.2:1b",
+    host: str = "http://127.0.0.1:11434",
+    **request_options: Any,
+) -> CallLLM:
+    """Create a call_llm function backed by a local or remote Ollama server.
+
+    Ollama does not run proprietary ChatGPT models. It can run local/open models,
+    such as llama3.2, mistral, qwen, or OpenAI's open-weight gpt-oss models when
+    they are available and the machine has enough memory.
+
+    Requires:
+        ollama serve
+        ollama pull <model>
+    """
+
+    endpoint = host.rstrip("/") + "/api/chat"
+
+    def call_llm(messages: list[Message]) -> str:
+        options = dict(request_options.get("options", {}))
+        payload = {
+            "model": model,
+            "messages": messages,
+            "stream": False,
+            "options": {
+                "temperature": 0,
+                **options,
+            },
+            **{key: value for key, value in request_options.items() if key != "options"},
+        }
+        data = json.dumps(payload).encode("utf-8")
+        request = urllib.request.Request(
+            endpoint,
+            data=data,
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+
+        try:
+            with urllib.request.urlopen(request, timeout=300) as response:
+                body = json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as error:
+            detail = error.read().decode("utf-8", errors="replace")
+            raise RuntimeError(f"Ollama request failed: {error.code} {detail}") from error
+        except urllib.error.URLError as error:
+            raise RuntimeError(
+                f"Could not reach Ollama at {host}. Start it with `ollama serve`."
+            ) from error
+
+        return body.get("message", {}).get("content", "")
 
     return call_llm
