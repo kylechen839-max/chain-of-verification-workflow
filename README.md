@@ -108,3 +108,22 @@ CPU-only VM, so no VM resize was required.
 For the current small Ollama models, the local Mac is faster than the CPU-only
 Google Compute VM. Prefer local runs for iterative testing, and use the VM only
 when cloud reproducibility or different hardware is specifically needed.
+
+## CoVe Evaluation
+
+Run the fixed benchmark to compare direct answers, joint CoVe, and factored CoVe:
+
+```bash
+python3 run_cove_evaluation.py \
+  --model deepseek-coder:1.3b \
+  --max-questions 2 \
+  --num-predict 512 \
+  --output cove_evaluation_results.deepseek-coder.local.json
+```
+
+The benchmark questions live in `cove_benchmark_questions.json`. The latest
+local benchmark summary is in `EVALUATION_SUMMARY.md`.
+
+The JSON output includes placeholders for manual accuracy and hallucination
+scores. Fill those in after reviewing each answer if you want to make a
+research-style comparison between direct answers and CoVe answers.

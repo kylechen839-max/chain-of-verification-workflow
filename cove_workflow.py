@@ -45,11 +45,36 @@ def _parse_questions(text: str, max_questions: int) -> list[str]:
 
         match = re.match(r"^(?:[-*]|\d+[.)])\s*(.+)$", line)
         if match:
-            questions.append(match.group(1).strip())
+            candidate = match.group(1).strip()
+            if candidate.endswith("?"):
+                questions.append(candidate)
+            else:
+                questions.extend(_extract_question_spans(candidate))
         elif line.endswith("?"):
             questions.append(line)
+        else:
+            questions.extend(_extract_question_spans(line))
 
-    return questions[:max_questions]
+    deduped: list[str] = []
+    seen = set()
+    for question in questions:
+        cleaned = question.strip(" \"'`[]")
+        cleaned = re.sub(r"^\s*\d+\s*[-.)]\s*", "", cleaned)
+        cleaned = re.sub(r"^\s*Q\d+\s*[:.)-]\s*", "", cleaned, flags=re.IGNORECASE)
+        cleaned = cleaned.strip(" \"'`[]")
+        if cleaned and cleaned not in seen:
+            seen.add(cleaned)
+            deduped.append(cleaned)
+
+    return deduped[:max_questions]
+
+
+def _extract_question_spans(text: str) -> list[str]:
+    return [
+        match.strip(" \"'`[]")
+        for match in re.findall(r"[^?.!;\n]{10,}\?", text)
+        if match.strip()
+    ]
 
 
 def _strip_thinking(text: str) -> str:

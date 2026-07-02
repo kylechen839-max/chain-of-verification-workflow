@@ -1,0 +1,32 @@
+[
+  {
+    "id": "python-history",
+    "category": "programming-history",
+    "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3."
+  },
+  {
+    "id": "git-workflow",
+    "category": "developer-tools",
+    "question": "Explain Git core workflow, including clone, branch, commit, merge, and push."
+  },
+  {
+    "id": "http-status-codes",
+    "category": "web-development",
+    "question": "Explain the difference between HTTP status codes 200, 301, 400, 401, 403, 404, and 500."
+  },
+  {
+    "id": "python-list-dict",
+    "category": "python",
+    "question": "Explain the difference between a Python list, tuple, set, and dictionary, including mutability and typical use cases."
+  },
+  {
+    "id": "sql-joins",
+    "category": "databases",
+    "question": "Explain INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN in SQL with concise examples."
+  },
+  {
+    "id": "big-o",
+    "category": "computer-science",
+    "question": "Explain Big O notation and compare O(1), O(log n), O(n), O(n log n), and O(n squared)."
+  }
+]
