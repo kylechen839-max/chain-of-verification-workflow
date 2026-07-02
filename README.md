@@ -104,3 +104,7 @@ python3 run_ollama_cove_tests.py \
 The checked-in result files show one local run and one Google Compute Engine run.
 The DeepSeek Coder tests ran successfully on the existing `e2-standard-8`
 CPU-only VM, so no VM resize was required.
+
+For the current small Ollama models, the local Mac is faster than the CPU-only
+Google Compute VM. Prefer local runs for iterative testing, and use the VM only
+when cloud reproducibility or different hardware is specifically needed.
