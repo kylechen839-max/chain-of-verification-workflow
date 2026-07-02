@@ -52,6 +52,12 @@ def _parse_questions(text: str, max_questions: int) -> list[str]:
     return questions[:max_questions]
 
 
+def _strip_thinking(text: str) -> str:
+    """Remove reasoning blocks emitted by some local reasoning models."""
+
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL | re.IGNORECASE).strip()
+
+
 def run_factored_cove(
     question: str,
     call_llm: CallLLM,
@@ -237,6 +243,7 @@ def make_openai_call_llm(model: str = "gpt-5.5", **request_options: Any) -> Call
 def make_ollama_call_llm(
     model: str = "llama3.2:1b",
     host: str = "http://127.0.0.1:11434",
+    think: bool | None = False,
     **request_options: Any,
 ) -> CallLLM:
     """Create a call_llm function backed by a local or remote Ollama server.
@@ -254,35 +261,55 @@ def make_ollama_call_llm(
 
     def call_llm(messages: list[Message]) -> str:
         options = dict(request_options.get("options", {}))
-        payload = {
-            "model": model,
-            "messages": messages,
-            "stream": False,
-            "options": {
-                "temperature": 0,
-                **options,
+
+        def post(chat_messages: list[Message]) -> str:
+            payload = {
+                "model": model,
+                "messages": chat_messages,
+                "stream": False,
+                "options": {
+                    "temperature": 0,
+                    **options,
+                },
+                **{key: value for key, value in request_options.items() if key != "options"},
+            }
+            if think is not None:
+                payload["think"] = think
+            data = json.dumps(payload).encode("utf-8")
+            request = urllib.request.Request(
+                endpoint,
+                data=data,
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+
+            try:
+                with urllib.request.urlopen(request, timeout=300) as response:
+                    body = json.loads(response.read().decode("utf-8"))
+            except urllib.error.HTTPError as error:
+                detail = error.read().decode("utf-8", errors="replace")
+                raise RuntimeError(f"Ollama request failed: {error.code} {detail}") from error
+            except urllib.error.URLError as error:
+                raise RuntimeError(
+                    f"Could not reach Ollama at {host}. Start it with `ollama serve`."
+                ) from error
+
+            return _strip_thinking(body.get("message", {}).get("content", ""))
+
+        content = post(messages)
+        if content:
+            return content
+
+        direct_messages = [
+            {
+                "role": "system",
+                "content": (
+                    "Respond with only the final answer in plain text. "
+                    "Do not include reasoning, analysis, or <think> tags."
+                ),
             },
-            **{key: value for key, value in request_options.items() if key != "options"},
-        }
-        data = json.dumps(payload).encode("utf-8")
-        request = urllib.request.Request(
-            endpoint,
-            data=data,
-            headers={"Content-Type": "application/json"},
-            method="POST",
-        )
-
-        try:
-            with urllib.request.urlopen(request, timeout=300) as response:
-                body = json.loads(response.read().decode("utf-8"))
-        except urllib.error.HTTPError as error:
-            detail = error.read().decode("utf-8", errors="replace")
-            raise RuntimeError(f"Ollama request failed: {error.code} {detail}") from error
-        except urllib.error.URLError as error:
-            raise RuntimeError(
-                f"Could not reach Ollama at {host}. Start it with `ollama serve`."
-            ) from error
-
-        return body.get("message", {}).get("content", "")
+            *messages,
+        ]
+        return post(direct_messages)
 
     return call_llm

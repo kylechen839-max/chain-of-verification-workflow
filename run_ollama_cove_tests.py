@@ -19,13 +19,37 @@ def main() -> None:
     parser.add_argument("--model", default="llama3.2:1b", help="Ollama model name.")
     parser.add_argument("--host", default="http://127.0.0.1:11434", help="Ollama host URL.")
     parser.add_argument("--max-questions", type=int, default=2, help="Verification questions per run.")
+    parser.add_argument(
+        "--num-predict",
+        type=int,
+        default=512,
+        help="Maximum generated tokens per Ollama call.",
+    )
+    parser.add_argument(
+        "--think",
+        action="store_true",
+        help="Enable model thinking output for Ollama models that support it.",
+    )
+    parser.add_argument(
+        "--question",
+        action="append",
+        dest="questions",
+        help="Question to test. Pass multiple times for multiple tests.",
+    )
     parser.add_argument("--output", default="ollama_cove_test_results.json", help="JSON output path.")
     args = parser.parse_args()
 
-    call_llm = make_ollama_call_llm(model=args.model, host=args.host)
+    call_llm = make_ollama_call_llm(
+        model=args.model,
+        host=args.host,
+        think=args.think,
+        options={"num_predict": args.num_predict},
+    )
     results = []
 
-    for question in TEST_QUESTIONS:
+    questions = args.questions or TEST_QUESTIONS
+
+    for question in questions:
         started = time.time()
         result = run_factored_cove(
             question=question,
@@ -37,6 +61,8 @@ def main() -> None:
             {
                 "model": args.model,
                 "host": args.host,
+                "think": args.think,
+                "num_predict": args.num_predict,
                 "elapsed_seconds": elapsed_seconds,
                 **asdict(result),
             }

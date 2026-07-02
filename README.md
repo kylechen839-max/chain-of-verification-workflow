@@ -63,6 +63,23 @@ python3 run_ollama_cove_tests.py \
   --output ollama_cove_test_results.local.json
 ```
 
+You can also run a DeepSeek model through Ollama. `deepseek-r1` is a reasoning
+model and can spend a long time in thinking mode, so the adapter disables
+thinking by default and strips `<think>` blocks from saved output. For a small
+CPU-friendly DeepSeek run, use `deepseek-coder:1.3b` with coding-domain
+questions:
+
+```bash
+ollama pull deepseek-coder:1.3b
+python3 run_ollama_cove_tests.py \
+  --model deepseek-coder:1.3b \
+  --max-questions 2 \
+  --num-predict 512 \
+  --output ollama_cove_test_results.deepseek-coder.local.json \
+  --question "Give a concise history of the Python programming language, including creator, first release year, and major version milestones." \
+  --question "Explain Git core workflow, including clone, branch, commit, merge, and push."
+```
+
 If your machine has enough memory for OpenAI's open-weight Ollama model:
 
 ```bash
@@ -85,3 +102,5 @@ python3 run_ollama_cove_tests.py \
 ```
 
 The checked-in result files show one local run and one Google Compute Engine run.
+The DeepSeek Coder tests ran successfully on the existing `e2-standard-8`
+CPU-only VM, so no VM resize was required.
