@@ -128,6 +128,11 @@ def main() -> None:
         default=None,
         help="Postgres/Supabase schema for confined result tables. Defaults to COVE_DATABASE_SCHEMA or cove_test.",
     )
+    parser.add_argument(
+        "--skip-db-init",
+        action="store_true",
+        help="Skip schema/table creation for database writes when tables already exist.",
+    )
     args = parser.parse_args()
 
     call_llm = make_ollama_call_llm(
@@ -212,6 +217,7 @@ def main() -> None:
             database_url,
             report,
             schema=args.database_schema or database_schema_from_env(),
+            initialize=not args.skip_db_init,
         )
         print(f"Wrote database run_id {run_id}")
 

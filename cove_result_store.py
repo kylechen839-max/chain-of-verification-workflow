@@ -202,7 +202,12 @@ def save_report_sqlite(database_url: str, report: dict[str, Any]) -> int:
     return run_id
 
 
-def save_report_postgres(database_url: str, report: dict[str, Any], schema: str) -> int:
+def save_report_postgres(
+    database_url: str,
+    report: dict[str, Any],
+    schema: str,
+    initialize: bool = True,
+) -> int:
     try:
         import psycopg
     except ImportError as exc:
@@ -221,8 +226,9 @@ def save_report_postgres(database_url: str, report: dict[str, Any], schema: str)
 
     with psycopg.connect(database_url) as conn:
         with conn.cursor() as cursor:
-            cursor.execute(f"create schema if not exists {schema}")
-            cursor.execute(POSTGRES_SCHEMA_SQL.format(schema=schema))
+            if initialize:
+                cursor.execute(f"create schema if not exists {schema}")
+                cursor.execute(POSTGRES_SCHEMA_SQL.format(schema=schema))
             cursor.execute(
                 f"""
                 insert into {schema}.cove_evaluation_runs (
@@ -279,8 +285,18 @@ def save_report_postgres(database_url: str, report: dict[str, Any], schema: str)
     return run_id
 
 
-def save_report(database_url: str, report: dict[str, Any], schema: str | None = None) -> int:
+def save_report(
+    database_url: str,
+    report: dict[str, Any],
+    schema: str | None = None,
+    initialize: bool = True,
+) -> int:
     if is_sqlite_url(database_url):
         return save_report_sqlite(database_url, report)
 
-    return save_report_postgres(database_url, report, schema or database_schema_from_env())
+    return save_report_postgres(
+        database_url,
+        report,
+        schema or database_schema_from_env(),
+        initialize=initialize,
+    )

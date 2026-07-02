@@ -167,3 +167,18 @@ python3 run_cove_evaluation.py \
 The runner creates `cove_test.cove_evaluation_runs` and
 `cove_test.cove_evaluation_results`, keeping benchmark rows isolated from the
 rest of the database.
+
+If database password auth is unavailable, you can sync an existing JSON report
+through the Supabase Management API:
+
+```bash
+python3 sync_cove_report_to_supabase.py \
+  cove_evaluation_results.deepseek-coder-6.7b.full.local.json \
+  --project-ref hcjrjkhqseqozdsfzufm \
+  --schema cove_test
+```
+
+For direct temporary Postgres writes, create a Supabase CLI login role through
+the Management API, use the pooler username format
+`cli_login_postgres.<project-ref>`, and run with `--skip-db-init` after the
+`cove_test` tables already exist.

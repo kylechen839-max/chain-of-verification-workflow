@@ -65,6 +65,23 @@ rows:
   `db.hcjrjkhqseqozdsfzufm.supabase.co` did not resolve from the local Mac, so
   the next remote test needs the pooler URI from Supabase's Connect panel.
 
+## Supabase Results
+
+The project `AI_Hallucination_Proj` is active and healthy in Supabase. The
+direct database hostname is IPv6-only, so the working path from this Mac is the
+Supabase pooler plus temporary CLI database roles from the Management API.
+
+Remote `cove_test` now contains:
+
+| Run | Write Path | Model | Rows | Total Time | Verification Questions |
+|---:|---|---|---:|---:|---:|
+| 1 | Management API sync | `deepseek-coder:6.7b` | 18 | 766.20s | 58 |
+| 2 | Direct temporary Postgres role | `supabase-direct-temp-smoke` | 1 | 0.00s | 0 |
+| 3 | Direct temporary Postgres role | `deepseek-coder:6.7b` | 3 | 64.32s | 6 |
+
+Permanent database password auth still rejects the password we tried. Temporary
+CLI roles work for direct writes once the confined schema exists.
+
 ## Next Evaluation Step
 
 Manually score each mode in `cove_evaluation_results.deepseek-coder.local.json`:
