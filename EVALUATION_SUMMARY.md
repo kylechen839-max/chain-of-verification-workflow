@@ -32,6 +32,35 @@ python3 run_cove_evaluation.py \
 - The small DeepSeek model is useful for workflow testing, but not reliable enough for factual-quality conclusions without manual scoring.
 - Local Mac runs are faster than the current CPU-only Google Compute VM for these small Ollama models.
 
+## Confined Database Tests
+
+The evaluator now supports writing each run into a confined result database. A
+local SQLite database was used for isolation:
+
+```bash
+--database-url sqlite:///cove_results.confined.local.db
+```
+
+The local database is ignored by Git. It currently contains 4 runs and 18 result
+rows:
+
+| Run | Model | Settings | Mode Rows | Total Time | Verification Questions |
+|---:|---|---|---:|---:|---:|
+| 1 | `deepseek-coder:1.3b` | 1 prompt, max_questions=2, num_predict=512 | 3 | 11.22s | 3 |
+| 2 | `deepseek-r1:1.5b` | 2 prompts, max_questions=3, num_predict=768 | 6 | 95.83s | 3 |
+| 3 | `deepseek-coder:6.7b` | 1 prompt, max_questions=3, num_predict=768 | 3 | 68.98s | 6 |
+| 4 | `deepseek-coder:6.7b` | 2 prompts, max_questions=4, num_predict=1024 | 6 | 148.70s | 15 |
+
+## Upscale Notes
+
+- `deepseek-coder:6.7b` was pulled successfully through Ollama.
+- The 6.7B model produced more parseable verification questions than
+  `deepseek-r1:1.5b` in these tests.
+- The upscaled 6.7B run is much slower than the 1.3B baseline, so use small
+  prompt limits while iterating.
+- Supabase is wired through the same runner, but it still needs an authorized
+  `SUPABASE_DATABASE_URL` before remote database tests can run.
+
 ## Next Evaluation Step
 
 Manually score each mode in `cove_evaluation_results.deepseek-coder.local.json`:

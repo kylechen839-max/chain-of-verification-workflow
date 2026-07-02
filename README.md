@@ -127,3 +127,39 @@ local benchmark summary is in `EVALUATION_SUMMARY.md`.
 The JSON output includes placeholders for manual accuracy and hallucination
 scores. Fill those in after reviewing each answer if you want to make a
 research-style comparison between direct answers and CoVe answers.
+
+## Confined Database Results
+
+For a local confined database test, write results into a SQLite file:
+
+```bash
+python3 run_cove_evaluation.py \
+  --model deepseek-coder:1.3b \
+  --limit 1 \
+  --max-questions 2 \
+  --num-predict 512 \
+  --output cove_evaluation_results.confined.smoke.json \
+  --database-url sqlite:///cove_results.confined.local.db
+```
+
+For Supabase, set a pooled or direct Postgres connection string in `.env`:
+
+```text
+SUPABASE_DATABASE_URL=postgresql://postgres.hcjrjkhqseqozdsfzufm:password@aws-...supabase.com:6543/postgres
+COVE_DATABASE_SCHEMA=cove_test
+```
+
+Then run:
+
+```bash
+python3 run_cove_evaluation.py \
+  --model deepseek-coder:1.3b \
+  --max-questions 2 \
+  --num-predict 512 \
+  --output cove_evaluation_results.supabase.json \
+  --database-schema cove_test
+```
+
+The runner creates `cove_test.cove_evaluation_runs` and
+`cove_test.cove_evaluation_results`, keeping benchmark rows isolated from the
+rest of the database.

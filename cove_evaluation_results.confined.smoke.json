@@ -1,0 +1,76 @@
+{
+  "model": "deepseek-coder:1.3b",
+  "host": "http://127.0.0.1:11434",
+  "max_questions": 2,
+  "num_predict": 512,
+  "question_file": "cove_benchmark_questions.json",
+  "manual_scoring_scale": {
+    "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "results": [
+    {
+      "id": "python-history",
+      "category": "programming-history",
+      "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 2.91,
+          "error": null,
+          "answer_text": "Python was created by Guido van Rossum in 1989 as an interpreted scripting language that focuses on code readability with its use for simplicity while enhancing productivity using features such as syntax simplification from C-like languages like C++ or Java to the ability of Python programs directly manipulate data structures and objects.\n\nPython was first released into public domain in 1994, following a version called \"Monty Python's Flying Circus\" by Al Sweig and David Lloyd on which it is based (the Monty Python script). The initial release of the language included only basic syntax constructs like variables or loops.\n\nIn subsequent years, as an open-source project under a permissive BSD license agreement with contributions from many other contributors to its development and maintenance over time: 1985 was when Guido van Rossum first introduced Python's version of the ABC language (Annotated C) which he used for his book \"Structure and Interpretation of Computer Programs\".\n\nIn January, 2007 a new release called PyPy released. This allowed developers to run their code in milliseconds instead of seconds by using Python's CPython interpreter as the engine behind all bytecode execution on its own JVM-like virtual machine (JIT). The first version was also known with an initial focus group around 2013, which included contributions from several individuals including Guido van Rossum and David Lloyd.",
+          "answer_length": 1418,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 0.45,
+          "error": null,
+          "answer_text": "",
+          "answer_length": 0,
+          "verification_question_count": 1,
+          "raw": {
+            "draft": "",
+            "verification_questions": [
+              ""
+            ],
+            "verification_answers": [],
+            "final": "",
+            "uncertainties": []
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 7.86,
+          "error": null,
+          "answer_text": "The Python Programming Language was developed by Guido van Rossum from his initial intention of creating an interpreted, high-level general purpose dynamic programming language to more flexibility than languages such as C++ or Java that have been used extensively since their introduction in 1980 and later became a member of the International Organization for Standardization (ISO) which is now known collectively by Guido van Rossum.",
+          "answer_length": 435,
+          "draft_length": 1676,
+          "verification_question_count": 2,
+          "verification_answer_count": 2,
+          "raw": {
+            "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+            "draft": "Python was created by Guido van Rossum in 1989 as an interpreted scripting language that focuses on code readability with its use for easy program maintenance (modularity). It's not a full-fledged programming language but rather just the implementation of Pythonic concepts. The first version, known simply as \"Python\", was released under GNU General Public License in 1985 and it is now maintained by Guido van Rossum for all his other works (including the official documentation).\n  \nIn terms of release dates:\n- In January 2000 - Python's first major version, known as \"Python 3.x\". It was released under a BSD license and it introduced significant changes in syntax compared to its predecessor (\"Python 2\"). The most notable change is the introduction of list comprehensions (also called generator expressions) which are more compact than their counterparts for lists or tuples, but they still have similar functionality.\n- In September 1985 - Python's second major version known as \"Python 2\". It was released under a copyleft license and it introduced significant changes in syntax compared to its predecessor (\"Python 3\"). The most notable change is the introduction of new features like unicode support, which makes strings more flexible.\n  \nIn summary: Python's history can be traced back from Guido van Rossum\u2019s vision for a language that focuses on code readability and simplicity to its current state as an interpreted scripting or general-purpose dynamic programming language with clear syntax designed by Guido in 1985. It has been maintained since, but it's not limited only towards Pythonic concepts like list comprehensions (since they were introduced later).",
+            "verification_questions": [
+              "question_text\" : \"What is the first programming language created by Guido van Rossum?",
+              "x', released under a BSD license?"
+            ],
+            "verification_answers": [
+              "The Python Language was developed in response to a need for more flexibility and simplicity than languages such as C++ or Java that have been used extensively since their introduction. Van Rossum's initial intention of creating an interpreted, high-level general purpose dynamic programming language is now known collectively by the British mathematician Guido van Rossum who first introduced Python in 1980 and later became a member of the International Organization for Standardization (ISO) as well.",
+              "The software \"X'\" was first published in 1985 and it's currently maintained by Ximian (now owned by Sun Microsystems). It is not explicitly stated whether the source code or any of its components are licensed with an open-source, free BSD license. However, many modern versions do use a similar licensing model to FreeBSD as they both support software reuse and derivative works under certain conditions (like attribution required in some cases)."
+            ],
+            "final": "The Python Programming Language was developed by Guido van Rossum from his initial intention of creating an interpreted, high-level general purpose dynamic programming language to more flexibility than languages such as C++ or Java that have been used extensively since their introduction in 1980 and later became a member of the International Organization for Standardization (ISO) which is now known collectively by Guido van Rossum."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    }
+  ]
+}

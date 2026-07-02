@@ -1,0 +1,156 @@
+{
+  "model": "deepseek-coder:6.7b",
+  "host": "http://127.0.0.1:11434",
+  "max_questions": 4,
+  "num_predict": 1024,
+  "question_file": "cove_benchmark_questions.json",
+  "manual_scoring_scale": {
+    "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "results": [
+    {
+      "id": "python-history",
+      "category": "programming-history",
+      "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 12.43,
+          "error": null,
+          "answer_text": "Python was created by Guido van Rossum in 1989 as part of his personal projects while he was at CWI (Centrum Wiskunde & Informatica), the company that later became known as Python Software Foundation. The language's first public release, Python 1.0, was made in 1994.\n\nPython 2 was released in 2000 and it introduced a number of new features like support for Unicode, list comprehensions, and generator expressions which were not available in the original version. However, Python 2 has reached its end-of-life status as of January 1, 2020.\n\nPython 3 was released in 2008 and it introduced a number of improvements over Python 2 like syntax changes to make code more readable, better support for Unicode, and improved handling of exceptions. It also dropped the 2to3 tool that translated Python 2 code into equivalent Python 3 code.\n\nToday, Python is widely used in various fields including web development, data analysis, artificial intelligence, machine learning, automation scripts, etc. Its popularity has led to a large ecosystem of libraries and frameworks like Django (a high-level Python Web framework), Flask (a micro web framework), NumPy (for numerical computation using arrays), Pandas (an open source data analysis and manipulation tool).",
+          "answer_length": 1251,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 8.87,
+          "error": null,
+          "answer_text": "Python is a high-level, interpreted programming language that was created by Guido van Rossum in 1989. It was first released as Python 1.0 in 1994 and has been updated to version 3.0 in 2008.",
+          "answer_length": 191,
+          "verification_question_count": 3,
+          "raw": {
+            "draft": "Python was created by Guido van Rossum in 1989. It was first released in 1994 as Python 1.0. Since then, it has been updated to version 3.0 in 2008.",
+            "verification_questions": [
+              "Who is the creator of Python?",
+              "What year was Python 1.0 released?",
+              "When was Python 3.0 updated?"
+            ],
+            "verification_answers": [
+              "Guido van Rossum",
+              "1994",
+              "2008"
+            ],
+            "final": "Python is a high-level, interpreted programming language that was created by Guido van Rossum in 1989. It was first released as Python 1.0 in 1994 and has been updated to version 3.0 in 2008.",
+            "uncertainties": []
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 20.52,
+          "error": null,
+          "answer_text": "Python programming language was created by Guido van Rossum in 1994. It first had a major version named Python 2.7 which was discontinued after its end-of-life status in 2020. The next major release, Python 3.0, was released on January 17th, 2008.",
+          "answer_length": 247,
+          "draft_length": 892,
+          "verification_question_count": 4,
+          "verification_answer_count": 4,
+          "raw": {
+            "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+            "draft": "Python was created by Guido van Rossum in 1989 as part of his personal projects while he was at CWI (Centrum Wiskunde & Informatica), the company that later became known as Python Software Foundation. The language's first public release, Python 1.0, was made in 1994.\n\nPython 2 was released in 2000 and it introduced a number of new features like list comprehensions, which were not available in the previous version. However, Python 2 has reached its end-of-life status as of January 1, 2020. This means that no further updates or bug fixes will be provided for security reasons.\n\nPython 3 was released in 2008 and it introduced a number of improvements over Python 2 like syntax changes to make the language more readable and easier to understand, which were not available in Python 2. The transition from Python 2 to Python 3 is relatively smooth as both languages are backward compatible.",
+            "verification_questions": [
+              "Who created Python programming language?",
+              "In what year was the first public release of Python made?",
+              "What was the name of Python's first major version before it reached its end-of-life status in 2020?",
+              "When did Python 3.0 get released?"
+            ],
+            "verification_answers": [
+              "Guido van Rossum created Python programming language.",
+              "The first public release of Python was in 1994.",
+              "Python 2.7 was the first major version released by Python Software Foundation (PSF) before it reached its end-of-life status in 2020. It was officially discontinued on January 1, 2020.",
+              "Python 3.0 was released on January 17th, 2008."
+            ],
+            "final": "Python programming language was created by Guido van Rossum in 1994. It first had a major version named Python 2.7 which was discontinued after its end-of-life status in 2020. The next major release, Python 3.0, was released on January 17th, 2008."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "git-workflow",
+      "category": "developer-tools",
+      "question": "Explain Git core workflow, including clone, branch, commit, merge, and push.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 18.89,
+          "error": null,
+          "answer_text": "Git is a distributed version control system that allows multiple people to work on a project without overwriting each other's changes. Here are some of the most common commands used in Git:\n\n1. **Clone**: This command is used to obtain a repository from an existing URL. The syntax for cloning a repository is as follows: `git clone <url>`. \n\n2. **Branching**: Branches are used to develop features isolated from each other. The master branch is \"protected\" and the default branch when you create a repo in Github, but you can create any number of branches with `git checkout -b new_branch`.\n\n3. **Commit**: A commit, also known as a revision, represents a snapshot of your project at a certain point in time. It's like taking a photo of what all the files look like at that moment. You can create a commit with `git commit -m \"commit message\"`.\n\n4. **Merge**: Merging is Git's way of putting a forked history back together again. The git merge command lets you take the independent lines of development created by branches, and integrate them into a single branch. \n\n5. **Push**: Pushing is how you transfer commits from your local repository to a remote repo. It's the counterpart to pull, and it\u2019s the way that you as a contributor get your code reviewed and merged into the project. You can push with `git push origin branch_name`.\n\nHere's an example of how these commands might be used together:\n\n```bash\n# clone repository from url\ngit clone https://github.com/user/repo.git\n\n# change to repo directory\ncd repo\n\n# create a new branch and switch to it\ngit checkout -b my_feature\n\n# make changes, add files etc.\necho \"Hello, World!\" > hello.txt\ngit add hello.txt\n\n# commit the changes\ngit commit -m \"Add Hello, World!\"\n\n# push the branch to remote repository\ngit push origin my_feature\n```\nThis is a very basic example and real-world projects will have more complex workflows involving pull requests, code reviews, etc. But this should give you a good starting point.",
+          "answer_length": 1971,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 5.1,
+          "error": null,
+          "answer_text": "",
+          "answer_length": 0,
+          "verification_question_count": 4,
+          "raw": {
+            "draft": "Git is a distributed version control system that allows multiple people to work on the same project at the same time without overwriting each other's changes.",
+            "verification_questions": [
+              "What does Git clone do?",
+              "How are branches created in Git?",
+              "What command is used to commit changes in Git?",
+              "Explain how merging works in Git."
+            ],
+            "verification_answers": [],
+            "final": "",
+            "uncertainties": []
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 82.89,
+          "error": null,
+          "answer_text": "Explanation of Git core workflow includes clone, branch, commit, merge, and push operations:\n\n1. Clone (or copy) a remote repository into your local machine using `git clone <url>` command. This creates a local copy of the entire project history on the specified URL. \n\n2. Create new branches in Git with `git checkout -b <new_branch_name>` command. It allows you to create and switch to a new branch at the same time, making it easy to work on different features or bug fixes without affecting your main codebase.\n\n3. A commit is like a snapshot of your project at a certain point in time. You can make a commit with `git add <filename>` followed by `git commit -m \"Your message about what changes were made\"` command. This stages the file for commit and creates a new commit with the specified message.\n\n4. Merge means to integrate changes from one branch into another in Git. You can merge changes from one branch into another using `git checkout <branch-name>` followed by `git merge <source-branch>` command. This integrates all the changes made in the source branch into the current (checked out) branch, ensuring that your main codebase remains consistent and up to date with any new features or bug fixes.\n\n5. Push means to upload local repository content to a remote repository. You can push your commits to the remote repository using `git push origin <branch-name>` command. This allows other team members to access and work on the same codebase as you, contributing to the project in real time.",
+          "answer_length": 1506,
+          "draft_length": 2345,
+          "verification_question_count": 4,
+          "verification_answer_count": 4,
+          "raw": {
+            "question": "Explain Git core workflow, including clone, branch, commit, merge, and push.",
+            "draft": "Git is a distributed version control system that allows multiple people to work on the same project at the same time without overwriting each other's changes. Here are some of its key concepts:\n\n1. **Clone**: This command is used to obtain a repository from an existing URL. It creates a local copy of the entire repository with all its history and files. The syntax for cloning a repository is `git clone <repository_url>`.\n\n2. **Branching**: Branches are used to develop features isolated from each other. The master branch is \"protected\" and the default branch when you create a repo in Github, but you can make as many branches as you need. You switch between them using `git checkout -b <branch_name>`.\n\n3. **Commit**: A commit, also known as a revision, represents a snapshot of your project at a certain point in time. It's like taking a photo of what all the files look like at that moment. You can think of it as a checkpoint or save point for your work. To make a commit, you use `git commit -m \"commit message\"`.\n\n4. **Merge**: When you want to combine changes from one branch into another (usually master), you merge the branches together. This brings all the changes from the other branch onto the current branch. You can do this with `git merge <branch_name>`. If there are any conflicts, Git will tell you and stop until they're resolved.\n\n5. **Push**: Pushing is how you upload local repository content to a remote repo. It's like sending your files to the cloud so that others can access them. You push with `git push origin <branch_name>`, where \"origin\" is an alias for the URL of your remote repository and `<branch_name>` is the name of the branch you want to upload.\n\nHere's a simple example:\n\n```bash\n# clone the repo\ngit clone https://github./user/.git\n\n# create a new branch\ngit checkout -b my-new-feature\n\n# make changes and commit them\necho \"Hello, World!\" > hello.txt\ngit add hello.txt\ngit commit -m \"Add Hello, World!\"\n\n# switch back to master branch\ngit checkout main\n\n# merge the new feature into master\ngit merge my-new-feature\n\n# push changes to remote repo\ngit push origin main\n```\nThis is a very basic example. In real life scenarios, you would have many collaborators working on different features and branches, resolving conflicts when merging, etc. But this should give you a good idea of the core workflow.",
+            "verification_questions": [
+              "What command do we use to obtain a repository from an existing URL in Git?",
+              "How can we create new branches in Git? What is the syntax for creating a branch and checking it out at the same time?",
+              "Explain what a commit is in Git. How do we make a commit? Can you provide a simple example of how to use this command?",
+              "What does merge mean in Git? How can we combine changes from one branch into another?"
+            ],
+            "verification_answers": [
+              "You can clone (or copy) a remote repository into your local machine using the `git clone` command followed by the URL of the repository. Here is the basic syntax:\n\n```bash\ngit clone <url>\n```\nReplace `<url>` with the actual URL of the GitHub repository you want to clone. \n\nFor example, if you have a repository at https://github.com/user/repo.git, you would use this command:\n\n```bash\ngit clone https://github.com/user/repo.git\n```\nThis will create a new directory named `repo` in your current location and it will contain all the files from the remote repository.",
+              "Creating a new branch in Git can be done using the `git checkout` command followed by the `-b` option, which stands for \"create/switch\". The general syntax to create a new branch and switch to that branch is as follows:\n\n```bash\ngit checkout -b <new_branch_name>\n```\n\nHere, replace `<new_branch_name>` with the name you want to give your new branch. This command will both create a new branch (if it doesn't already exist) and switch your working directory to that new branch. \n\nFor example:\n\n```bash\ngit checkout -b my-feature-branch\n```\n\nThis would create a new branch named \"my-feature-branch\" and immediately switch your local repository to this new branch.",
+              "A commit in Git is like a snapshot of your project at a certain point in time. It's a save point that allows you to return to the state of your project at any past point, or compare changes between commits. \n\nTo make a commit, first, you need to stage the files you want to include in the commit with `git add <filename>` command. This stages the file for commit. You can also use `git add .` to stage all modified files. After staging your files, you can create the commit using the `git commit -m \"Your message about what changes were made\"` command.\n\nHere's a simple example:\n\n1. First, let's make some changes in a file named 'test.txt'. \n```bash\necho \"Hello Git!\" > test.txt\n```\n2. Stage the change with `git add`.\n```bash\ngit add test.txt\n```\n3. Commit the staged changes with a message describing what was changed.\n```bash\ngit commit -m \"Added 'Hello Git!' to test.txt\"\n```\nIn this example, we've created a new file named `test.txt` and committed it to our local git repository. The `-m` flag allows you to pass in a message directly from the command line when creating the commit. \n\nAfter running these commands, your project history will have an additional commit that includes this change. You can view this history with the `git log` command.",
+              "In Git, \"merge\" refers to the process of integrating changes from one branch (or several branches) into another. This is typically done by creating a new commit that includes all the changes made on both branches. \n\nHere's how you can merge changes from one branch into another:\n\n1. First, switch to the branch where you want your changes to be merged using `git checkout <branch-name>`.\n2. Then, run `git merge <source-branch>`. This will integrate all the changes made in the source branch into the current (checked out) branch. \n\nIf there are any conflicts between the branches that need to be resolved manually, Git will pause and allow you to resolve those conflicts before continuing with the merge. You can use `git status` to see what files have conflicts that need resolving. Once all conflicts are resolved, continue the merge using `git commit -m \"Merge resolved\"`.\n\nRemember, merging is a way of integrating changes from one branch into another and it's not always possible or desirable to automatically combine all changes without manual intervention. Therefore, it's important to communicate with your team about any potential conflicts before running the merge command. \n\nAlso note that Git has a feature called \"rebase\" which can be used instead of merge to integrate changes from one branch into another. Rebasing essentially moves or combines a sequence of commits to a new base commit. It's more like a linear history, but it might not always be the best solution depending on your team workflow and project requirements."
+            ],
+            "final": "Explanation of Git core workflow includes clone, branch, commit, merge, and push operations:\n\n1. Clone (or copy) a remote repository into your local machine using `git clone <url>` command. This creates a local copy of the entire project history on the specified URL. \n\n2. Create new branches in Git with `git checkout -b <new_branch_name>` command. It allows you to create and switch to a new branch at the same time, making it easy to work on different features or bug fixes without affecting your main codebase.\n\n3. A commit is like a snapshot of your project at a certain point in time. You can make a commit with `git add <filename>` followed by `git commit -m \"Your message about what changes were made\"` command. This stages the file for commit and creates a new commit with the specified message.\n\n4. Merge means to integrate changes from one branch into another in Git. You can merge changes from one branch into another using `git checkout <branch-name>` followed by `git merge <source-branch>` command. This integrates all the changes made in the source branch into the current (checked out) branch, ensuring that your main codebase remains consistent and up to date with any new features or bug fixes.\n\n5. Push means to upload local repository content to a remote repository. You can push your commits to the remote repository using `git push origin <branch-name>` command. This allows other team members to access and work on the same codebase as you, contributing to the project in real time."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    }
+  ]
+}

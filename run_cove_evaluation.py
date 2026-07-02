@@ -7,6 +7,7 @@ import time
 from typing import Any
 
 from cove_workflow import make_ollama_call_llm, run_factored_cove, run_joint_cove
+from cove_result_store import database_schema_from_env, database_url_from_env, save_report
 
 
 def load_questions(path: str) -> list[dict[str, str]]:
@@ -107,6 +108,19 @@ def main() -> None:
     parser.add_argument("--num-predict", type=int, default=512)
     parser.add_argument("--limit", type=int, default=0, help="Limit benchmark questions; 0 means all.")
     parser.add_argument("--skip-joint", action="store_true", help="Skip one-call joint CoVe mode.")
+    parser.add_argument(
+        "--database-url",
+        default=None,
+        help=(
+            "Optional result database URL. Defaults to COVE_DATABASE_URL, "
+            "SUPABASE_DATABASE_URL, or DATABASE_URL when set."
+        ),
+    )
+    parser.add_argument(
+        "--database-schema",
+        default=None,
+        help="Postgres/Supabase schema for confined result tables. Defaults to COVE_DATABASE_SCHEMA or cove_test.",
+    )
     args = parser.parse_args()
 
     call_llm = make_ollama_call_llm(
@@ -184,6 +198,15 @@ def main() -> None:
         json.dump(report, file, indent=2)
 
     print(f"Wrote {args.output}")
+
+    database_url = args.database_url or database_url_from_env()
+    if database_url:
+        run_id = save_report(
+            database_url,
+            report,
+            schema=args.database_schema or database_schema_from_env(),
+        )
+        print(f"Wrote database run_id {run_id}")
 
 
 if __name__ == "__main__":

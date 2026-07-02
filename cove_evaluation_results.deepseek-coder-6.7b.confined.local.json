@@ -1,0 +1,84 @@
+{
+  "model": "deepseek-coder:6.7b",
+  "host": "http://127.0.0.1:11434",
+  "max_questions": 3,
+  "num_predict": 768,
+  "question_file": "cove_benchmark_questions.json",
+  "manual_scoring_scale": {
+    "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "results": [
+    {
+      "id": "python-history",
+      "category": "programming-history",
+      "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 18.38,
+          "error": null,
+          "answer_text": "Python was created by Guido van Rossum in 1989 as part of his personal projects while he was at CWI (Centrum Wiskunde & Informatica), the company that later became known as Python Software Foundation. The language's first public release, Python 1.0, was made in 1994.\n\nPython 2 was released in 2000 and it introduced a number of new features like support for Unicode, list comprehensions, and generator expressions which were not available in the original version. However, Python 2 has reached its end-of-life status as of January 1, 2020.\n\nPython 3 was released in 2008 and it introduced a number of improvements over Python 2 like syntax changes to make code more readable, better support for Unicode, and improved handling of exceptions. It also dropped the 2to3 tool that translated Python 2 code into equivalent Python 3 code.\n\nToday, Python is widely used in various fields including web development, data analysis, artificial intelligence, machine learning, automation scripts, etc. Its popularity has led to a large ecosystem of libraries and frameworks like Django (a high-level Python Web framework), Flask (a micro web framework), NumPy (for numerical computation using arrays), Pandas (an open source data analysis and manipulation tool).",
+          "answer_length": 1251,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 8.33,
+          "error": null,
+          "answer_text": "Python is a high-level, interpreted programming language that was created by Guido van Rossum in 1989. It was first released as Python 1.0 in 1994 and has been updated to version 3.0 in 2008.",
+          "answer_length": 191,
+          "verification_question_count": 3,
+          "raw": {
+            "draft": "Python was created by Guido van Rossum in 1989. It was first released in 1994 as Python 1.0. Since then, it has been updated to version 3.0 in 2008.",
+            "verification_questions": [
+              "Who is the creator of Python?",
+              "What year was Python 1.0 released?",
+              "When was Python 3.0 updated?"
+            ],
+            "verification_answers": [
+              "Guido van Rossum",
+              "1994",
+              "2008"
+            ],
+            "final": "Python is a high-level, interpreted programming language that was created by Guido van Rossum in 1989. It was first released as Python 1.0 in 1994 and has been updated to version 3.0 in 2008.",
+            "uncertainties": []
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 42.27,
+          "error": null,
+          "answer_text": "Python programming language was created by Guido van Rossum in 1989. The first public release of Python was made in 1994. Since then, it has evolved into two major versions - Python 2 and Python 3. Some key differences between them include the print function, unicode representation of strings, division operator behavior, syntax changes like removal of certain functions or modules, introduction of new built-in functions and modules, and error handling. However, many developers prefer Python 3 due to its improvements and new features.",
+          "answer_length": 538,
+          "draft_length": 892,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+            "draft": "Python was created by Guido van Rossum in 1989 as part of his personal projects while he was at CWI (Centrum Wiskunde & Informatica), the company that later became known as Python Software Foundation. The language's first public release, Python 1.0, was made in 1994.\n\nPython 2 was released in 2000 and it introduced a number of new features like list comprehensions, which were not available in the previous version. However, Python 2 has reached its end-of-life status as of January 1, 2020. This means that no further updates or bug fixes will be provided for security reasons.\n\nPython 3 was released in 2008 and it introduced a number of improvements over Python 2 like syntax changes to make the language more readable and easier to understand, which were not available in Python 2. The transition from Python 2 to Python 3 is relatively smooth as both languages are backward compatible.",
+            "verification_questions": [
+              "Who created Python programming language?",
+              "In what year was the first public release of Python made?",
+              "What were some key features introduced in Python 2 but not in Python 3?"
+            ],
+            "verification_answers": [
+              "Guido van Rossum created Python programming language.",
+              "The first public release of Python was in 1994.",
+              "Python 2 and Python 3 are two major versions of the programming language Python. Here are some key differences between them:\n\n1. Print Function: In Python 2, print is treated as a statement rather than a function. So you can use it without parentheses in Python 2 like this: `print \"Hello World\"`. However, in Python 3, print is a function and should be used with parentheses: `print(\"Hello World\")`.\n\n2. Unicode: In Python 2, strings are represented as byte sequences while in Python 3 they are represented as unicode characters. This means that you can use any character from the entirety of human language in your code without having to encode them into bytes first.\n\n3. Division Operator: In Python 2, division between two integers results in an integer (floor division). For example, `5 / 2` would result in `2`. However, in Python 3, it results in a float: `5 / 2` gives `2.5`.\n\n4. Syntax Changes: Some syntax changes were introduced to make the language more readable and easier to understand for new programmers. For example, Python 3 requires parentheses around arguments of certain built-in functions like `len()` or `range().\n\n5. Libraries: Many libraries that work in Python 2 are not compatible with Python 3. So if you're porting your code from Python 2 to Python 3, you might have to rewrite some parts of it.\n\n6. Removal of Functions and Modules: Some functions or modules were removed in Python 3. For example, the `pickle` module was deprecated in Python 3.\n\n7. Syntax Changes: Other syntax changes like using brackets for list indexing instead of square brackets, etc., have been introduced.\n\n8. New Built-in Functions and Modules: Python 3 has a lot more built-in functions and modules than Python 2. For example, `map()`, `filter()`, `reduce()` are now part of the standard library rather than being in the `functools` module in Python 2.\n\n9. Syntax Changes: Some syntax changes were introduced to make the language more readable and easier to understand for new programmers. For example, Python 3 requires parentheses around arguments of certain built-in functions like `len()` or `range().\n\n10. Error Handling: In Python 2, exceptions are handled using try/except blocks while in Python 3, the syntax is slightly different and more explicit about what to do when an exception occurs.\n\nPlease note that these differences were introduced over time as Python 3 was developed with backward compatibility in mind. However, many developers prefer Python 3 due to its improvements and new features."
+            ],
+            "final": "Python programming language was created by Guido van Rossum in 1989. The first public release of Python was made in 1994. Since then, it has evolved into two major versions - Python 2 and Python 3. Some key differences between them include the print function, unicode representation of strings, division operator behavior, syntax changes like removal of certain functions or modules, introduction of new built-in functions and modules, and error handling. However, many developers prefer Python 3 due to its improvements and new features."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    }
+  ]
+}

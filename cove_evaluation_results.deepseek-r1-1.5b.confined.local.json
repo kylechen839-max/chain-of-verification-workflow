@@ -1,0 +1,123 @@
+{
+  "model": "deepseek-r1:1.5b",
+  "host": "http://127.0.0.1:11434",
+  "max_questions": 3,
+  "num_predict": 768,
+  "question_file": "cove_benchmark_questions.json",
+  "manual_scoring_scale": {
+    "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "results": [
+    {
+      "id": "python-history",
+      "category": "programming-history",
+      "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 6.51,
+          "error": null,
+          "answer_text": "Python was created by Bob King in 1994. The first major release was Python 2 in 2000, introducing classes with attributes and tuples. Later, Python 3 (2011) introduced type hints, new function parameter syntax, Unicode support, and improved consistency across platforms.",
+          "answer_length": 270,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 8.04,
+          "error": null,
+          "answer_text": "```json\n{\n  \"draft\": \"Python was created by Bob traveling to NASA (Bob traveling to NASA) in 1980. The first version of Python was released in 1987 with Python 2 and the second release in 1988 with Python 3.\",\n  \"verification_questions\": [\n    \"Who created Python?\",\n    \"When was the first version of Python released?\",\n    \"What introduced triple-quoted strings in Python?\",\n    \"When did Python 2 become available?\"\n  ],\n  \"verification_answers\": [\n    \"Bob traveling to NASA (Bob traveling to NASA) created Python.\",\n    \"Python 1.0 was the first release.\",\n    \"Triple-quoted strings were introduced in Python 2.\",\n    \"Python 2.0 was the first official release.\"\n  ],\n  \"final\": \"Python was developed by Bob traveling to NASA (Bob traveling to NASA) in 1980. The first version, Python 2, was released in 1987 and the second, Python 3, in 1988. Python introduced triple-quoted strings in 1987 with Python 2 and named parameters and Unicode support in 1996.\",\n  \"uncertainties\": [],\n  \"uncertainties\": []\n}\n```",
+          "answer_length": 1014,
+          "verification_question_count": 0,
+          "raw": {
+            "raw": "```json\n{\n  \"draft\": \"Python was created by Bob traveling to NASA (Bob traveling to NASA) in 1980. The first version of Python was released in 1987 with Python 2 and the second release in 1988 with Python 3.\",\n  \"verification_questions\": [\n    \"Who created Python?\",\n    \"When was the first version of Python released?\",\n    \"What introduced triple-quoted strings in Python?\",\n    \"When did Python 2 become available?\"\n  ],\n  \"verification_answers\": [\n    \"Bob traveling to NASA (Bob traveling to NASA) created Python.\",\n    \"Python 1.0 was the first release.\",\n    \"Triple-quoted strings were introduced in Python 2.\",\n    \"Python 2.0 was the first official release.\"\n  ],\n  \"final\": \"Python was developed by Bob traveling to NASA (Bob traveling to NASA) in 1980. The first version, Python 2, was released in 1987 and the second, Python 3, in 1988. Python introduced triple-quoted strings in 1987 with Python 2 and named parameters and Unicode support in 1996.\",\n  \"uncertainties\": [],\n  \"uncertainties\": []\n}\n```"
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 18.69,
+          "error": null,
+          "answer_text": "Python was created by Bob King in 1988 as a foundational language for computer science education. The first release of Python was version 2.7.0 in 2.7, which marked its debut as an open-source project by the Python Software Foundation.\n\nPython 2 was released in 2005 with version 2.6.0 and introduced features like exception handling and async iteration to enhance functionality and user experience.\n\nPython 3 was released in 2011 with version 3.4, introducing new syntax for boolean operations (True/False) and Unicode support, marking a significant shift from Python 2's backward compatibility.",
+          "answer_length": 596,
+          "draft_length": 516,
+          "verification_question_count": 0,
+          "verification_answer_count": 0,
+          "raw": {
+            "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+            "draft": "**History of Python**\n\n- ** creator**: Bob King (1980\u20131987)\n- **First Release Year**: 1987\n  - **Version**: Python 2.0\n    - The first major release, designed to be user-friendly and efficient.\n\n- **Python 3.0**: 2019\n  - A significant update introducing features like triple-quoted strings and async/await for improved readability.\n\n- **Latest Stable Release**: Python 3.10\n\nThis concise history captures the evolution of Python from its inception to modern versions, highlighting key milestones in its development.",
+            "verification_questions": [],
+            "verification_answers": [],
+            "final": "Python was created by Bob King in 1988 as a foundational language for computer science education. The first release of Python was version 2.7.0 in 2.7, which marked its debut as an open-source project by the Python Software Foundation.\n\nPython 2 was released in 2005 with version 2.6.0 and introduced features like exception handling and async iteration to enhance functionality and user experience.\n\nPython 3 was released in 2011 with version 3.4, introducing new syntax for boolean operations (True/False) and Unicode support, marking a significant shift from Python 2's backward compatibility."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "git-workflow",
+      "category": "developer-tools",
+      "question": "Explain Git core workflow, including clone, branch, commit, merge, and push.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 5.05,
+          "error": null,
+          "answer_text": "The Git core workflow involves several key steps:\n\n1. **Clone a Repository**: Create a branch using `git checkout` and clone it with `git checkout origin master`.\n\n2. **Add Files/Commit Changes**: Modify files or add commit messages in the cloned branch using `git add` and `git commit`.\n\n3. **Merge Changes**: Add changes from another repository to your current branch by running `git diff`, then use `git add` to merge them.\n\n4. **Commit Your Changes**: Finalize your changes with a commit using `git commit`.\n\n5. **Push Updates**: Share updates from your branch to the main repository with `git push origin master`.\n\nThis workflow ensures organized code management and version control.",
+          "answer_length": 688,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 16.27,
+          "error": null,
+          "answer_text": "",
+          "answer_length": 0,
+          "verification_question_count": 0,
+          "raw": {
+            "raw": ""
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 41.27,
+          "error": null,
+          "answer_text": "Cloning a branch involves transferring auxins from the parent branch to the new one. This ensures similar growth patterns. However, challenges include auxin movement in stems (more common in leaves) and varying control over auxin in different plants. In controlled environments like greenhouses, it's possible to clone branches by transferring auxins or genetic material. Cloning can be feasible for species where auxin transfer is manageable but requires careful handling to avoid harming the plant.\n\nPushing a commit back serves several purposes: reversion to changes, version control best practices, and development contexts. It also maintains accurate history in version control systems.\n\nMerging two branches is essential for communication and collaboration, integration of features, and maintaining structure. It ensures both branches can interact with each other, allowing features from one branch to be integrated into the other. Merging provides a common interface or mechanism for components to work together seamlessly. Maintaining clear history in version control systems enhances maintainability, making it easier to apply updates or patches across both areas without conflicts.\n\nIn summary, merging two branches is necessary for effective collaboration, communication, and integration, leading to a more cohesive and successful software development project.",
+          "answer_length": 1371,
+          "draft_length": 1028,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Explain Git core workflow, including clone, branch, commit, merge, and push.",
+            "draft": "The Git core workflow is a fundamental aspect of version control, enabling real-time collaboration among multiple users. Here's a structured explanation of the workflow:\n\n1. **Clone a Branch**:\n   - **Action**: Use commands like `git checkout <branch>` to reset to an existing branch and then push back to the origin.\n   - **Purpose**: Allows working on a specific branch without affecting others.\n\n2. **Pushing a Commit**:\n   - **Action**: Use `git push` with options (e.g., `--origin master`).\n   - **Purpose**: Sends changes back to the repository, ensuring visibility for all users.\n\n3. **Merging Two Branches**:\n   - **Action**: Push both commits back and commit all changes from both branches.\n   - **Purpose**: Combines changes from different files into a single branch, facilitating collaborative development.\n\n4. **Pushing Back Again**:\n   - **Action**: Use `git push` without options to push to the origin.\n   - **Purpose**: Ensures changes are visible and can be tracked by others.\n\n5. **Branches as Separate Files**:",
+            "verification_questions": [
+              "How does cloning a branch work?",
+              "What is the purpose of pushing a commit back to the origin?",
+              "Why is merging two branches necessary?"
+            ],
+            "verification_answers": [
+              "Cloning a branch involves transferring auxins and other signaling molecules from the parent branch to the new one. This ensures similar growth patterns. However, challenges include auxin movement in stems (auxin-storing leaves) and varying control over auxin in different plants. In controlled environments like greenhouses, it's possible to clone branches by transferring auxins or genetic material. Cloning can be feasible for species where auxin transfer is manageable, though it may require careful handling to maintain similarity without harming the plant.",
+              "Pushing a commit back to the origin serves several purposes in version control systems:\n\n1. **Reverting Changes**: It allows users to revert changes incrementally, making it easier to debug or review history without committing large amounts of work.\n\n2. **Version Control Best Practices**: By maintaining accurate and transparent history, it ensures that any future changes can be traced back to the origin commit, enhancing collaboration and transparency.\n\n3. **Development Environments**: In environments where multiple developers make changes, pushing a commit back allows for incremental rollback without committing everything at once, facilitating smoother development processes.\n\nIn summary, pushing a commit back to the origin is essential for efficient change management, debugging, and maintaining clear version control records.",
+              "Merging two branches is essential for several reasons:\n\n1. **Communication and Collaboration**: Merging ensures that both branches can interact with each other, allowing features from one branch to be integrated into the other. This collaboration enhances teamwork and reduces misunderstandings.\n\n2. **Integration of Features**: Without merging, different parts of the codebase might not communicate effectively. Merging provides a common interface or mechanism for these components to work together seamlessly.\n\n3. **Maintaining Structure**: Merging ensures that both branches are part of the same project structure. This clarity helps in managing changes and maintaining the overall project's integrity.\n\n4. **Enhanced Maintainability**: Clear integration between branches improves maintainability, making it easier to apply updates or patches across both areas without conflicts.\n\nIn summary, merging two branches is necessary for effective collaboration, communication, and integration, leading to a more cohesive and successful software development project."
+            ],
+            "final": "Cloning a branch involves transferring auxins from the parent branch to the new one. This ensures similar growth patterns. However, challenges include auxin movement in stems (more common in leaves) and varying control over auxin in different plants. In controlled environments like greenhouses, it's possible to clone branches by transferring auxins or genetic material. Cloning can be feasible for species where auxin transfer is manageable but requires careful handling to avoid harming the plant.\n\nPushing a commit back serves several purposes: reversion to changes, version control best practices, and development contexts. It also maintains accurate history in version control systems.\n\nMerging two branches is essential for communication and collaboration, integration of features, and maintaining structure. It ensures both branches can interact with each other, allowing features from one branch to be integrated into the other. Merging provides a common interface or mechanism for components to work together seamlessly. Maintaining clear history in version control systems enhances maintainability, making it easier to apply updates or patches across both areas without conflicts.\n\nIn summary, merging two branches is necessary for effective collaboration, communication, and integration, leading to a more cohesive and successful software development project."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    }
+  ]
+}
