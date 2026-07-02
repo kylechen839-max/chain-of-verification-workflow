@@ -99,6 +99,13 @@ def summarize_value(mode: str, value: Any) -> dict[str, Any]:
 
 
 def main() -> None:
+    try:
+        from dotenv import load_dotenv
+
+        load_dotenv(".env")
+    except ImportError:
+        pass
+
     parser = argparse.ArgumentParser(description="Evaluate direct answering vs CoVe modes.")
     parser.add_argument("--model", default="deepseek-coder:1.3b", help="Ollama model name.")
     parser.add_argument("--host", default="http://127.0.0.1:11434", help="Ollama host URL.")

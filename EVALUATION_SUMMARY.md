@@ -41,7 +41,7 @@ local SQLite database was used for isolation:
 --database-url sqlite:///cove_results.confined.local.db
 ```
 
-The local database is ignored by Git. It currently contains 4 runs and 18 result
+The local database is ignored by Git. It currently contains 7 runs and 57 result
 rows:
 
 | Run | Model | Settings | Mode Rows | Total Time | Verification Questions |
@@ -50,6 +50,9 @@ rows:
 | 2 | `deepseek-r1:1.5b` | 2 prompts, max_questions=3, num_predict=768 | 6 | 95.83s | 3 |
 | 3 | `deepseek-coder:6.7b` | 1 prompt, max_questions=3, num_predict=768 | 3 | 68.98s | 6 |
 | 4 | `deepseek-coder:6.7b` | 2 prompts, max_questions=4, num_predict=1024 | 6 | 148.70s | 15 |
+| 5 | `deepseek-coder:6.7b` | 3 prompts, max_questions=5, num_predict=1280 | 9 | 277.93s | 28 |
+| 6 | `deepseek-coder:6.7b` | 4 prompts, max_questions=6, num_predict=1536 | 12 | 489.57s | 37 |
+| 7 | `deepseek-coder:6.7b` | 6 prompts, max_questions=6, num_predict=1536 | 18 | 766.20s | 58 |
 
 ## Upscale Notes
 
@@ -58,8 +61,9 @@ rows:
   `deepseek-r1:1.5b` in these tests.
 - The upscaled 6.7B run is much slower than the 1.3B baseline, so use small
   prompt limits while iterating.
-- Supabase is wired through the same runner, but it still needs an authorized
-  `SUPABASE_DATABASE_URL` before remote database tests can run.
+- Supabase is wired through the same runner. The direct host
+  `db.hcjrjkhqseqozdsfzufm.supabase.co` did not resolve from the local Mac, so
+  the next remote test needs the pooler URI from Supabase's Connect panel.
 
 ## Next Evaluation Step
 

@@ -149,6 +149,10 @@ SUPABASE_DATABASE_URL=postgresql://postgres.hcjrjkhqseqozdsfzufm:password@aws-..
 COVE_DATABASE_SCHEMA=cove_test
 ```
 
+Command-line evaluation runs load `.env` automatically. If the direct
+`db.<project-ref>.supabase.co` hostname does not resolve, copy the pooler URI
+from Supabase's Connect panel instead.
+
 Then run:
 
 ```bash
