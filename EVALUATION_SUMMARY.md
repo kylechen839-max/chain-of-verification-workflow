@@ -61,15 +61,13 @@ rows:
   `deepseek-r1:1.5b` in these tests.
 - The upscaled 6.7B run is much slower than the 1.3B baseline, so use small
   prompt limits while iterating.
-- Supabase is wired through the same runner. The direct host
-  `db.hcjrjkhqseqozdsfzufm.supabase.co` did not resolve from the local Mac, so
-  the next remote test needs the pooler URI from Supabase's Connect panel.
+- Supabase is wired through the same runner. The direct database host is
+  IPv6-only from this Mac, so the Supabase pooler URI is the working path.
 
 ## Supabase Results
 
 The project `AI_Hallucination_Proj` is active and healthy in Supabase. The
-direct database hostname is IPv6-only, so the working path from this Mac is the
-Supabase pooler plus temporary CLI database roles from the Management API.
+pooler connection now works with the permanent database password.
 
 Remote `cove_test` now contains:
 
@@ -78,9 +76,13 @@ Remote `cove_test` now contains:
 | 1 | Management API sync | `deepseek-coder:6.7b` | 18 | 766.20s | 58 |
 | 2 | Direct temporary Postgres role | `supabase-direct-temp-smoke` | 1 | 0.00s | 0 |
 | 3 | Direct temporary Postgres role | `deepseek-coder:6.7b` | 3 | 64.32s | 6 |
+| 4 | Direct permanent Postgres pooler | `deepseek-coder:6.7b` | 6 | 149.93s | 12 |
+| 5 | Direct permanent Postgres pooler | `deepseek-coder:6.7b` | 12 | 342.33s | 31 |
+| 6 | Direct permanent Postgres pooler | `deepseek-coder:6.7b` | 18 | 589.23s | 48 |
 
-Permanent database password auth still rejects the password we tried. Temporary
-CLI roles work for direct writes once the confined schema exists.
+Run 6 is the full six-prompt dataset at `max_questions=4` and
+`num_predict=1024`. It completed under the 10-minute Google Compute escalation
+threshold, so the full benchmark stayed local.
 
 ## Next Evaluation Step
 

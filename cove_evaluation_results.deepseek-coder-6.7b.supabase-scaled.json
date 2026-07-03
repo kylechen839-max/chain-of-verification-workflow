@@ -1,0 +1,305 @@
+{
+  "model": "deepseek-coder:6.7b",
+  "host": "http://127.0.0.1:11434",
+  "max_questions": 4,
+  "num_predict": 1024,
+  "question_file": "cove_benchmark_questions.json",
+  "manual_scoring_scale": {
+    "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "results": [
+    {
+      "id": "python-history",
+      "category": "programming-history",
+      "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 11.2,
+          "error": null,
+          "answer_text": "Python was created by Guido van Rossum in 1989 as part of his personal projects while he was at CWI (Centrum Wiskunde & Informatica), the company that later became known as Python Software Foundation. The language's first public release, Python 1.0, was made in 1994.\n\nPython 2 was released in 2000 and it introduced a number of new features like support for Unicode, list comprehensions, and generator expressions which were not available in the original version. However, Python 2 has reached its end-of-life status as of January 1, 2020.\n\nPython 3 was released in 2008 and it introduced a number of improvements over Python 2 like syntax changes to make code more readable, better support for Unicode, and improved handling of exceptions. It also dropped the 2to3 tool that translated Python 2 code into equivalent Python 3 code.\n\nToday, Python is widely used in various fields including web development, data analysis, artificial intelligence, machine learning, automation scripts, etc. Its popularity has led to a large ecosystem of libraries and frameworks like Django (a high-level Python Web framework), Flask (a micro web framework), NumPy (for numerical computation using arrays), Pandas (an open source data analysis and manipulation tool).",
+          "answer_length": 1251,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 8.37,
+          "error": null,
+          "answer_text": "Python is a high-level, interpreted programming language that was created by Guido van Rossum in 1989. It was first released as Python 1.0 in 1994 and has been updated to version 3.0 in 2008.",
+          "answer_length": 191,
+          "verification_question_count": 3,
+          "raw": {
+            "draft": "Python was created by Guido van Rossum in 1989. It was first released in 1994 as Python 1.0. Since then, it has been updated to version 3.0 in 2008.",
+            "verification_questions": [
+              "Who is the creator of Python?",
+              "What year was Python 1.0 released?",
+              "When was Python 3.0 updated?"
+            ],
+            "verification_answers": [
+              "Guido van Rossum",
+              "1994",
+              "2008"
+            ],
+            "final": "Python is a high-level, interpreted programming language that was created by Guido van Rossum in 1989. It was first released as Python 1.0 in 1994 and has been updated to version 3.0 in 2008.",
+            "uncertainties": []
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 19.17,
+          "error": null,
+          "answer_text": "Python programming language was created by Guido van Rossum in 1994. It first had a major version named Python 2.7 which was discontinued after its end-of-life status in 2020. The next major release, Python 3.0, was released on January 17th, 2008.",
+          "answer_length": 247,
+          "draft_length": 892,
+          "verification_question_count": 4,
+          "verification_answer_count": 4,
+          "raw": {
+            "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3.",
+            "draft": "Python was created by Guido van Rossum in 1989 as part of his personal projects while he was at CWI (Centrum Wiskunde & Informatica), the company that later became known as Python Software Foundation. The language's first public release, Python 1.0, was made in 1994.\n\nPython 2 was released in 2000 and it introduced a number of new features like list comprehensions, which were not available in the previous version. However, Python 2 has reached its end-of-life status as of January 1, 2020. This means that no further updates or bug fixes will be provided for security reasons.\n\nPython 3 was released in 2008 and it introduced a number of improvements over Python 2 like syntax changes to make the language more readable and easier to understand, which were not available in Python 2. The transition from Python 2 to Python 3 is relatively smooth as both languages are backward compatible.",
+            "verification_questions": [
+              "Who created Python programming language?",
+              "In what year was the first public release of Python made?",
+              "What was the name of Python's first major version before it reached its end-of-life status in 2020?",
+              "When did Python 3.0 get released?"
+            ],
+            "verification_answers": [
+              "Guido van Rossum created Python programming language.",
+              "The first public release of Python was in 1994.",
+              "Python 2.7 was the first major version released by Python Software Foundation (PSF) before it reached its end-of-life status in 2020. It was officially discontinued on January 1, 2020.",
+              "Python 3.0 was released on January 17th, 2008."
+            ],
+            "final": "Python programming language was created by Guido van Rossum in 1994. It first had a major version named Python 2.7 which was discontinued after its end-of-life status in 2020. The next major release, Python 3.0, was released on January 17th, 2008."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "git-workflow",
+      "category": "developer-tools",
+      "question": "Explain Git core workflow, including clone, branch, commit, merge, and push.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 17.43,
+          "error": null,
+          "answer_text": "Git is a distributed version control system that allows multiple people to work on a project without overwriting each other's changes. Here are some of the most common commands used in Git:\n\n1. **Clone**: This command is used to obtain a repository from an existing URL. The syntax for cloning a repository is as follows: `git clone <url>`. \n\n2. **Branching**: Branches are used to develop features isolated from each other. The master branch is \"protected\" and the default branch when you create a repo in Github, but you can create any number of branches with `git checkout -b new_branch`.\n\n3. **Commit**: A commit, also known as a revision, represents a snapshot of your project at a certain point in time. It's like taking a photo of what all the files look like at that moment. You can create a commit with `git commit -m \"commit message\"`.\n\n4. **Merge**: Merging is Git's way of putting a forked history back together again. The git merge command lets you take the independent lines of development created by branches, and integrate them into a single branch. \n\n5. **Push**: Pushing is how you transfer commits from your local repository to a remote repo. It's the counterpart to pull, and it\u2019s the way that you as a contributor get your code reviewed and merged into the project. You can push with `git push origin branch_name`.\n\nHere's an example of how these commands might be used together:\n\n```bash\n# clone repository from url\ngit clone https://github.com/user/repo.git\n\n# change to repo directory\ncd repo\n\n# create a new branch and switch to it\ngit checkout -b my_feature\n\n# make changes, add files etc.\necho \"Hello, World!\" > hello.txt\ngit add hello.txt\n\n# commit the changes\ngit commit -m \"Add Hello, World!\"\n\n# push the branch to remote repository\ngit push origin my_feature\n```\nThis is a very basic example and real-world projects will have more complex workflows involving pull requests, code reviews, etc. But this should give you a good starting point.",
+          "answer_length": 1971,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 4.5,
+          "error": null,
+          "answer_text": "",
+          "answer_length": 0,
+          "verification_question_count": 4,
+          "raw": {
+            "draft": "Git is a distributed version control system that allows multiple people to work on the same project at the same time without overwriting each other's changes.",
+            "verification_questions": [
+              "What does Git clone do?",
+              "How are branches created in Git?",
+              "What command is used to commit changes in Git?",
+              "Explain how merging works in Git."
+            ],
+            "verification_answers": [],
+            "final": "",
+            "uncertainties": []
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 76.88,
+          "error": null,
+          "answer_text": "Explanation of Git core workflow includes clone, branch, commit, merge, and push operations:\n\n1. Clone (or copy) a remote repository into your local machine using `git clone <url>` command. This creates a local copy of the entire project history on the specified URL. \n\n2. Create new branches in Git with `git checkout -b <new_branch_name>` command. It allows you to create and switch to a new branch at the same time, making it easy to work on different features or bug fixes without affecting your main codebase.\n\n3. A commit is like a snapshot of your project at a certain point in time. You can make a commit with `git add <filename>` followed by `git commit -m \"Your message about what changes were made\"` command. This stages the file for commit and creates a new commit with the specified message.\n\n4. Merge means to integrate changes from one branch into another in Git. You can merge changes from one branch into another using `git checkout <branch-name>` followed by `git merge <source-branch>` command. This integrates all the changes made in the source branch into the current (checked out) branch, ensuring that your main codebase remains consistent and up to date with any new features or bug fixes.\n\n5. Push means to upload local repository content to a remote repository. You can push your commits to the remote repository using `git push origin <branch-name>` command. This allows other team members to access and work on the same codebase as you, contributing to the project in real time.",
+          "answer_length": 1506,
+          "draft_length": 2345,
+          "verification_question_count": 4,
+          "verification_answer_count": 4,
+          "raw": {
+            "question": "Explain Git core workflow, including clone, branch, commit, merge, and push.",
+            "draft": "Git is a distributed version control system that allows multiple people to work on the same project at the same time without overwriting each other's changes. Here are some of its key concepts:\n\n1. **Clone**: This command is used to obtain a repository from an existing URL. It creates a local copy of the entire repository with all its history and files. The syntax for cloning a repository is `git clone <repository_url>`.\n\n2. **Branching**: Branches are used to develop features isolated from each other. The master branch is \"protected\" and the default branch when you create a repo in Github, but you can make as many branches as you need. You switch between them using `git checkout -b <branch_name>`.\n\n3. **Commit**: A commit, also known as a revision, represents a snapshot of your project at a certain point in time. It's like taking a photo of what all the files look like at that moment. You can think of it as a checkpoint or save point for your work. To make a commit, you use `git commit -m \"commit message\"`.\n\n4. **Merge**: When you want to combine changes from one branch into another (usually master), you merge the branches together. This brings all the changes from the other branch onto the current branch. You can do this with `git merge <branch_name>`. If there are any conflicts, Git will tell you and stop until they're resolved.\n\n5. **Push**: Pushing is how you upload local repository content to a remote repo. It's like sending your files to the cloud so that others can access them. You push with `git push origin <branch_name>`, where \"origin\" is an alias for the URL of your remote repository and `<branch_name>` is the name of the branch you want to upload.\n\nHere's a simple example:\n\n```bash\n# clone the repo\ngit clone https://github./user/.git\n\n# create a new branch\ngit checkout -b my-new-feature\n\n# make changes and commit them\necho \"Hello, World!\" > hello.txt\ngit add hello.txt\ngit commit -m \"Add Hello, World!\"\n\n# switch back to master branch\ngit checkout main\n\n# merge the new feature into master\ngit merge my-new-feature\n\n# push changes to remote repo\ngit push origin main\n```\nThis is a very basic example. In real life scenarios, you would have many collaborators working on different features and branches, resolving conflicts when merging, etc. But this should give you a good idea of the core workflow.",
+            "verification_questions": [
+              "What command do we use to obtain a repository from an existing URL in Git?",
+              "How can we create new branches in Git? What is the syntax for creating a branch and checking it out at the same time?",
+              "Explain what a commit is in Git. How do we make a commit? Can you provide a simple example of how to use this command?",
+              "What does merge mean in Git? How can we combine changes from one branch into another?"
+            ],
+            "verification_answers": [
+              "You can clone (or copy) a remote repository into your local machine using the `git clone` command followed by the URL of the repository. Here is the basic syntax:\n\n```bash\ngit clone <url>\n```\nReplace `<url>` with the actual URL of the GitHub repository you want to clone. \n\nFor example, if you have a repository at https://github.com/user/repo.git, you would use this command:\n\n```bash\ngit clone https://github.com/user/repo.git\n```\nThis will create a new directory named `repo` in your current location and it will contain all the files from the remote repository.",
+              "Creating a new branch in Git can be done using the `git checkout` command followed by the `-b` option, which stands for \"create/switch\". The general syntax to create a new branch and switch to that branch is as follows:\n\n```bash\ngit checkout -b <new_branch_name>\n```\n\nHere, replace `<new_branch_name>` with the name you want to give your new branch. This command will both create a new branch (if it doesn't already exist) and switch your working directory to that new branch. \n\nFor example:\n\n```bash\ngit checkout -b my-feature-branch\n```\n\nThis would create a new branch named \"my-feature-branch\" and immediately switch your local repository to this new branch.",
+              "A commit in Git is like a snapshot of your project at a certain point in time. It's a save point that allows you to return to the state of your project at any past point, or compare changes between commits. \n\nTo make a commit, first, you need to stage the files you want to include in the commit with `git add <filename>` command. This stages the file for commit. You can also use `git add .` to stage all modified files. After staging your files, you can create the commit using the `git commit -m \"Your message about what changes were made\"` command.\n\nHere's a simple example:\n\n1. First, let's make some changes in a file named 'test.txt'. \n```bash\necho \"Hello Git!\" > test.txt\n```\n2. Stage the change with `git add`.\n```bash\ngit add test.txt\n```\n3. Commit the staged changes with a message describing what was changed.\n```bash\ngit commit -m \"Added 'Hello Git!' to test.txt\"\n```\nIn this example, we've created a new file named `test.txt` and committed it to our local git repository. The `-m` flag allows you to pass in a message directly from the command line when creating the commit. \n\nAfter running these commands, your project history will have an additional commit that includes this change. You can view this history with the `git log` command.",
+              "In Git, \"merge\" refers to the process of integrating changes from one branch (or several branches) into another. This is typically done by creating a new commit that includes all the changes made on both branches. \n\nHere's how you can merge changes from one branch into another:\n\n1. First, switch to the branch where you want your changes to be merged using `git checkout <branch-name>`.\n2. Then, run `git merge <source-branch>`. This will integrate all the changes made in the source branch into the current (checked out) branch. \n\nIf there are any conflicts between the branches that need to be resolved manually, Git will pause and allow you to resolve those conflicts before continuing with the merge. You can use `git status` to see what files have conflicts that need resolving. Once all conflicts are resolved, continue the merge using `git commit -m \"Merge resolved\"`.\n\nRemember, merging is a way of integrating changes from one branch into another and it's not always possible or desirable to automatically combine all changes without manual intervention. Therefore, it's important to communicate with your team about any potential conflicts before running the merge command. \n\nAlso note that Git has a feature called \"rebase\" which can be used instead of merge to integrate changes from one branch into another. Rebasing essentially moves or combines a sequence of commits to a new base commit. It's more like a linear history, but it might not always be the best solution depending on your team workflow and project requirements."
+            ],
+            "final": "Explanation of Git core workflow includes clone, branch, commit, merge, and push operations:\n\n1. Clone (or copy) a remote repository into your local machine using `git clone <url>` command. This creates a local copy of the entire project history on the specified URL. \n\n2. Create new branches in Git with `git checkout -b <new_branch_name>` command. It allows you to create and switch to a new branch at the same time, making it easy to work on different features or bug fixes without affecting your main codebase.\n\n3. A commit is like a snapshot of your project at a certain point in time. You can make a commit with `git add <filename>` followed by `git commit -m \"Your message about what changes were made\"` command. This stages the file for commit and creates a new commit with the specified message.\n\n4. Merge means to integrate changes from one branch into another in Git. You can merge changes from one branch into another using `git checkout <branch-name>` followed by `git merge <source-branch>` command. This integrates all the changes made in the source branch into the current (checked out) branch, ensuring that your main codebase remains consistent and up to date with any new features or bug fixes.\n\n5. Push means to upload local repository content to a remote repository. You can push your commits to the remote repository using `git push origin <branch-name>` command. This allows other team members to access and work on the same codebase as you, contributing to the project in real time."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "http-status-codes",
+      "category": "web-development",
+      "question": "Explain the difference between HTTP status codes 200, 301, 400, 401, 403, 404, and 500.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 13.98,
+          "error": null,
+          "answer_text": "HTTP status codes are returned by a server to indicate whether a specific request has been successfully completed or not. Here is the explanation for each of them:\n\n- **200 OK**: This code means that the client's request was successful. It indicates that the requested resource sent back in the response is what the client asked for.\n  \n- **301 Moved Permanently**: The resource has been assigned a new URI and any future references to this resource ought to use one of the returned URIs. This status code is used when the requested document has moved permanently to a different location, with no further changes expected in the near future.\n  \n- **400 Bad Request**: The server could not understand the request due to invalid syntax. It's a client error response.\n  \n- **401 Unauthorized**: Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet been provided.\n  \n- **403 Forbidden**: The server understands the request, but it refuses to authorize it. This status code is similar to 401 (Unauthorized), but indicates that the client must authenticate itself to get the requested response.\n  \n- **404 Not Found**: The server could not find what was requested. It's a clear indication that no further action can be taken by the client.\n  \n- **500 Internal Server Error**: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable. This indicates a problem with the server itself, not with the request as such.\n   \nThese status codes are used to indicate whether a specific HTTP request has been successfully completed or not by the server. They provide valuable information for debugging problems in web applications.",
+          "answer_length": 1734,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 13.54,
+          "error": null,
+          "answer_text": "HTTP status codes are three-digit numbers that the server sends back to indicate the status of a client's request. The most common ones are: \n\n200 (OK): This code means that the request was successful.\n301 (Moved Permanently): This code indicates that the resource has been assigned a new permanent URI and any future references to this resource ought to use one of the returned URIs.\n400 (Bad Request): This return code indicates that the server could not understand the request due to invalid syntax.\n401 (Unauthorized): This means that the request lacks valid authentication credentials for the target resource.\n403 (Forbidden): The server understood the request, but it refuses to authorize it. \n404 (Not Found): The server could not find what was requested.\n500 (Internal Server Error): A generic error message, given when no more specific message is suitable.",
+          "answer_length": 865,
+          "verification_question_count": 4,
+          "raw": {
+            "draft": "HTTP status codes are three-digit numbers that the server sends back to indicate the status of a client's request.",
+            "verification_questions": [
+              "What is the HTTP status code for successful (general) requests?",
+              "What is the HTTP status code for redirecting requests?",
+              "What is the HTTP status code for client errors?",
+              "What is the HTTP status code for server errors?"
+            ],
+            "verification_answers": [
+              "200",
+              "301",
+              "400, 401, 403",
+              "500"
+            ],
+            "final": "HTTP status codes are three-digit numbers that the server sends back to indicate the status of a client's request. The most common ones are: \n\n200 (OK): This code means that the request was successful.\n301 (Moved Permanently): This code indicates that the resource has been assigned a new permanent URI and any future references to this resource ought to use one of the returned URIs.\n400 (Bad Request): This return code indicates that the server could not understand the request due to invalid syntax.\n401 (Unauthorized): This means that the request lacks valid authentication credentials for the target resource.\n403 (Forbidden): The server understood the request, but it refuses to authorize it. \n404 (Not Found): The server could not find what was requested.\n500 (Internal Server Error): A generic error message, given when no more specific message is suitable.",
+            "uncertainties": []
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 47.46,
+          "error": null,
+          "answer_text": "The HTTP status codes represent different types of responses a server can return to indicate the outcome of an HTTP request from a client's perspective. Here are brief explanations for each code:\n\n200 OK: This means that the request was successful and the client can proceed with its work.\n\n301 Moved Permanently: The requested resource has been assigned a new permanent URI and any future references to this resource should use one of the returned URIs. It's used for redirecting requests from old URLs to their new locations.\n\n400 Bad Request: This indicates that the server could not understand the request due to invalid syntax. The client needs to fix its request before retrying it.\n\n401 Unauthorized: This means that the request has not been completed because it lacks valid authentication credentials for the target resource. It usually happens when a user tries to access a protected resource without providing proper authorization.\n\n403 Forbidden: The server understood the request, but is refusing to authorize it. This can occur if the client is authenticated but does not have permission to access the requested resource.\n\n404 Not Found: The server could not find what was requested, which means that no resources are associated with the requested URI.\n\n500 Internal Server Error: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable. This can be a catch-all response for any conditions not covered by other 4xx or 5xx responses.",
+          "answer_length": 1506,
+          "draft_length": 1634,
+          "verification_question_count": 4,
+          "verification_answer_count": 4,
+          "raw": {
+            "question": "Explain the difference between HTTP status codes 200, 301, 400, 401, 403, 404, and 500.",
+            "draft": "HTTP status codes are returned by a server to indicate whether a specific request has been successfully completed or not. They provide information about the result of an HTTP request-response transaction. Here is a brief explanation for each code:\n\n1. **200 OK** - This means that the request was successful and the client can proceed with its work. It's the most common status code, used when the request has succeeded.\n\n2. **301 Moved Permanently** - The resource has been assigned a new permanent URI and any future references to this resource ought to use one of the returned URIs. This response is cacheable by default; i.e., most clients should assume authoritative responses are cacheable, unless indicated otherwise.\n\n3. **400 Bad Request** - The server could not understand the request due to invalid syntax. It's a client error status code.\n\n4. **401 Unauthorized** - Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet been provided.\n\n5. **403 Forbidden** - The request was valid, but the server is refusing action. The user might not have necessary permissions for a resource. This status code indicates that the request could not be completed by the client without authentication.\n\n6. **404 Not Found** - The requested resource could not be found on the server. No information is available to the client about the condition of the request.\n\n7. **500 Internal Server Error** - A generic error message, given when no more specific message is suitable. It indicates that a server encountered an unexpected condition which prevented it from fulfilling the request.",
+            "verification_questions": [
+              "What HTTP status code means 'The request was successful and the client can proceed with its work'?",
+              "Explain what happens when you receive a 301 Moved Permanently status code.",
+              "Can you describe what a 400 Bad Request status code signifies in terms of the client-side error?",
+              "What does it mean to receive an HTTP status code of 401 Unauthorized?"
+            ],
+            "verification_answers": [
+              "The HTTP status code for 'The request was successful and the client can proceed with its work' is 200 OK.",
+              "A 301 Moved Permanently HTTP status code indicates that the requested resource has been assigned a new permanent URI and any future references to this resource should use one of the returned URIs. This means that if you have an old link pointing to your website, it will be redirected to the new URL.\n\nHere's how it works:\n\n1. A client (like a web browser) sends a request to a server for a specific resource. \n2. The server checks its database and finds that the requested resource has been moved permanently to a different location on the server.\n3. The server then returns a HTTP response with status code 301, along with a 'Location' header field containing the new URL of the resource.\n4. The client (web browser) follows this new URL and requests the resource from there.\n5. This way, if you have an old link pointing to your website, it will be redirected to the new URL without breaking any functionality or SEO. \n\nThis is a common practice in web development for maintaining backward compatibility while updating websites. It's also used by search engines like Google when they crawl and index websites to ensure that all links are correctly updated over time.",
+              "A 400 Bad Request HTTP status code indicates that the server could not understand the request due to invalid syntax. This can occur if there is an issue with the request sent by the client, such as a malformed URL or improperly formatted request body. The client should review its request and try again.",
+              "HTTP status code 401 Unauthorized means that the request has not been completed because it lacks valid authentication credentials for the target resource. This usually happens when a user tries to access a protected resource without providing proper authorization. The server can send this response either if the client needs to authenticate itself to get the requested response (the challenge), or if the client is refusing to authenticate itself with the request."
+            ],
+            "final": "The HTTP status codes represent different types of responses a server can return to indicate the outcome of an HTTP request from a client's perspective. Here are brief explanations for each code:\n\n200 OK: This means that the request was successful and the client can proceed with its work.\n\n301 Moved Permanently: The requested resource has been assigned a new permanent URI and any future references to this resource should use one of the returned URIs. It's used for redirecting requests from old URLs to their new locations.\n\n400 Bad Request: This indicates that the server could not understand the request due to invalid syntax. The client needs to fix its request before retrying it.\n\n401 Unauthorized: This means that the request has not been completed because it lacks valid authentication credentials for the target resource. It usually happens when a user tries to access a protected resource without providing proper authorization.\n\n403 Forbidden: The server understood the request, but is refusing to authorize it. This can occur if the client is authenticated but does not have permission to access the requested resource.\n\n404 Not Found: The server could not find what was requested, which means that no resources are associated with the requested URI.\n\n500 Internal Server Error: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable. This can be a catch-all response for any conditions not covered by other 4xx or 5xx responses."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "python-list-dict",
+      "category": "python",
+      "question": "Explain the difference between a Python list, tuple, set, and dictionary, including mutability and typical use cases.",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 18.09,
+          "error": null,
+          "answer_text": "Python provides four built-in data types that are used to store different kinds of collections of items - lists, tuples, sets, and dictionaries. Here's how they differ in terms of their properties and usage:\n\n1. Python List: \n   A list is an ordered collection of items which can be changed (mutable). Lists are mutable meaning that we can add or remove elements from it after its creation. They support duplicate members. The lists are defined by values separated by commas enclosed within square brackets `[]`.\n   ```python\n   fruits = ['apple', 'banana', 'cherry']\n   ```\n2. Python Tuple: \n   A tuple is an ordered collection of items which cannot be changed (immutable). They support duplicate members. The tuples are defined by values separated by commas enclosed within parentheses `()`.\n   ```python\n   fruits = ('apple', 'banana', 'cherry')\n   ```\n3. Python Set: \n   A set is an unordered collection of unique items which cannot be changed (immutable). They support only unique members and do not have any indexing or slicing operations. The sets are defined by values separated by commas enclosed within curly brackets `{}`.\n   ```python\n   fruits = {'apple', 'banana', 'cherry'}\n   ```\n4. Python Dictionary: \n   A dictionary is an unordered collection of key-value pairs which cannot be changed (immutable). The dictionaries are defined by values separated by commas enclosed within curly brackets `{}` and each value is associated with a key. Keys must be unique and immutable data type such as strings, numbers or tuples.\n   ```python\n   fruits = {'apple': 1, 'banana': 2, 'cherry': 3}\n   ```\nIn general, you would use lists when the order of items matters (like a shopping list where the order is important), sets when you want to eliminate duplicate entries and perform membership tests quickly (like a set of unique words in a document), tuples when you have a collection of related data that shouldn't change (like coordinates for a point in 3D space), and dictionaries when you need a logical association between a key:value pair (like a person\u2019s name as the key and their phone number as the value).",
+          "answer_length": 2117,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "joint_cove",
+          "elapsed_seconds": 17.61,
+          "error": null,
+          "answer_text": "A Python list is an ordered collection of items where each item can be any type (integer, float, string etc.) and it's mutable. This means that the content of a list can be changed after its creation. A Python tuple is similar to a list but it's immutable which means you cannot change its content after creation. Typical use cases for tuples include when you have a collection of items that shouldn't change, like coordinates or RGB colors. Lastly, a dictionary in Python is an unordered collection of key-value pairs where each value can be any type and keys must be unique. Dictionaries are useful when you want to associate specific data with other data.",
+          "answer_length": 658,
+          "verification_question_count": 4,
+          "raw": {
+            "draft": "A Python list is an ordered collection of items where each item can be any type (integer, float, string etc.) and they are mutable. A Python tuple is similar to a list but it's immutable which means you cannot change its content after creation. A Python set is an unordered collection of unique elements and it also supports mathematical operations like union, intersection, difference etc. Lastly, a dictionary in Python is an unordered collection of key-value pairs where each value can be any type and keys must be unique.",
+            "verification_questions": [
+              "Can you explain the mutability aspect of Python lists?",
+              "What are some typical use cases for tuples in Python?",
+              "How do sets differ from dictionaries in terms of functionality?",
+              "Are there any differences between dictionary and list regarding their usage?"
+            ],
+            "verification_answers": [
+              "A Python list is mutable, meaning its content can be changed after it's created. On the other hand, a tuple is immutable.",
+              "Tuples are used when you have a collection of items that shouldn't change, like the coordinates (x, y) or RBG colors (red, green, blue).",
+              "Sets in Python are unordered and contain unique elements. They are typically used for membership tests and eliminating duplicate entries.",
+              "Dictionaries in Python are mutable and they use key-value pairs. Dictionaries are useful when you want to associate specific data with other data."
+            ],
+            "final": "A Python list is an ordered collection of items where each item can be any type (integer, float, string etc.) and it's mutable. This means that the content of a list can be changed after its creation. A Python tuple is similar to a list but it's immutable which means you cannot change its content after creation. Typical use cases for tuples include when you have a collection of items that shouldn't change, like coordinates or RGB colors. Lastly, a dictionary in Python is an unordered collection of key-value pairs where each value can be any type and keys must be unique. Dictionaries are useful when you want to associate specific data with other data."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 94.1,
+          "error": null,
+          "answer_text": "A Python list is an ordered collection of items that can change in size (mutable), while tuples are immutable sequences (immutable) and dictionaries are unordered collections of key-value pairs, with keys being unique (also mutable). A set is a collection of unique elements which cannot be changed once defined.\n\n1. Lists are mutable, meaning you can change their items directly using indices. Tuples, on the other hand, are immutable and cannot have their items modified after they've been created. Sets are also mutable but contain only unique elements and do not support indexing or slicing operations.\n2. Lists use square brackets `[]` for definition while tuples use parentheses `()`. Tuples are generally used when the data doesn't change, like coordinates of a point in space (x, y, z), RGB values of a color etc.\n3. Dictionaries store key-value pairs and can be mutable but unlike lists or sets they do not support indexing operations. They provide quick access to elements based on their keys which makes them efficient for lookups. \n4. Using dictionaries in Python could potentially be more efficient than using a list when we need to frequently check the existence of an element, as it allows us to access any element instantly. However, keep in mind that this efficiency gain is only noticeable for large datasets and if we need to do frequent lookups on smaller data sets or less often, lists might still be a better choice due to their simpler implementation and lower overheads.",
+          "answer_length": 1494,
+          "draft_length": 2129,
+          "verification_question_count": 4,
+          "verification_answer_count": 4,
+          "raw": {
+            "question": "Explain the difference between a Python list, tuple, set, and dictionary, including mutability and typical use cases.",
+            "draft": "Python lists are ordered collections of items with unique indices. They support item assignment and have built-in methods for adding or removing elements. Lists are mutable. Here is an example of how to create a Python list:\n\n```python\nmy_list = [1, 2, 'a', 'hello']\nprint(my_list)  # Outputs: [1, 2, 'a', 'hello']\n```\n\nPython tuples are ordered collections of items with unique indices. They are similar to lists but they are immutable. This means you can't change their content once they are created. Tuples are typically used for heterogenous (different) datatypes and immutability is crucial when data structures need to remain constant like coordinates in a map or RGB values of an image. Here is how to create a Python tuple:\n\n```python\nmy_tuple = (1, 2, 'a', 'hello')\nprint(my_tuple)  # Outputs: (1, 2, 'a', 'hello')\n```\n\nPython sets are unordered collections of unique items. They support mathematical operations like union, intersection and difference. Sets are mutable but cannot have repeated elements. Here is how to create a Python set:\n\n```python\nmy_set = {1, 2, 'a', 'hello'}\nprint(my_set)  # Outputs: {'a', 1, 2, 'hello'} (order may vary as sets are unordered)\n```\n\nPython dictionaries are key-value pairs. They support flexible schemas and are mutable. Dictionaries are similar to lists but they have keys instead of indices and values can be accessed via their corresponding keys. Here is how to create a Python dictionary:\n\n```python\nmy_dict = {'name': 'John', 'age': 27, 'profession': 'Software Engineer'}\nprint(my_dict)  # Outputs: {'name': 'John', 'age': 27, 'profession': 'Software Engineer'}\n```\n\nIn summary, the choice between a list, tuple, set or dictionary depends on your specific needs. Lists are good for when you need to keep track of order and have mutable elements. Tuples are used for heterogenous (different) data types that should not be changed after creation. Sets are useful when you want to eliminate duplicate entries and perform mathematical operations like union, intersection etc. Dictionaries are best suited for storing complex data structures where the data is related in some way.",
+            "verification_questions": [
+              "What happens if we try to change an item of a Python list?",
+              "Can you explain how tuples are different from lists and why they are immutable?",
+              "How does the mutability of sets differ from that of lists or dictionaries?",
+              "Could you provide an example where using a dictionary might be more efficient than using a list?"
+            ],
+            "verification_answers": [
+              "If you try to change an item in a Python list using its index, it will be changed without any error message. Here is an example:\n\n```python\n# Create a list\nmy_list = [10, 20, 30]\nprint(\"Original List:\", my_list)\n\n# Change the second item (index 1) to 25\nmy_list[1] = 25\nprint(\"List after change:\", my_list)\n```\n\nOutput:\n\n```\nOriginal List: [10, 20, 30]\nList after change: [10, 25, 30]\n```\n\nAs you can see, the second item of the list was changed from 20 to 25. This is because Python allows for mutable sequences like lists and hence items in a list can be modified directly using their indices.",
+              "Tuples and Lists in Python are both used to store multiple items in a single variable. However, there are some fundamental differences between them:\n\n1. **Immutability**: Tuples are immutable while lists are mutable. This means that once you create a tuple, the elements inside it cannot be changed (unless you convert the whole tuple into a list and change it). On the other hand, lists can have their elements modified after they've been created.\n\n2. **Syntax**: Tuples are defined by enclosing items in parentheses `()` while lists use square brackets `[]`. \n\n3. **Usage**: Lists are generally used when you need to change the size of your data structure, like adding or removing elements. On the other hand, tuples are often used for things that don't change, such as the coordinates of a point in space (x, y, z), the RGB values of a color, etc.\n\n4. **Performance**: Since tuples are immutable and hashable, they can be used as dictionary keys. Lists cannot be hashed or used as dictionary keys. This means that you can use lists for things like storing data in a dictionary where the key is something other than an integer index (like a string), but not tuples.\n\n5. **Function Return**: Functions return multiple values as a tuple by default, which allows for easy swapping of variables without temporary variable. \n\nHere's an example to illustrate these differences:\n```python\n# Creating lists and tuples\nmy_list = [1, 'two', 3.0]\nmy_tuple = 1, 'two', 3.0   # This is equivalent to the above but in a more compact form\n\nprint(type(my_list))    # <class 'list'>\nprint(type(my_tuple))   # <class 'tuple'>\n\n# Changing list elements\nmy_list[1] = 'new two'\nprint(my_list)  # [1, 'new two', 3.0]\n\n# Trying to change tuple elements will raise a TypeError\ntry:\n    my_tuple[1] = 'new two'\nexcept TypeError as e:\n    print(\"Can't modify tuples like this\")\n```\nIn the above code, we create lists and tuples, check their types, change list elements but not tuple ones. This shows that tuples are immutable while lists are mutable.",
+              "In Python, a set is an unordered collection of unique elements. This means that each element in a set must be unique (no duplicates). Sets are mutable - they can have their elements added, removed and changed. However, the concept of indexing does not apply to sets as they do not support it.\n\nOn the other hand, lists are an ordered collection of items which may contain duplicate values. Lists in Python are mutable meaning that you can change its content by adding new item(s), removing existing item(s) or changing the value of a specific item through indexing or slicing. However, unlike sets, lists support indexing and slicing operations.\n\nDictionaries are also an unordered collection of data values but they are used to store data in key:value pairs. Dictionaries are mutable; you can add new entries, remove existing ones, and change the value of a specific entry. However, unlike sets or lists, dictionaries do not support indexing operations.\n\nIn summary, while all three types (sets, lists, and dictionaries) have some form of mutability, they differ in their properties and capabilities: \n- Sets are unique and unordered, without the ability to change them once defined.\n- Lists are ordered collections that can be changed after creation. They support indexing and slicing operations.\n- Dictionaries store data as key:value pairs and are also mutable but unlike lists they do not support indexing operations.",
+              "Surely, I can give you an example of when using dictionaries in Python could potentially be more efficient than lists. \n\nLet's consider the scenario where we have to find if a particular element exists in a large dataset (list). If we use a list, it would require iterating through each item until we find our desired one or reach the end of the list. However, with a dictionary, this operation can be done in constant time O(1) on average as dictionaries are implemented using hash tables and provide quick access to elements based on their keys.\n\nHere's an example:\n\n```python\n# Let's say we have a large dataset (list of names)\nnames = ['John', 'Mike', 'Emily', 'Sarah', ...]  # This list is very long\n\n# If we want to check if 'Emily' exists in the data set, using a list would be:\nif 'Emily' in names:\n    print('Yes')\nelse:\n    print('No')\n    \n# But this can take quite some time for large lists. \n\n# Now let's convert our list to dictionary and do it again:\nnames_dict = {'John': True, 'Mike': True, 'Emily': True, 'Sarah': True, ...} # This is much faster\nif 'Emily' in names_dict:\n    print('Yes')\nelse:\n    print('No')\n```\nIn this case, using a dictionary can be more efficient because it allows us to access any element instantly. \n\nHowever, keep in mind that the efficiency gain is only noticeable for large datasets and if we need to frequently check existence of elements (as dictionaries provide faster lookup times). For smaller data sets or less frequent lookups, lists might still be a better choice due to their simpler implementation and lower overheads."
+            ],
+            "final": "A Python list is an ordered collection of items that can change in size (mutable), while tuples are immutable sequences (immutable) and dictionaries are unordered collections of key-value pairs, with keys being unique (also mutable). A set is a collection of unique elements which cannot be changed once defined.\n\n1. Lists are mutable, meaning you can change their items directly using indices. Tuples, on the other hand, are immutable and cannot have their items modified after they've been created. Sets are also mutable but contain only unique elements and do not support indexing or slicing operations.\n2. Lists use square brackets `[]` for definition while tuples use parentheses `()`. Tuples are generally used when the data doesn't change, like coordinates of a point in space (x, y, z), RGB values of a color etc.\n3. Dictionaries store key-value pairs and can be mutable but unlike lists or sets they do not support indexing operations. They provide quick access to elements based on their keys which makes them efficient for lookups. \n4. Using dictionaries in Python could potentially be more efficient than using a list when we need to frequently check the existence of an element, as it allows us to access any element instantly. However, keep in mind that this efficiency gain is only noticeable for large datasets and if we need to do frequent lookups on smaller data sets or less often, lists might still be a better choice due to their simpler implementation and lower overheads."
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    }
+  ]
+}

@@ -142,7 +142,7 @@ python3 run_cove_evaluation.py \
   --database-url sqlite:///cove_results.confined.local.db
 ```
 
-For Supabase, set a pooled or direct Postgres connection string in `.env`:
+For Supabase, set the pooled Postgres connection string in `.env`:
 
 ```text
 SUPABASE_DATABASE_URL=postgresql://postgres.hcjrjkhqseqozdsfzufm:password@aws-...supabase.com:6543/postgres
@@ -167,6 +167,9 @@ python3 run_cove_evaluation.py \
 The runner creates `cove_test.cove_evaluation_runs` and
 `cove_test.cove_evaluation_results`, keeping benchmark rows isolated from the
 rest of the database.
+
+If the schema already exists and your database user cannot create schemas, add
+`--skip-db-init` to write into the existing tables.
 
 If database password auth is unavailable, you can sync an existing JSON report
 through the Supabase Management API:
