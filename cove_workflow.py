@@ -10,6 +10,7 @@ from typing import Any, Callable
 
 Message = dict[str, str]
 CallLLM = Callable[[list[Message]], str]
+ContextProvider = Callable[[str, str], str]
 
 
 @dataclass
@@ -19,6 +20,7 @@ class CoVeResult:
     verification_questions: list[str]
     verification_answers: list[str]
     final: str
+    verification_contexts: list[str] | None = None
 
 
 def _as_bullets(items: list[str]) -> str:
@@ -83,10 +85,51 @@ def _strip_thinking(text: str) -> str:
     return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL | re.IGNORECASE).strip()
 
 
+def _looks_like_context_refusal(text: str) -> bool:
+    return bool(
+        re.search(
+            r"(?:do not|don't|can't|cannot)\s+(?:have\s+)?access|"
+            r"external databases|specific databases|browse the internet|"
+            r"real[- ]time access|can't assist with that|cannot assist with that",
+            text,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
+def _looks_speculative(text: str) -> bool:
+    return bool(
+        re.search(
+            r"\bgeneral knowledge\b|\bgenerally speaking\b|\bit seems\b|"
+            r"\bseems that\b|\bmight\b|\bcould\b|\bpossibly\b|\bprobably\b|"
+            r"\bI don't see\b.*\bhowever\b",
+            text,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+    )
+
+
+def _sanitize_verification_question(question: str) -> str:
+    replacements = [
+        (r"\bthe draft answer\b", "the source context"),
+        (r"\bdraft answer\b", "source context"),
+        (r"\bthe draft\b", "the source context"),
+        (r"\bdraft\b", "source context"),
+        (r"\bthe baseline answer\b", "the source context"),
+        (r"\bbaseline answer\b", "source context"),
+        (r"\bthe response\b", "the source context"),
+    ]
+    sanitized = question
+    for pattern, replacement in replacements:
+        sanitized = re.sub(pattern, replacement, sanitized, flags=re.IGNORECASE)
+    return sanitized
+
+
 def run_factored_cove(
     question: str,
     call_llm: CallLLM,
     max_questions: int = 8,
+    context_provider: ContextProvider | None = None,
 ) -> CoVeResult:
     """Run factored Chain of Verification.
 
@@ -113,6 +156,8 @@ Rules:
 - Make each question answerable without seeing the draft.
 - If the user question contains source text, records, or metadata, include only
   the source facts needed to answer each verification question.
+- Never refer to "the draft", "draft answer", "baseline answer", "response",
+  or "the answer" in a verification question.
 - Focus on atomic claims: dates, names, locations, numbers, causal claims, and entity membership.
 - Return JSON only, exactly in this shape: {{"questions": ["...", "..."]}}
 
@@ -133,21 +178,68 @@ Draft answer:
         ]
     )
     verification_questions = _parse_questions(question_text, max_questions=max_questions)
+    verification_questions = [
+        _sanitize_verification_question(item) for item in verification_questions
+    ]
 
     verification_answers: list[str] = []
+    verification_contexts: list[str] = []
     for verification_question in verification_questions:
+        context = context_provider(question, verification_question) if context_provider else ""
+        verification_contexts.append(context)
+        user_content = verification_question
+        if context:
+            user_content = f"""
+Use the following pieces of context to answer the question. If you don't know the answer, just say that you don't know; don't try to make up an answer.
+
+Context:
+{context}
+
+Question:
+{verification_question}
+""".strip()
+
         answer = call_llm(
             [
                 {
                     "role": "system",
                     "content": (
-                        "Answer the factual question directly. If the answer is unknown, contested, "
-                        "or not inferable from reliable general knowledge, say so."
+                        "Answer the factual question directly using only the provided context. "
+                        "The context is the available evidence. Do not say you lack access to "
+                        "databases, documents, the internet, or external sources. Do not use or "
+                        "mention any draft or baseline answer."
                     ),
                 },
-                {"role": "user", "content": verification_question},
+                {"role": "user", "content": user_content},
             ]
         )
+        if context and (_looks_like_context_refusal(answer) or _looks_speculative(answer)):
+            retry_prompt = f"""
+The NASA database record needed to answer is already pasted below. Use only this pasted context.
+Do not say you lack database, document, internet, or external-source access.
+Do not use general knowledge, guesses, or speculation.
+If the pasted context does not explicitly contain the requested fact, answer exactly: I don't know.
+
+Context:
+{context}
+
+Question:
+{verification_question}
+""".strip()
+            answer = call_llm(
+                [
+                    {
+                        "role": "system",
+                        "content": (
+                            "You answer factual questions from pasted source context only. "
+                            "Return a direct answer or exactly: I don't know."
+                        ),
+                    },
+                    {"role": "user", "content": retry_prompt},
+                ]
+            )
+            if _looks_like_context_refusal(answer) or _looks_speculative(answer):
+                answer = "I don't know."
         verification_answers.append(answer.strip())
 
     rewrite_prompt = f"""
@@ -186,6 +278,7 @@ Return only the final answer.
         verification_questions=verification_questions,
         verification_answers=verification_answers,
         final=final,
+        verification_contexts=verification_contexts or None,
     )
 
 

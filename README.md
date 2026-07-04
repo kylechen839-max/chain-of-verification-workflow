@@ -144,15 +144,24 @@ python3 run_cove_evaluation.py \
   --limit 24 \
   --max-questions 3 \
   --num-predict 768 \
-  --output cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.json \
+  --output cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.context.json \
   --database-schema cove_test \
   --skip-db-init \
-  --skip-joint
+  --skip-joint \
+  --verification-context nasa
 ```
 
 Use `--skip-joint` when testing the strict factored CoVe safeguard. In factored
 CoVe, verification answers receive only the self-contained verification
-question, not the draft or direct baseline response.
+question plus retrieved NASA article context, not the draft or direct baseline
+response. The NASA context comes from `public.nasa_articles` and is saved in
+the raw result payload as `verification_contexts` for audit.
+
+The verification-answer prompt uses this grounding instruction:
+
+```text
+Use the following pieces of context to answer the question. If you don't know the answer, just say that you don't know; don't try to make up an answer.
+```
 
 ## Confined Database Results
 

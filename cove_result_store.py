@@ -224,7 +224,7 @@ def save_report_postgres(
         ensure_ascii=True,
     )
 
-    with psycopg.connect(database_url) as conn:
+    with psycopg.connect(database_url, prepare_threshold=None) as conn:
         with conn.cursor() as cursor:
             if initialize:
                 cursor.execute(f"create schema if not exists {schema}")

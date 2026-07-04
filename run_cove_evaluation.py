@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict
 import argparse
 import json
+import re
 import time
 from typing import Any
 
@@ -58,6 +59,93 @@ def answer_direct(question: str, call_llm: Any) -> str:
             {"role": "user", "content": question},
         ]
     ).strip()
+
+
+def extract_nasa_article_id(text: str) -> str | None:
+    match = re.search(r"NASA article id:\s*(\d+)", text)
+    if match:
+        return match.group(1)
+    match = re.search(r"\bnasa-(\d+)\b", text, flags=re.IGNORECASE)
+    return match.group(1) if match else None
+
+
+def build_nasa_context_provider(database_url: str | None) -> Any:
+    if not database_url:
+        return None
+
+    try:
+        import psycopg
+    except ImportError:
+        return None
+
+    cache: dict[str, str] = {}
+
+    def join_list(value: Any) -> str:
+        if isinstance(value, list):
+            return ", ".join(str(item) for item in value) or "Not listed"
+        return str(value or "Not listed")
+
+    def fetch_context(article_id: str) -> str:
+        if article_id in cache:
+            return cache[article_id]
+
+        query = """
+        select id, title, abstract, author_names, keywords, subject_categories,
+               center_name, center_code, sti_type, distribution, distribution_date,
+               submitted_date, created_date, modified_date, publication_name,
+               publication_date, publisher, volume, issue, doi, report_numbers,
+               pdf_url, fulltext_url, downloads_available, ntrs_url, source_topics
+        from public.nasa_articles
+        where id = %s
+        """
+        with psycopg.connect(
+            database_url, connect_timeout=15, prepare_threshold=None
+        ) as conn:
+            with conn.cursor() as cur:
+                cur.execute(query, (article_id,))
+                row = cur.fetchone()
+                if not row:
+                    cache[article_id] = ""
+                    return ""
+                cols = [desc.name for desc in cur.description]
+
+        record = dict(zip(cols, row))
+        lines = [
+            f"NASA article id: {record['id']}",
+            f"Title: {record['title']}",
+            f"Abstract: {record['abstract'] or 'Not listed'}",
+            f"Authors: {join_list(record['author_names'])}",
+            f"Keywords: {join_list(record['keywords'])}",
+            f"Subject categories: {join_list(record['subject_categories'])}",
+            f"NASA center: {record['center_name'] or 'Not listed'} ({record['center_code'] or 'not listed'})",
+            f"STI type: {record['sti_type'] or 'Not listed'}",
+            f"Distribution: {record['distribution'] or 'Not listed'}",
+            f"Distribution date: {record['distribution_date'] or 'Not listed'}",
+            f"Submitted date: {record['submitted_date'] or 'Not listed'}",
+            f"Created date: {record['created_date'] or 'Not listed'}",
+            f"Modified date: {record['modified_date'] or 'Not listed'}",
+            f"Publication: {record['publication_name'] or 'Not listed'}",
+            f"Publication date: {record['publication_date'] or 'Not listed'}",
+            f"Publisher: {record['publisher'] or 'Not listed'}",
+            f"Volume: {record['volume'] or 'Not listed'}",
+            f"Issue: {record['issue'] or 'Not listed'}",
+            f"DOI: {record['doi'] or 'Not listed'}",
+            f"Report numbers: {join_list(record['report_numbers'])}",
+            f"PDF URL: {record['pdf_url'] or 'Not listed'}",
+            f"Fulltext URL: {record['fulltext_url'] or 'Not listed'}",
+            f"Downloads available: {record['downloads_available']}",
+            f"NTRS URL: {record['ntrs_url'] or 'Not listed'}",
+            f"Source topics: {join_list(record['source_topics'])}",
+        ]
+        cache[article_id] = "\n".join(lines)
+        return cache[article_id]
+
+    def context_provider(original_question: str, verification_question: str) -> str:
+        del verification_question
+        article_id = extract_nasa_article_id(original_question)
+        return fetch_context(article_id) if article_id else ""
+
+    return context_provider
 
 
 def summarize_value(mode: str, value: Any) -> dict[str, Any]:
@@ -116,6 +204,12 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=0, help="Limit benchmark questions; 0 means all.")
     parser.add_argument("--skip-joint", action="store_true", help="Skip one-call joint CoVe mode.")
     parser.add_argument(
+        "--verification-context",
+        choices=["none", "auto", "nasa"],
+        default="auto",
+        help="Context source for factored CoVe verification answers.",
+    )
+    parser.add_argument(
         "--database-url",
         default=None,
         help=(
@@ -144,6 +238,12 @@ def main() -> None:
     questions = load_questions(args.questions)
     if args.limit:
         questions = questions[: args.limit]
+    database_url = args.database_url or database_url_from_env()
+    nasa_context_provider = (
+        build_nasa_context_provider(database_url)
+        if args.verification_context in {"auto", "nasa"}
+        else None
+    )
 
     report: dict[str, Any] = {
         "model": args.model,
@@ -177,10 +277,20 @@ def main() -> None:
         modes.append(
             (
                 "factored_cove",
-                lambda q=item["question"]: run_factored_cove(
+                lambda q=item["question"], item_id=item["id"]: run_factored_cove(
                     q,
                     call_llm=call_llm,
                     max_questions=args.max_questions,
+                    context_provider=(
+                        nasa_context_provider
+                        if nasa_context_provider
+                        and (
+                            args.verification_context == "nasa"
+                            or item_id.startswith("nasa-")
+                            or extract_nasa_article_id(q)
+                        )
+                        else None
+                    ),
                 ),
             )
         )
@@ -211,7 +321,6 @@ def main() -> None:
 
     print(f"Wrote {args.output}")
 
-    database_url = args.database_url or database_url_from_env()
     if database_url:
         run_id = save_report(
             database_url,

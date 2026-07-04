@@ -111,6 +111,32 @@ not receive the direct baseline response or draft answer.
 | 9 | Local Mac | 12 | 24 | 375.68s | 36 |
 | 10 | Local Mac | 24 | 48 | 798.27s | 72 |
 
+Runs 8-10 are preserved as no-context baselines. They exposed a bug in the NASA
+verification step: verification answers were blind to the Supabase article
+record, so the model sometimes responded that it lacked database or internet
+access instead of answering from the NASA article.
+
+That bug is fixed in the context-backed NASA runs. For article prompts,
+`factored_cove` now retrieves the matching row from `public.nasa_articles` and
+passes it to the verification-answer step with this instruction:
+
+```text
+Use the following pieces of context to answer the question. If you don't know the answer, just say that you don't know; don't try to make up an answer.
+```
+
+The verifier still does not receive the draft answer or direct baseline answer.
+It receives only the verification question plus the retrieved NASA article
+context. The raw result payload stores `verification_contexts` for audit.
+
+| Run | Runtime | Prompt Count | Rows | Total Time | Verification Questions | Notes |
+|---:|---|---:|---:|---:|---:|---|
+| 11 | Local Mac | 1 | 2 | 35.23s | 3 | Context smoke test |
+| 16 | Local Mac | 24 | 48 | 712.12s | 72 | Corrected context-backed run |
+
+Run 16 was scanned for the earlier failure modes across all 72 verification
+answers: 0 database-access refusals, 0 draft-dependent verification questions,
+and 0 flagged speculative answers.
+
 The quota-limited Google Compute VM was resized to `e2-standard-16`, but its
 one-prompt smoke run took 142.53s. The local Mac one-prompt NASA run took
 34.62s, so the 12- and 24-prompt NASA benchmarks were run locally. VM advantages
