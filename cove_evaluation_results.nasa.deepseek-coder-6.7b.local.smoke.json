@@ -1,0 +1,58 @@
+{
+  "model": "deepseek-coder:6.7b",
+  "host": "http://127.0.0.1:11434",
+  "max_questions": 3,
+  "num_predict": 768,
+  "question_file": "cove_benchmark_questions_nasa_30.json",
+  "manual_scoring_scale": {
+    "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "results": [
+    {
+      "id": "nasa-19660058018",
+      "category": "nasa-article-metadata",
+      "question": "Using only the NASA article metadata below, write a concise factual summary. Include the article's main topic, authors, NASA center, publication/distribution dates, document type, DOI or report numbers if listed, and NTRS URL. Do not add outside facts.\n\nNASA article id: 19660058018\nTitle: Gravitational waves in the presence of an electromagnetic field.  II\nAbstract: Gravitational waves in presence of electromagnetic field, deriving Einstein-Maxwell equations\nAuthors: Cahen, M., Leroy, J.\nKeywords: GRAVITY WAVE, EINSTEIN EQUATION, RELATIVITY THEORY, ELECTROMAGNETIC FIELD\nSubject categories: Geophysics\nNASA center: Legacy CDMS (CDMS)\nSTI type: REPRINT\nPublication: ACADEMIE ROYALE DE BELGIQUE\nPublication date: 1965-01-01\nDistribution date: 2019-05-29\nDOI: Not listed\nReport numbers: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/19660058018\nSource topics: gravitational waves",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 13.39,
+          "error": null,
+          "answer_text": "This article titled \"Gravitational waves in the presence of an electromagnetic field.  II\" by Cahen, M., Leroy, J., presents a study on gravitational waves and their interaction with electromagnetic fields. The main topic is gravity wave theory, which includes Einstein-Maxwell equations as part of its derivation. This research was conducted at NASA's Legacy CDMS (CDMS) center. It was first published in Belgium by the Academie Royale de Belgique on 1965 and last distributed to the public on 2019. The document type is a reprint, with no DOI or report numbers listed. For more information, please visit https://ntrs.nasa.gov/citations/19660058018.",
+          "answer_length": 650,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 21.23,
+          "error": null,
+          "answer_text": "Title of this article: \"Gravitational waves in the presence of an electromagnetic field.  II\"\nAuthors of this NASA article: Cahen, M., Leroy, J.\nNASA center where research was conducted at: Legacy CDMS (CDMS)",
+          "answer_length": 208,
+          "draft_length": 624,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Using only the NASA article metadata below, write a concise factual summary. Include the article's main topic, authors, NASA center, publication/distribution dates, document type, DOI or report numbers if listed, and NTRS URL. Do not add outside facts.\n\nNASA article id: 19660058018\nTitle: Gravitational waves in the presence of an electromagnetic field.  II\nAbstract: Gravitational waves in presence of electromagnetic field, deriving Einstein-Maxwell equations\nAuthors: Cahen, M., Leroy, J.\nKeywords: GRAVITY WAVE, EINSTEIN EQUATION, RELATIVITY THEORY, ELECTROMAGNETIC FIELD\nSubject categories: Geophysics\nNASA center: Legacy CDMS (CDMS)\nSTI type: REPRINT\nPublication: ACADEMIE ROYALE DE BELGIQUE\nPublication date: 1965-01-01\nDistribution date: 2019-05-29\nDOI: Not listed\nReport numbers: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/19660058018\nSource topics: gravitational waves",
+            "draft": "This article titled \"Gravitational waves in the presence of an electromagnetic field.  II\" by Cahen, M., Leroy, J., presents a derivation of Einstein-Maxwell equations using gravitational waves as a source. The main topic is gravitational waves and their role in understanding electromagnetic fields. This study was conducted at NASA's Legacy CDMS (CDMS) center. It was first published by the Belgian Academy of Sciences on January 1, 1965, and last updated on May 29, 2019. The document type is a reprint, with no DOI or report numbers listed. For more information, please visit https://ntrs.nasa.gov/citations/19660058018.",
+            "verification_questions": [
+              "What is the title of this article?",
+              "Who are the authors of this NASA article?",
+              "Which NASA center was this research conducted at?"
+            ],
+            "verification_answers": [
+              "I'm sorry for any confusion, but as an AI model trained on a diverse range of internet text, I don't have access to specific articles or URLs. Please provide the content or context related to your question so that I can assist you better.",
+              "I'm sorry, but as an AI model developed by OpenAI, I don't have access to external databases or the internet in real-time. Therefore, I can't provide information about specific articles from NASA. However, you can easily find this information on their official website or through a search engine.",
+              "I'm sorry, but as an AI model developed by OpenAI, I don't have access to real-time data or the ability to browse the internet in order to provide current information about specific institutions like NASA centers. My main function is to assist with programming and computer science related queries. If you have any questions on those topics, feel free to ask."
+            ],
+            "final": "Title of this article: \"Gravitational waves in the presence of an electromagnetic field.  II\"\nAuthors of this NASA article: Cahen, M., Leroy, J.\nNASA center where research was conducted at: Legacy CDMS (CDMS)"
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "python-history",
+    "category": "programming-history",
+    "question": "Give a concise history of the Python programming language, including creator, first release year, Python 2, and Python 3."
+  },
+  {
+    "id": "git-workflow",
+    "category": "developer-tools",
+    "question": "Explain Git core workflow, including clone, branch, commit, merge, and push."
+  },
+  {
+    "id": "http-status-codes",
+    "category": "web-development",
+    "question": "Explain the difference between HTTP status codes 200, 301, 400, 401, 403, 404, and 500."
+  },
+  {
+    "id": "python-list-dict",
+    "category": "python",
+    "question": "Explain the difference between a Python list, tuple, set, and dictionary, including mutability and typical use cases."
+  },
+  {
+    "id": "sql-joins",
+    "category": "databases",
+    "question": "Explain INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN in SQL with concise examples."
+  },
+  {
+    "id": "big-o",
+    "category": "computer-science",
+    "question": "Explain Big O notation and compare O(1), O(log n), O(n), O(n log n), and O(n squared)."
+  },
+  {
+    "id": "rest-vs-graphql",
+    "category": "web-development",
+    "question": "Compare REST and GraphQL APIs, including data fetching, versioning, caching, and common tradeoffs."
+  },
+  {
+    "id": "docker-basics",
+    "category": "devops",
+    "question": "Explain Docker images, containers, Dockerfiles, volumes, and ports for a beginner developer."
+  },
+  {
+    "id": "kubernetes-basics",
+    "category": "devops",
+    "question": "Explain Kubernetes pods, deployments, services, config maps, secrets, and horizontal scaling."
+  },
+  {
+    "id": "http-vs-https",
+    "category": "web-development",
+    "question": "Explain the difference between HTTP and HTTPS, including TLS, certificates, encryption, and trust."
+  },
+  {
+    "id": "oauth2-flow",
+    "category": "security",
+    "question": "Explain OAuth 2.0 authorization code flow, including client, resource owner, authorization server, and access token."
+  },
+  {
+    "id": "jwt",
+    "category": "security",
+    "question": "Explain JSON Web Tokens, including header, payload, signature, expiration, and common security risks."
+  },
+  {
+    "id": "sql-normalization",
+    "category": "databases",
+    "question": "Explain database normalization through first, second, and third normal form with concise examples."
+  },
+  {
+    "id": "indexes",
+    "category": "databases",
+    "question": "Explain database indexes, including B-trees, lookup speed, write overhead, and when indexes can hurt performance."
+  },
+  {
+    "id": "transactions-acid",
+    "category": "databases",
+    "question": "Explain ACID database transactions and what atomicity, consistency, isolation, and durability mean."
+  },
+  {
+    "id": "cap-theorem",
+    "category": "distributed-systems",
+    "question": "Explain the CAP theorem and how consistency, availability, and partition tolerance trade off in distributed systems."
+  },
+  {
+    "id": "eventual-consistency",
+    "category": "distributed-systems",
+    "question": "Explain eventual consistency, including when it is useful and what user-facing problems it can create."
+  },
+  {
+    "id": "mapreduce",
+    "category": "distributed-systems",
+    "question": "Explain MapReduce, including map, shuffle, reduce, fault tolerance, and common use cases."
+  },
+  {
+    "id": "neural-network-basics",
+    "category": "machine-learning",
+    "question": "Explain neural networks, including neurons, weights, activation functions, layers, and training."
+  },
+  {
+    "id": "transformers",
+    "category": "machine-learning",
+    "question": "Explain transformer models, including attention, tokens, embeddings, positional information, and why they scale well."
+  },
+  {
+    "id": "precision-recall",
+    "category": "machine-learning",
+    "question": "Explain precision, recall, F1 score, false positives, and false negatives with a simple example."
+  },
+  {
+    "id": "overfitting",
+    "category": "machine-learning",
+    "question": "Explain overfitting and underfitting in machine learning, including bias, variance, and validation data."
+  },
+  {
+    "id": "gradient-descent",
+    "category": "machine-learning",
+    "question": "Explain gradient descent, including loss functions, learning rate, local minima, and stochastic gradients."
+  },
+  {
+    "id": "python-gil",
+    "category": "python",
+    "question": "Explain Python's Global Interpreter Lock, including what it affects and when multiprocessing helps."
+  },
+  {
+    "id": "async-await",
+    "category": "programming",
+    "question": "Explain async and await, including event loops, tasks, blocking calls, and when asynchronous code helps."
+  },
+  {
+    "id": "memory-stack-heap",
+    "category": "computer-science",
+    "question": "Explain stack memory and heap memory, including allocation, lifetimes, recursion, and common errors."
+  },
+  {
+    "id": "tcp-udp",
+    "category": "networking",
+    "question": "Compare TCP and UDP, including reliability, ordering, congestion control, latency, and example applications."
+  },
+  {
+    "id": "dns",
+    "category": "networking",
+    "question": "Explain how DNS resolves a domain name, including recursive resolvers, authoritative servers, caching, and TTL."
+  },
+  {
+    "id": "public-key-crypto",
+    "category": "security",
+    "question": "Explain public-key cryptography, including key pairs, encryption, digital signatures, and certificate authorities."
+  },
+  {
+    "id": "ci-cd",
+    "category": "devops",
+    "question": "Explain CI/CD pipelines, including build, test, artifact, deployment, rollback, and environment promotion."
+  }
+]

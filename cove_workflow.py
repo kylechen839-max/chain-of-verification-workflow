@@ -111,6 +111,8 @@ that would fact-check the draft's factual claims.
 Rules:
 - Prefer open-ended factual questions over yes/no questions.
 - Make each question answerable without seeing the draft.
+- If the user question contains source text, records, or metadata, include only
+  the source facts needed to answer each verification question.
 - Focus on atomic claims: dates, names, locations, numbers, causal claims, and entity membership.
 - Return JSON only, exactly in this shape: {{"questions": ["...", "..."]}}
 

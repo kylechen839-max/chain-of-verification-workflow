@@ -128,6 +128,32 @@ The JSON output includes placeholders for manual accuracy and hallucination
 scores. Fill those in after reviewing each answer if you want to make a
 research-style comparison between direct answers and CoVe answers.
 
+## NASA Article Evaluation
+
+`cove_benchmark_questions_nasa_30.json` contains 30 prompts generated from the
+Supabase `public.nasa_articles` table populated by
+`Rohan-Gambhir/Hallucinations`. The table stores NASA NTRS article metadata and
+abstracts for black holes and gravitational waves.
+
+Run a NASA benchmark with direct baseline and factored CoVe only:
+
+```bash
+python3 run_cove_evaluation.py \
+  --model deepseek-coder:6.7b \
+  --questions cove_benchmark_questions_nasa_30.json \
+  --limit 24 \
+  --max-questions 3 \
+  --num-predict 768 \
+  --output cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.json \
+  --database-schema cove_test \
+  --skip-db-init \
+  --skip-joint
+```
+
+Use `--skip-joint` when testing the strict factored CoVe safeguard. In factored
+CoVe, verification answers receive only the self-contained verification
+question, not the draft or direct baseline response.
+
 ## Confined Database Results
 
 For a local confined database test, write results into a SQLite file:

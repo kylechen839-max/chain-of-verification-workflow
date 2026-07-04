@@ -84,6 +84,39 @@ Run 6 is the full six-prompt dataset at `max_questions=4` and
 `num_predict=1024`. It completed under the 10-minute Google Compute escalation
 threshold, so the full benchmark stayed local.
 
+## NASA Article Runs
+
+The NASA source corpus comes from
+`Rohan-Gambhir/Hallucinations`. Its loader creates `public.nasa_articles` from
+NASA NTRS records on black holes and gravitational waves. The live table has
+500 rows with article metadata and abstracts; there is not a separate full-text
+chunk/vector table in this Supabase project.
+
+The NASA prompt file `cove_benchmark_questions_nasa_30.json` was generated from
+`public.nasa_articles`. Each prompt includes only article metadata/abstract
+facts and instructs the model not to add outside facts.
+
+For these runs, `joint_cove` was skipped. Results compare only:
+
+- `direct`: baseline answer for the article prompt
+- `factored_cove`: draft, self-contained verification questions, blind
+  verification answers, and final rewrite
+
+The verification-answer step receives only the verification question. It does
+not receive the direct baseline response or draft answer.
+
+| Run | Runtime | Prompt Count | Rows | Total Time | Verification Questions |
+|---:|---|---:|---:|---:|---:|
+| 8 | Local Mac | 1 | 2 | 34.62s | 3 |
+| 9 | Local Mac | 12 | 24 | 375.68s | 36 |
+| 10 | Local Mac | 24 | 48 | 798.27s | 72 |
+
+The quota-limited Google Compute VM was resized to `e2-standard-16`, but its
+one-prompt smoke run took 142.53s. The local Mac one-prompt NASA run took
+34.62s, so the 12- and 24-prompt NASA benchmarks were run locally. VM advantages
+for this workload are reproducibility and offloading long jobs, not speed under
+the current project quota.
+
 ## Next Evaluation Step
 
 Manually score each mode in `cove_evaluation_results.deepseek-coder.local.json`:
