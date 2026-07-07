@@ -137,6 +137,37 @@ Run 16 was scanned for the earlier failure modes across all 72 verification
 answers: 0 database-access refusals, 0 draft-dependent verification questions,
 and 0 flagged speculative answers.
 
+## NASA Hallucination Summary
+
+Manual hallucination scores for run 16 are stored in
+`results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.context.hallucination_scores.json`.
+The scoring scale is:
+
+- `0`: none obvious
+- `1`: minor/uncertain
+- `2`: major invented claims
+
+For the main comparison, "without CoVe" means the `direct` answer and
+"factored CoVe" means the final rewritten answer after the draft, verification
+questions, context-backed verification answers, and final rewrite.
+
+| Mode | Outputs | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Without CoVe (`direct`) | 24 | 9 | 12 | 3 | 62.5% | 12.5% | 0.7500 |
+| Factored CoVe final | 24 | 14 | 7 | 3 | 41.7% | 12.5% | 0.5417 |
+
+On this NASA metadata benchmark, factored CoVe reduced the share of outputs
+with any hallucination from 62.5% to 41.7%, a 20.8 percentage-point absolute
+reduction. The rate of major hallucinations did not change: both modes had 3
+major hallucinations out of 24 outputs.
+
+The initial CoVe baseline draft was also scored for comparison. It had 5
+score-0 outputs, 18 score-1 outputs, and 1 score-2 output, for a 79.2% any
+hallucination rate, a 4.2% major hallucination rate, and an average score of
+0.8333. This suggests the verification-and-rewrite step reduced many minor
+metadata distortions from the initial draft, though it did not eliminate major
+errors in the final answer.
+
 The quota-limited Google Compute VM was resized to `e2-standard-16`, but its
 one-prompt smoke run took 142.53s. The local Mac one-prompt NASA run took
 34.62s, so the 12- and 24-prompt NASA benchmarks were run locally. VM advantages
