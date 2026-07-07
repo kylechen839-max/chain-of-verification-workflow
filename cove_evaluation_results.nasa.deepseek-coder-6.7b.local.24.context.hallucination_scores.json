@@ -1,0 +1,399 @@
+{
+  "source_file": "cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.context.json",
+  "source_supabase_run_id": 16,
+  "scored_at": "2026-07-06",
+  "scoring_scale": {
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "scoring_method": "Manual review of each mode's final answer against the NASA article metadata in the source prompt and the retrieved verification context saved in the raw result payload.",
+  "results": [
+    {
+      "id": "nasa-19660058018",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly grounded, but says the research was conducted at Legacy CDMS and describes publication as in Belgium; those are interpretive/unsupported uses of metadata rather than clear source facts."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Concise metadata summary is supported by the source record."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19670060113",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Key title, authors, publication, date, center, STI type, topic, DOI, and URL are supported."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Provided metadata is supported, though the answer is incomplete."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680040830",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but treats the distribution date as a last updated date and says the research was conducted at Legacy CDMS."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "All stated metadata is supported."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680041047",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly grounded, but says the article was reprinted with a new publication date of 2011-08-11; that date is the distribution date, not a publication date."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Metadata summary is supported and correctly identifies DOI/report numbers as not listed."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680041451",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly grounded, but claims Isaacson is a member of the Legacy CDMS NASA center, which is not stated by the metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Main metadata is supported, but expands CDMS as 'Cosmic Data Mining and Search', which is not in the source record."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680044126",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Stated title, author, topic, category, dates, missing DOI/report numbers, and URL are supported."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "All stated metadata is supported."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680055157",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Summary is grounded in the source record; no obvious invented claim."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Summary is grounded in the source record."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680060065",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but softens the abstract into 'could be indicative' and frames the conference-paper type awkwardly; minor uncertainty rather than a major invention."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Summary is supported by the article metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19700062894",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but says the article was reprinted on the distribution date; the source lists STI type as REPRINT and distribution date separately."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but phrases Legacy CDMS as the publication location and calls the article a reprint from the NTRS URL."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19710037334",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Grounded summary with no obvious invented claim."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Incorrectly says the document type is the black hole model description. The source STI type is REPRINT; this is a major metadata error."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19720006134",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Invents 'Journal of Pluto Proceedings' from the source publication field 'JPL Proc. of the Conf. on Exptl. Tests of Gravitation Theories' and implies presentation at Legacy CDMS."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Invents expanded author first names and changes the document type from OTHER to Research Paper."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19720017200",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but the NTRS URL has an extra trailing zero, making a key citation field wrong."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Grounded in the NASA metadata and includes the correct report numbers and NTRS URL."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19720037551",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Summary is supported by the source metadata and abstract."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Metadata summary is supported."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19720042217",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but refers to authors in the plural and frames suggested research directions as the authors' proposal; minor overstatement."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Invents or mangles the author name as 'C. W. Weber Misner'. The source author is Misner, C. W.; Weber is only mentioned in the abstract."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730012613",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but calls NASA-CR-131511 a contract number instead of a report number and says the research is conducted by Legacy CDMS."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Main content is supported, but adds honorifics such as Dr. and Prof. that are not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730019712",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Summary is supported by the NASA metadata and abstract."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Summary is supported by the NASA metadata and abstract."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730025261",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Grounded summary with no obvious invented claim."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but the NTRS URL is wrong: it says '/citifications/' instead of '/citations/'."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730030835",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Summary is supported by the source record."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Metadata summary is supported."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730048319",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly grounded, but says the article was republished by NASA's Legacy CDMS; the source only gives center metadata and distribution date."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but invents an expansion of CDMS as 'Cosmic Data Mining and Analysis System'."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19740010329",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Incorrectly says the experiment was conducted at Johnson Space Center despite the NASA center field being Legacy CDMS, and gives an incorrect NTRS URL ending in 197400129."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Claims are supported by the source metadata, though the answer is incomplete."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19740028976",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but incorrectly says publication date and distribution date are not provided even though both are listed."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Summary is supported by the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19740033277",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Major contradiction: says the theory includes one tensor field, while the source explicitly says two tensor fields."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly grounded, but incorrectly describes eta as an adjustable constant. The source says eta is a nondynamic flat space metric."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19740047288",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Title, authors, publication, DOI, URL, center, category, and broad topic are supported."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly supported, but changes the document type from REPRINT to Journal Article."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19750004800",
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Mostly grounded, but says it is unclear what report numbers are listed even though NASA-CR-140864 is listed."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Summary is supported; the answer omits the actual NTRS URL but does not invent one."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "items_scored": 24,
+    "mode_scores_count": 48,
+    "score_counts": {
+      "0": 23,
+      "1": 19,
+      "2": 6
+    },
+    "direct": {
+      "mode_scores_count": 24,
+      "score_counts": {
+        "0": 9,
+        "1": 12,
+        "2": 3
+      },
+      "average_hallucination_score": 0.75
+    },
+    "factored_cove": {
+      "mode_scores_count": 24,
+      "score_counts": {
+        "0": 14,
+        "1": 7,
+        "2": 3
+      },
+      "average_hallucination_score": 0.5417
+    },
+    "average_hallucination_score": 0.6458
+  }
+}
