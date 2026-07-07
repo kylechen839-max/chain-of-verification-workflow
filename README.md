@@ -158,6 +158,30 @@ python3 run_cove_evaluation.py \
   --verification-context nasa
 ```
 
+For the 100-question upscale run, use:
+
+```bash
+python3 run_cove_evaluation.py \
+  --model deepseek-coder:6.7b \
+  --questions benchmarks/cove_benchmark_questions_nasa_100.json \
+  --limit 100 \
+  --max-questions 3 \
+  --num-predict 768 \
+  --output results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json \
+  --database-schema cove_test \
+  --skip-db-init \
+  --skip-joint \
+  --verification-context nasa
+```
+
+Score NASA metadata hallucinations for direct vs factored CoVe:
+
+```bash
+python3 score_nasa_hallucinations.py \
+  results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json \
+  --output results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json
+```
+
 Use `--skip-joint` when testing the strict factored CoVe safeguard. In factored
 CoVe, verification answers receive only the self-contained verification
 question plus retrieved NASA article context, not the draft or direct baseline

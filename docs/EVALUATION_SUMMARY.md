@@ -132,6 +132,7 @@ context. The raw result payload stores `verification_contexts` for audit.
 |---:|---|---:|---:|---:|---:|---|
 | 11 | Local Mac | 1 | 2 | 35.23s | 3 | Context smoke test |
 | 16 | Local Mac | 24 | 48 | 712.12s | 72 | Corrected context-backed run |
+| 17 | Local Mac | 100 | 200 | 3308.67s | 300 | Corrected context-backed upscale run |
 
 Run 16 was scanned for the earlier failure modes across all 72 verification
 answers: 0 database-access refusals, 0 draft-dependent verification questions,
@@ -167,6 +168,30 @@ hallucination rate, a 4.2% major hallucination rate, and an average score of
 0.8333. This suggests the verification-and-rewrite step reduced many minor
 metadata distortions from the initial draft, though it did not eliminate major
 errors in the final answer.
+
+The 100-prompt upscale benchmark is stored in:
+
+- Questions: `benchmarks/cove_benchmark_questions_nasa_100.json`
+- Results: `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json`
+- Scores: `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json`
+
+The 100-prompt scores were generated with deterministic NASA metadata checks
+in `score_nasa_hallucinations.py`. The scorer flags concrete contradictions
+such as wrong NTRS URLs, DOI/report-number conflicts, wrong document type
+claims, and unsupported metadata-role claims like treating Legacy CDMS as an
+author affiliation, publication venue, or research location. Omissions are not
+penalized.
+
+| Mode | Outputs | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Without CoVe (`direct`) | 100 | 43 | 46 | 11 | 57.0% | 11.0% | 0.6800 |
+| Factored CoVe final | 100 | 60 | 26 | 14 | 40.0% | 14.0% | 0.5400 |
+
+On the 100-prompt upscale, factored CoVe reduced the share of outputs with any
+detected hallucination from 57.0% to 40.0%, a 17.0 percentage-point absolute
+reduction. Major hallucinations increased slightly under this deterministic
+scoring pass, from 11.0% to 14.0%. The average hallucination score still
+improved from 0.6800 without CoVe to 0.5400 with factored CoVe.
 
 The quota-limited Google Compute VM was resized to `e2-standard-16`, but its
 one-prompt smoke run took 142.53s. The local Mac one-prompt NASA run took

@@ -1,0 +1,3042 @@
+{
+  "source_file": "results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json",
+  "source_model": "deepseek-coder:6.7b",
+  "scoring_scale": {
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "scoring_method": "Deterministic NASA metadata checks. The scorer compares direct and factored_cove answers against source metadata in each prompt, flags concrete contradictions such as wrong NTRS URLs, DOI/report-number conflicts, wrong document type claims, and recurring unsupported metadata-role claims such as treating Legacy CDMS as an author affiliation, publication venue, or research location. Omissions are not penalized.",
+  "results": [
+    {
+      "id": "nasa-19660058018",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19660058018",
+        "title": "Gravitational waves in the presence of an electromagnetic field.  II",
+        "authors": "Cahen, M., Leroy, J.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "ACADEMIE ROYALE DE BELGIQUE",
+        "publication_date": "1965-01-01",
+        "distribution_date": "2019-05-29",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19660058018",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats NASA center metadata as where the research was conducted. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19670060113",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19670060113",
+        "title": "Radiation of Gravitational Waves in Brans- Dicke General-Relativity Theory",
+        "authors": "Oconnell, R. F., Salmona, A.",
+        "nasa_center": "Headquarters (HQ)",
+        "sti_type": "REPRINT",
+        "publication": "PHYSICAL REVIEW",
+        "publication_date": "1967-08-25",
+        "distribution_date": "2019-08-13",
+        "doi": "10.1103/PhysRev.160.1108",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19670060113",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong DOI stated: 10.1103/PhysRev."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680040830",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19680040830",
+        "title": "Detection of gravitational waves by stellar scintillation in space.",
+        "authors": "Wintergerb, F.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1968-02-11",
+        "distribution_date": "2019-06-14",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19680040830",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats NASA center metadata as where the research was conducted. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats distribution date as an update date."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680041047",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19680041047",
+        "title": "Radar observations of breaking gravitational waves in the visually clear atmosphere.",
+        "authors": "Angell, J. K., Hicks, J. J.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1968-02-01",
+        "distribution_date": "2011-08-11",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19680041047",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680041451",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19680041451",
+        "title": "Gravitational radiation in the limit of high frequency.  II - Nonlinear terms and the effective stress tensor.",
+        "authors": "Isaacson, R. A.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1968-02-25",
+        "distribution_date": "2019-06-14",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19680041451",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680044126",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19680044126",
+        "title": "Gravitational waves.",
+        "authors": "Weber, J.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1968-04-01",
+        "distribution_date": "2011-08-11",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19680044126",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as a publication venue or publisher."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680055157",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19680055157",
+        "title": "Reply to Winterberg's article on the detectability of gravitational waves.",
+        "authors": "Bertotti, B., Zipoy, D. M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1968-07-11",
+        "distribution_date": "2019-06-14",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19680055157",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19680060065",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19680060065",
+        "title": "Radar observations of gravitational waves in a clear atmosphere.",
+        "authors": "Hicks, J. J.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PAPER",
+        "publication": "Not listed",
+        "publication_date": "1968-01-01",
+        "distribution_date": "2019-07-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19680060065",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19700062894",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19700062894",
+        "title": "Black holes in elliptical galaxies",
+        "authors": "Burbidge, G. R., Wolfe, A. M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1970-08-01",
+        "distribution_date": "2019-06-17",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19700062894",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Blends STI type REPRINT with distribution/publication metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19710037334",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19710037334",
+        "title": "Evidence for a collapsar in the binary system epsilon Aur",
+        "authors": "Cameron, A. G. W.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1971-01-15",
+        "distribution_date": "2011-08-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19710037334",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Document type mismatch: stated 'a black hole model accounting for epsilon Aur eclipsing binary secondary component observations', expected 'REPRINT'."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19720006134",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19720006134",
+        "title": "On the heterodyne method of detecting gravitational waves",
+        "authors": "Braginsky, V. B., Nazarenko, V. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "OTHER",
+        "publication": "JPL Proc. of the Conf. on Exptl. Tests of Gravitation Theories",
+        "publication_date": "1971-11-01",
+        "distribution_date": "2011-09-08",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19720006134",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Invents a publication name."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Document type mismatch: stated 'Research Paper', expected 'OTHER'."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19720017200",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19720017200",
+        "title": "Gravitational-wave astronomy",
+        "authors": "Press, W. H., Thorne, K. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "PREPRINT",
+        "publication": "Not listed",
+        "publication_date": "1972-02-01",
+        "distribution_date": "2019-06-17",
+        "doi": "Not listed",
+        "report_numbers": "NASA-CR-126667, OAP-273, Report Number: NASA-CR-126667, Report Number: OAP-273",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19720017200",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong NTRS URL stated: https://ntrs.nasa.gov/citations/197200172200. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Claims full text access where only an NTRS citation URL is provided."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19720037551",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19720037551",
+        "title": "Evidence of directional filtering of travelling ionospheric disturbances.",
+        "authors": "Yeh, K. C., Webb, H. D., Cowling, D. H.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Nature Physical Science",
+        "publication_date": "1972-02-14",
+        "distribution_date": "2019-06-17",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19720037551",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19720042217",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19720042217",
+        "title": "Interpretation of gravitational-wave observations.",
+        "authors": "Misner, C. W.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Physical Review Letters",
+        "publication_date": "1972-04-10",
+        "distribution_date": "2019-06-17",
+        "doi": "10.1103/PhysRevLett.28.994",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19720042217",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong DOI stated: 10.1103/PhysRevLett."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong DOI stated: 10.1103/PhysRevLett."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730012613",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19730012613",
+        "title": "Gravitational-wave observations as a tool for testing relativistic gravity",
+        "authors": "Eardley, D. M., Lee, D. L., Lightman, A. P., Wagoner, R. V., Will, C. M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONTRACTOR_REPORT",
+        "publication": "Not listed",
+        "publication_date": "1973-01-01",
+        "distribution_date": "2019-06-18",
+        "doi": "Not listed",
+        "report_numbers": "NASA-CR-131511, Report Number: NASA-CR-131511",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19730012613",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730019712",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19730019712",
+        "title": "A new two-metric theory of gravity with prior geometry",
+        "authors": "Lightman, A. P., Lee, D. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONTRACTOR_REPORT",
+        "publication": "Not listed",
+        "publication_date": "1972-01-01",
+        "distribution_date": "2019-06-18",
+        "doi": "Not listed",
+        "report_numbers": "NASA-CR-133501, Report Number: NASA-CR-133501",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19730019712",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as a publication venue or publisher."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730025261",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19730025261",
+        "title": "Gravitational-wave astronomy.",
+        "authors": "Press, W. H., Thorne, K. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "OTHER",
+        "publication": "Not listed",
+        "publication_date": "1972-01-01",
+        "distribution_date": "2019-06-18",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19730025261",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730030835",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19730030835",
+        "title": "Further evidence for a black hole in Beta Lyrae.",
+        "authors": "Kondo, Y., Mccluskey, G. E., Jr., Houck, T. E.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Nature Physical Science",
+        "publication_date": "1972-12-04",
+        "distribution_date": "2011-08-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19730030835",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19730048319",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19730048319",
+        "title": "Maximally slicing a black hole.",
+        "authors": "Estabrook, F., Wahlquist, H., Christensen, S., Dewitt, B., Smarr, L., Tsiang, E.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Physical Review D - Particles and Fields",
+        "publication_date": "1973-05-15",
+        "distribution_date": "2019-06-18",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19730048319",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19740010329",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19740010329",
+        "title": "Lunar Surface Gravimeter Experiment",
+        "authors": "Giganti, J. J., Larson, J. V., Richard, J. P., Weber, J.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "OTHER",
+        "publication": "NASA. Johnson Space Center Apollo 17 Prelim. Sci. Rept.",
+        "publication_date": "1973-01-01",
+        "distribution_date": "2019-06-19",
+        "doi": "Not listed",
+        "report_numbers": "JSC-CN-28977, Report Number: JSC-CN-28977",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19740010329",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong NTRS URL stated: https://ntrs.nasa.gov/citations/197400129. Treats NASA center metadata as where the research was conducted."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19740028976",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19740028976",
+        "title": "Gravitation",
+        "authors": "Misner, C. W., Thorne, K. S., Wheeler, J. A.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "BOOK",
+        "publication": "Not listed",
+        "publication_date": "1973-01-01",
+        "distribution_date": "2019-06-19",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19740028976",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19740033277",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19740033277",
+        "title": "New two-metric theory of gravity with prior geometry",
+        "authors": "Lightman, A. P., Lee, D. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Physical Review D - Particles and Fields",
+        "publication_date": "1973-11-15",
+        "distribution_date": "2019-06-19",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19740033277",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19740047288",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19740047288",
+        "title": "Gravitational Stokes parameters",
+        "authors": "Anile, A. M., Breuer, R. A.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1974-04-01",
+        "distribution_date": "2019-06-19",
+        "doi": "10.1086/152766",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19740047288",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19750004800",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19750004800",
+        "title": "The generation of gravitational waves.  1. Weak-field sources:  A plug-in-and-grind formalism",
+        "authors": "Thorne, K. S., Kovacs, S. J.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONTRACTOR_REPORT",
+        "publication": "Not listed",
+        "publication_date": "1974-01-01",
+        "distribution_date": "2019-06-19",
+        "doi": "Not listed",
+        "report_numbers": "NASA-CR-140864, Report Number: NASA-CR-140864",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19750004800",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Answer says report numbers are not listed even though the source lists report numbers. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Answer says report numbers are not listed even though the source lists report numbers."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19750035105",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19750035105",
+        "title": "Mechanisms for the emission and absorption of gravitational radiation",
+        "authors": "Misner, C. W.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PROCEEDINGS",
+        "publication": "Not listed",
+        "publication_date": "1974-01-01",
+        "distribution_date": "2019-07-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19750035105",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Document type mismatch: stated 'a conference proceeding', expected 'CONFERENCE_PROCEEDINGS'."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong NTRS URL stated: https://ntrs.nasa.gov/citifications/19750035105. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19750037779",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19750037779",
+        "title": "Quantum descriptions of singularities leading to pair creation",
+        "authors": "Misner, C. W.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PROCEEDINGS",
+        "publication": "Not listed",
+        "publication_date": "1974-01-01",
+        "distribution_date": "2019-07-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19750037779",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats NASA center metadata as where the research was conducted. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats NASA center metadata as where the research was conducted. Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19750042685",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19750042685",
+        "title": "Radiation from highly relativistic geodesics",
+        "authors": "Misner, C. W.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PROCEEDINGS",
+        "publication": "Not listed",
+        "publication_date": "1974-01-01",
+        "distribution_date": "2019-07-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19750042685",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19750042690",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19750042690",
+        "title": "How to test gravitation theories by means of gravitational-wave measurements",
+        "authors": "Thorne, K. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PROCEEDINGS",
+        "publication": "Not listed",
+        "publication_date": "1974-01-01",
+        "distribution_date": "2019-07-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19750042690",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong NTRS URL stated: https://ntrs.nasa.gov/citifications/19750042690."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19750049558",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19750049558",
+        "title": "Vector potential and metric perturbations of a rotating black hole",
+        "authors": "Chrzanowski, P. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Physical Review D - Particles and Fields",
+        "publication_date": "1975-04-15",
+        "distribution_date": "2019-06-19",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19750049558",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19750060829",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19750060829",
+        "title": "The generation of gravitational waves. I - Weak-field sources",
+        "authors": "Thorne, K. S., Kovacs, S. J.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1975-09-01",
+        "distribution_date": "2019-06-19",
+        "doi": "10.1086/153783",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19750060829",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19760003889",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19760003889",
+        "title": "Gravitational-wave bursts from the nuclei of distant galaxies and quasars:  Proposal for detection using Doppler tracking of interplanetary spacecraft",
+        "authors": "Thorne, K. S., Braginsky, V. B.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONTRACTOR_REPORT",
+        "publication": "Not listed",
+        "publication_date": "1974-01-01",
+        "distribution_date": "2019-06-20",
+        "doi": "Not listed",
+        "report_numbers": "NASA-CR-145432, Report Number: NASA-CR-145432",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19760003889",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Answer says report numbers are not listed even though the source lists report numbers."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19760014712",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19760014712",
+        "title": "The generation of gravitational waves.  2:  The post-linear formalism revisited",
+        "authors": "Crowley, R. J., Thorne, K. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONTRACTOR_REPORT",
+        "publication": "Not listed",
+        "publication_date": "1975-01-01",
+        "distribution_date": "2019-06-20",
+        "doi": "Not listed",
+        "report_numbers": "NASA-CR-146837, Report Number: NASA-CR-146837",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19760014712",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19760029743",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19760029743",
+        "title": "Extragalactic cosmic rays",
+        "authors": "Burbidge, G. R.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PROCEEDINGS",
+        "publication": "Not listed",
+        "publication_date": "1975-01-01",
+        "distribution_date": "2019-07-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19760029743",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19760040897",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19760040897",
+        "title": "On the detectability of gravitational waves from W Ursae Majoris binary stars",
+        "authors": "Burke, W. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1976-02-01",
+        "distribution_date": "2019-06-20",
+        "doi": "10.1086/154129",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19760040897",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Answer says no DOI is listed even though the source has a DOI."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19760048679",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19760048679",
+        "title": "On the equations governing the electromagnetic perturbations of the Kerr black hole",
+        "authors": "Detweiler, S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1976-05-04",
+        "distribution_date": "2019-06-20",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19760048679",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Claims full text access where only an NTRS citation URL is provided."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong NTRS URL stated: https://ntrs.nasa.gov/citations/19770048679. Wrong NASA article id/reference detected: 19770048679."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19760048681",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19760048681",
+        "title": "On the equations governing the axisymmetric perturbations of the Kerr black hole",
+        "authors": "Chandrasekhar, S., Detweiler, S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1975-08-30",
+        "distribution_date": "2019-06-20",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19760048681",
+        "source_topics": "black hole, gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher. Blends STI type REPRINT with distribution/publication metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19760058856",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19760058856",
+        "title": "On the equations governing the gravitational perturbations of the Kerr black hole",
+        "authors": "Chandrasekhar, S., Detweiler, S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1976-08-20",
+        "distribution_date": "2019-06-20",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19760058856",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19770012037",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19770012037",
+        "title": "Lunar surface gravimeter experiment",
+        "authors": "Giganti, J. J., Larson, J. V., Richard, J. P., Tobias, R. L., Weber, J.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONTRACTOR_REPORT",
+        "publication": "Not listed",
+        "publication_date": "1977-01-01",
+        "distribution_date": "2019-06-20",
+        "doi": "Not listed",
+        "report_numbers": "NASA-CR-151203, Report Number: NASA-CR-151203",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19770012037",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Answer says report numbers are not listed even though the source lists report numbers."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19770015085",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19770015085",
+        "title": "Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?",
+        "authors": "Debney, G.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "TECHNICAL_MEMORANDUM",
+        "publication": "Not listed",
+        "publication_date": "1977-02-01",
+        "distribution_date": "2019-06-20",
+        "doi": "Not listed",
+        "report_numbers": "NASA-TM-X-73378, Report Number: NASA-TM-X-73378",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19770015085",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats distribution date as an update date."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19770056575",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19770056575",
+        "title": "The generation of gravitational waves. II - The postlinear formalism revisited",
+        "authors": "Crowley, R. J., Thorne, K. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1977-07-15",
+        "distribution_date": "2019-06-20",
+        "doi": "10.1086/155397",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19770056575",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19770065419",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19770065419",
+        "title": "Gravitational scattering of zero-rest-mass plane waves",
+        "authors": "De Logi, W. K., Kovacs, S. J., Jr.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Physical Review D - Particles and Fields",
+        "publication_date": "1977-07-15",
+        "distribution_date": "2019-06-20",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19770065419",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats distribution date as an update date."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19770067730",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19770067730",
+        "title": "The generation of gravitational waves. III - Derivation of bremsstrahlung formulae",
+        "authors": "Kovacs, S. J., Thorne, K. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1977-10-01",
+        "distribution_date": "2019-06-20",
+        "doi": "10.1086/155576",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19770067730",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19780021057",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19780021057",
+        "title": "Unusual satellite data: A black hole?",
+        "authors": "Not listed",
+        "nasa_center": "Headquarters (HQ)",
+        "sti_type": "OTHER",
+        "publication": "Not listed",
+        "publication_date": "1978-08-08",
+        "distribution_date": "2019-08-27",
+        "doi": "Not listed",
+        "report_numbers": "NASA-NEWS-RELEASE-78-122, P78-10124, Report Number: NASA-NEWS-RELEASE-78-122, Report Number: P78-10124",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19780021057",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Source lists authors as not listed, but answer appears to imply an author."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Source lists authors as not listed, but answer appears to imply an author."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19780024211",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19780024211",
+        "title": "The gravitational wave detection experiment:  Description and anticipated requirements",
+        "authors": "Berman, A. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "OTHER",
+        "publication": "The Deep Space Network",
+        "publication_date": "1978-08-15",
+        "distribution_date": "2011-08-16",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19780024211",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19780025056",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19780025056",
+        "title": "Gravitational wave detection with the solar probe:  I.  Motivation",
+        "authors": "Thorne, K. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "OTHER",
+        "publication": "JPL  A Close-up of the Sun",
+        "publication_date": "1978-09-01",
+        "distribution_date": "2011-09-08",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19780025056",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19780025060",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19780025060",
+        "title": "Detection of gravitational radiation and oscillations of the sun via Doppler tracking of spacecraft",
+        "authors": "Douglas, D. H.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "OTHER",
+        "publication": "JPL  A Close-up of the Sun",
+        "publication_date": "1978-09-01",
+        "distribution_date": "2011-09-08",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19780025060",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19780034305",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19780034305",
+        "title": "On the emission of neutrinos and gravitational waves in the formation of neutron stars",
+        "authors": "Kondo, Y., Mccluskey, G. E., Jr., Sofia, S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysics and Space Science",
+        "publication_date": "1977-09-01",
+        "distribution_date": "2019-08-26",
+        "doi": "10.1007/BF00642469",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19780034305",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19780045134",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19780045134",
+        "title": "Prospects for detection of gravitational radiation by simultaneous Doppler tracking of several spacecraft",
+        "authors": "Estabrook, F. B., Wahlquist, H. D.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Acta Astronautica",
+        "publication_date": "1978-02-01",
+        "distribution_date": "2019-06-20",
+        "doi": "10.1016/0094-5765(78)90030-9",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19780045134",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong DOI stated: 10.1016/0094-5765(78. Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19780059950",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19780059950",
+        "title": "General-relativistic astrophysics",
+        "authors": "Thorne, K. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "OTHER",
+        "publication": "Not listed",
+        "publication_date": "1978-01-01",
+        "distribution_date": "2019-06-20",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19780059950",
+        "source_topics": "black hole, gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19780063449",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19780063449",
+        "title": "The generation of gravitational waves. IV - Bremsstrahlung",
+        "authors": "Kovacs, S. J., Jr., Thorne, K. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1978-08-15",
+        "distribution_date": "2019-06-20",
+        "doi": "10.1086/156350",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19780063449",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Blends STI type REPRINT with distribution/publication metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19780069316",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19780069316",
+        "title": "Quantum nondemolition measurements of harmonic oscillators",
+        "authors": "Thorne, K. S., Caves, C. M., Zimmermann, M., Sandberg, V. D., Drever, R. W. P.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Physical Review Letters",
+        "publication_date": "1978-03-13",
+        "distribution_date": "2019-06-20",
+        "doi": "10.1103/PhysRevLett.40.667",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19780069316",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong DOI stated: 10.1103/PhysRevLett. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong DOI stated: 10.1103/PhysRevLett. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19790003945",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19790003945",
+        "title": "Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations",
+        "authors": "Berman, A. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "OTHER",
+        "publication": "The Deep Space Network",
+        "publication_date": "1978-10-15",
+        "distribution_date": "2011-08-16",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19790003945",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats distribution date as an update date."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19790025502",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19790025502",
+        "title": "Gravitational waves from rotating and precessing rigid bodies.  2:  General solutions and computationally useful formulae",
+        "authors": "Zimmerman, M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONTRACTOR_REPORT",
+        "publication": "Not listed",
+        "publication_date": "1979-09-01",
+        "distribution_date": "2019-06-21",
+        "doi": "Not listed",
+        "report_numbers": "NASA-CR-162344, OAP-577, Report Number: NASA-CR-162344, Report Number: OAP-577",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19790025502",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19790045910",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19790045910",
+        "title": "GX339-4 - A new black hole candidate",
+        "authors": "Samimi, J., Share, G. H., Wood, K., Yentis, D., Meekins, J., Evans, W. D., Shulman, S., Byram, E. T., Chubb, T. A., Friedman, H.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Nature",
+        "publication_date": "1979-03-29",
+        "distribution_date": "2011-08-16",
+        "doi": "10.1038/278434a0",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19790045910",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher. Treats distribution date as an update date."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19800002737",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19800002737",
+        "title": "Hydrodynamics of primordial black hole formation",
+        "authors": "Nadezhin, D. K., Novikov, I. D., Polnarev, A. G.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "TECHNICAL_MEMORANDUM",
+        "publication": "Not listed",
+        "publication_date": "1979-10-01",
+        "distribution_date": "2019-08-27",
+        "doi": "Not listed",
+        "report_numbers": "PR-347, NASA-TM-75918, Report Number: PR-347, Report Number: NASA-TM-75918",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19800002737",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19800002743",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19800002743",
+        "title": "On the structure of the upper atmosphere of Mars according to data from experiments on the Viking space vehicles",
+        "authors": "Izakov, M. N.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "TECHNICAL_MEMORANDUM",
+        "publication": "Not listed",
+        "publication_date": "1979-10-01",
+        "distribution_date": "2019-08-27",
+        "doi": "Not listed",
+        "report_numbers": "NASA-TM-75717, PR-343, Report Number: NASA-TM-75717, Report Number: PR-343",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19800002743",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as a publication venue or publisher."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19800031508",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19800031508",
+        "title": "Gravitational waves from rotating and precessing rigid bodies - Simple models and applications to pulsars",
+        "authors": "Zimmermann, M., Szedenits, E., Jr.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Physical Review D - Particles and Fields",
+        "publication_date": "1979-07-15",
+        "distribution_date": "2019-06-21",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19800031508",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19800043683",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19800043683",
+        "title": "Gravitational radiation detection with spacecraft Doppler tracking - Limiting sensitivities and prospective missions",
+        "authors": "Estabrook, F. B., Hellings, R. W., Wahlquist, H. D., Wolff, R. S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PROCEEDINGS",
+        "publication": "Not listed",
+        "publication_date": "1979-01-01",
+        "distribution_date": "2019-07-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19800043683",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19800053103",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19800053103",
+        "title": "Anisotropic velocity distributions in M87 - Is a supermassive black hole necessary",
+        "authors": "Duncan, M. J., Wheeler, J. C.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1980-04-15",
+        "distribution_date": "2019-06-21",
+        "doi": "10.1086/183228",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19800053103",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19800066223",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19800066223",
+        "title": "Time-dependent, optically thick accretion onto a black hole",
+        "authors": "Gilden, D. L., Wheeler, J. C.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1980-07-15",
+        "distribution_date": "2019-06-21",
+        "doi": "10.1086/158156",
+        "report_numbers": "PB81-138646, Report Number: PB81-138646",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19800066223",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19800068930",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19800068930",
+        "title": "Gravitational waves from rotating and precessing rigid bodies. II - General solutions and computationally useful formulas",
+        "authors": "Zimmermann, M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Not listed",
+        "publication_date": "1980-02-15",
+        "distribution_date": "2019-06-21",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19800068930",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19810020773",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19810020773",
+        "title": "Doppler-cancelled response to VLF gravitational waves",
+        "authors": "Caporali, A.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "TECHNICAL_MEMORANDUM",
+        "publication": "Not listed",
+        "publication_date": "1981-07-01",
+        "distribution_date": "2019-06-21",
+        "doi": "Not listed",
+        "report_numbers": "NASA-TM-82434, Report Number: NASA-TM-82434",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19810020773",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats NASA center metadata as where the research was conducted."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19810055373",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19810055373",
+        "title": "The influence of cosmological gravitational waves on a Newtonian binary system",
+        "authors": "Mashhoon, B., Carr, B. J., Hu, B. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1981-06-15",
+        "distribution_date": "2019-06-21",
+        "doi": "10.1086/158957",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19810055373",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19820012655",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19820012655",
+        "title": "The role of the deep space network's frequency and timing system in the detection of gravitational waves",
+        "authors": "Mankins, J. C.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PAPER",
+        "publication": "NASA.  Goddard Space Flight Center  Proc. of the 13th Ann. Precise Time and Time Interval (PTTI) Appl. and Planning Meeting",
+        "publication_date": "1982-03-01",
+        "distribution_date": "2019-06-22",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19820012655",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19820041516",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19820041516",
+        "title": "Inhomogeneous cosmology - Gravitational radiation in Bianchi backgrounds",
+        "authors": "Adams, P. J., Hellings, R. W., Zimmerman, R. L., Farhoosh, H., Levine, D. I., Zeldich, S.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1982-02-01",
+        "distribution_date": "2019-06-22",
+        "doi": "10.1086/159604",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19820041516",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats distribution date as an update date. Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19820049210",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19820049210",
+        "title": "On the contribution of a stochastic background of gravitational radiation to the timing noise of pulsars",
+        "authors": "Mashhoon, B.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Royal Astronomical Society",
+        "publication_date": "1982-05-01",
+        "distribution_date": "2019-06-22",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19820049210",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19820063007",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19820063007",
+        "title": "Response of a Doppler canceling system to plane gravitational waves",
+        "authors": "Caporali, A.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Physical Review D - Particles and Fields",
+        "publication_date": "1982-07-15",
+        "distribution_date": "2011-08-17",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19820063007",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats NASA center metadata as where the research was conducted. Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19830018496",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19830018496",
+        "title": "Astronomy and astrophysics for the 1980's, volume 1",
+        "authors": "Not listed",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONTRACTOR_REPORT",
+        "publication": "Not listed",
+        "publication_date": "1982-01-01",
+        "distribution_date": "2019-06-19",
+        "doi": "Not listed",
+        "report_numbers": "PB83-141309, NASA-CR-170147, LC-82-8014, NAS 1.26:170147, Report Number: PB83-141309, Report Number: NASA-CR-170147, Report Number: LC-82-8014, Report Number: NAS 1.26:170147, ISBN: 0-309-03249-0",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19830018496",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher. Source lists authors as not listed, but answer appears to imply an author."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Source lists authors as not listed, but answer appears to imply an author."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19830034420",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19830034420",
+        "title": "The passage of a star by a massive black hole",
+        "authors": "Nolthenius, R. A., Katz, J. I.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal",
+        "publication_date": "1982-12-01",
+        "distribution_date": "2019-06-23",
+        "doi": "10.1086/160511",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19830034420",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19830040994",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19830040994",
+        "title": "Gravitational waves and red shifts - A space experiment for testing relativistic gravity using multiple time-correlated radio signals",
+        "authors": "Smarr, L. L., Vessot, R. F. C., Lundquist, C. A., Decher, R., Piran, T.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "General Relativity and Gravitation",
+        "publication_date": "1983-02-01",
+        "distribution_date": "2011-08-17",
+        "doi": "10.1007/BF00762473",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19830040994",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19840008727",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19840008727",
+        "title": "Visual slant misperception and the Black-Hole landing situation",
+        "authors": "Perrone, J. A.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "TECHNICAL_MEMORANDUM",
+        "publication": "Not listed",
+        "publication_date": "1983-12-01",
+        "distribution_date": "2019-06-24",
+        "doi": "Not listed",
+        "report_numbers": "A-9573, NASA-TM-85866, NAS 1.15:85866, Report Number: A-9573, Report Number: NASA-TM-85866, Report Number: NAS 1.15:85866",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19840008727",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19840052320",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19840052320",
+        "title": "Primordial gravitational waves and the blackbody radiation anisotropy",
+        "authors": "Adams, P. J., Hellings, R. W., Zimmerman, R. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 2 - Letters to the Editor",
+        "publication_date": "1984-05-15",
+        "distribution_date": "2011-08-17",
+        "doi": "10.1086/184265",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19840052320",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19840053922",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19840053922",
+        "title": "Interstellar scintillation and ultra-low-frequency gravitational wave observations",
+        "authors": "Armstrong, J. W.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Nature",
+        "publication_date": "1984-02-09",
+        "distribution_date": "2011-08-17",
+        "doi": "10.1038/307527a0",
+        "report_numbers": "ISSN: 0028-0836",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19840053922",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19840053947",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19840053947",
+        "title": "Pioneer 10 search for gravitational waves - No evidence for coherent radiation from Geminga",
+        "authors": "Anderson, J. D., Armstrong, J. W., Estabrook, F. B., Hellings, R. W., Lau, E. K., Wahlquist, H. D.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Nature",
+        "publication_date": "1984-03-08",
+        "distribution_date": "2019-06-19",
+        "doi": "10.1038/308158a0",
+        "report_numbers": "ISSN: 0028-0836",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19840053947",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19850009519",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19850009519",
+        "title": "Shock acceleration in active galactic nuclei and quasars",
+        "authors": "Kazanas, D., Ellison, D. C.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PAPER",
+        "publication": "Max-Planck Inst. fuer Physik und Astrophysik  X-Ray and UV Emission from Active Galactic Nuclei",
+        "publication_date": "1984-10-01",
+        "distribution_date": "2011-08-18",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19850009519",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19850028639",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19850028639",
+        "title": "Black hole accretion disks - Coronal stabilization of the Lightman-Eardley instability",
+        "authors": "Ionson, J. A., Kuperus, M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 1",
+        "publication_date": "1984-09-01",
+        "distribution_date": "2019-06-19",
+        "doi": "10.1086/162418",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19850028639",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19850031465",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19850031465",
+        "title": "Visual slant misperception and the 'black-hole' landing situation",
+        "authors": "Perrone, J. A.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Aviation, Space, and Environmental Medicine",
+        "publication_date": "1984-11-01",
+        "distribution_date": "2011-08-18",
+        "doi": "Not listed",
+        "report_numbers": "ISSN: 0095-6562",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19850031465",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Answer says report numbers are not listed even though the source lists report numbers."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19850041952",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19850041952",
+        "title": "Inhomogeneous cosmology. II - Linearly polarized gravitational waves",
+        "authors": "Adams, P. J., Hellings, R. W., Zimmerman, R. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 1",
+        "publication_date": "1985-01-01",
+        "distribution_date": "2011-08-18",
+        "doi": "10.1086/162757",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19850041952",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19850048732",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19850048732",
+        "title": "Pioneer 10 search for gravitational waves - Limits on a possible isotropic cosmic background of radiation in the microhertz region",
+        "authors": "Anderson, J. D., Mashhoon, B.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 1",
+        "publication_date": "1985-03-15",
+        "distribution_date": "2019-06-19",
+        "doi": "10.1086/163002",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19850048732",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19850052499",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19850052499",
+        "title": "Black hole normal modes - A semianalytic approach",
+        "authors": "Schutz, B. F., Will, C. M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 2 - Letters to the Editor",
+        "publication_date": "1985-04-15",
+        "distribution_date": "2019-06-19",
+        "doi": "10.1086/184453",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19850052499",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19850063375",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19850063375",
+        "title": "Response functions of free mass gravitational wave antennas",
+        "authors": "Estabrook, F. B.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "General Relativity and Gravitation",
+        "publication_date": "1985-08-01",
+        "distribution_date": "2011-08-18",
+        "doi": "10.1007/BF00762621",
+        "report_numbers": "ISSN: 0001-7701",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19850063375",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19860048947",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19860048947",
+        "title": "Approximation methods in gravitational-radiation theory",
+        "authors": "Will, C. M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Canadian Journal of Physics",
+        "publication_date": "1986-02-01",
+        "distribution_date": "2019-07-11",
+        "doi": "Not listed",
+        "report_numbers": "ISSN: 0008-4204",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19860048947",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong NTRS URL stated: https://ntrs.nasa.gov/citifications/19860048947. Treats distribution date as an update date. Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19860057285",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19860057285",
+        "title": "Is there a black hole in the sky?",
+        "authors": "Paczynski, B.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Nature",
+        "publication_date": "1986-05-22",
+        "distribution_date": "2019-07-11",
+        "doi": "10.1038/321419a0",
+        "report_numbers": "ISSN: 0028-0836",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19860057285",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19870009701",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19870009701",
+        "title": "Physics through the 1990s: Gravitation, cosmology and cosmic-ray physics",
+        "authors": "Not listed",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONTRACTOR_REPORT",
+        "publication": "Not listed",
+        "publication_date": "1986-01-01",
+        "distribution_date": "2019-07-11",
+        "doi": "Not listed",
+        "report_numbers": "DOE/ER-40093/T1-Vol-3, NAS 1.26:180057, LC-85-32019, NASA-CR-180057, PB86-241486, DE88-006392, Report Number: DOE/ER-40093/T1-Vol-3, Report Number: NAS 1.26:180057, Report Number: LC-85-32019, Report Number: NASA-CR-180057, ISBN: 0-309-03579-1, Report Number: PB86-241486, Report Number: DE88-006392",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19870009701",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Treats Legacy CDMS as a publication venue or publisher. Source lists authors as not listed, but answer appears to imply an author."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19870028730",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19870028730",
+        "title": "Deep space network enhancement for the Galileo mission to Jupiter",
+        "authors": "Peng, T. K., Armstrong, J. W., Breidenthal, J. C., Donivan, F. F., Ham, N. C.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PAPER",
+        "publication": "Not listed",
+        "publication_date": "1986-10-01",
+        "distribution_date": "2019-06-24",
+        "doi": "Not listed",
+        "report_numbers": "IAF PAPER 86-304, Report Number: IAF PAPER 86-304",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19870028730",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Answer says report numbers are not listed even though the source lists report numbers."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Treats NASA center metadata as where the research was conducted. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19870029336",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19870029336",
+        "title": "The black hole binary A0620-00",
+        "authors": "Mcclintock, J. E., Remillard, R. A.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 1",
+        "publication_date": "1986-09-01",
+        "distribution_date": "2019-07-11",
+        "doi": "10.1086/164482",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19870029336",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19870038964",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19870038964",
+        "title": "The ABC of Population III",
+        "authors": "Carr, B. J.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PROCEEDINGS",
+        "publication": "Not listed",
+        "publication_date": "1986-01-01",
+        "distribution_date": "2019-06-24",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19870038964",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19870050942",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19870050942",
+        "title": "Approximate methods for black hole collisions",
+        "authors": "Eardley, D. M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PAPER",
+        "publication": "Not listed",
+        "publication_date": "1986-01-01",
+        "distribution_date": "2019-06-24",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19870050942",
+        "source_topics": "black hole, gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19870059302",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19870059302",
+        "title": "Inhomogeneous cosmology. III - Primordial gravitational waves and dust",
+        "authors": "Adams, P. J., Hellings, R. W., Zimmerman, R. L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 1",
+        "publication_date": "1987-07-01",
+        "distribution_date": "2011-08-18",
+        "doi": "10.1086/165348",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19870059302",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats NASA center metadata as where the research was conducted. Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19870061468",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19870061468",
+        "title": "A simplified derivation of stimulated emission by black holes",
+        "authors": "Sorkin, Rafael D.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Classical and Quantum Gravity",
+        "publication_date": "1987-07-01",
+        "distribution_date": "2019-07-11",
+        "doi": "10.1088/0264-9381/4/4/014",
+        "report_numbers": "ISSN: 0264-9381",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19870061468",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata. Blends STI type REPRINT with distribution/publication metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19870062985",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19870062985",
+        "title": "Optical and UV spectroscopy of the black hole binary candidate LMC X-1",
+        "authors": "Hutchings, J. B., Crampton, D., Cowley, A. P., Bianchi, L., Thompson, I. B.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astronomical Journal",
+        "publication_date": "1987-08-01",
+        "distribution_date": "2011-08-18",
+        "doi": "10.1086/114475",
+        "report_numbers": "ISSN: 0004-6256",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19870062985",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19880022786",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19880022786",
+        "title": "Nucleosynthesis in the neighborhood of a black hole",
+        "authors": "Chakrabarti, Sandip K.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PAPER",
+        "publication": "Not listed",
+        "publication_date": "1986-01-01",
+        "distribution_date": "2019-07-12",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19880022786",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19880026393",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19880026393",
+        "title": "Slow-motion scattering and coalescence of maximally charged black holes",
+        "authors": "Ferrell, Robert C., Eardley, Douglas M.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Physical Review Letters",
+        "publication_date": "1987-10-05",
+        "distribution_date": "2019-07-11",
+        "doi": "10.1103/PhysRevLett.59.1617",
+        "report_numbers": "ISSN: 0031-9007",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19880026393",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong DOI stated: 10.1103/PhysRevLett."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Wrong DOI stated: 10.1103/PhysRevLett."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19880031853",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19880031853",
+        "title": "A central black hole in M32",
+        "authors": "Tonry, John L.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 1",
+        "publication_date": "1987-11-15",
+        "distribution_date": "2019-07-11",
+        "doi": "10.1086/165758",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19880031853",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19880044675",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19880044675",
+        "title": "Microwave background anisotropy induced by gravitational waves",
+        "authors": "Linder, Eric V.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 1",
+        "publication_date": "1988-03-15",
+        "distribution_date": "2019-07-11",
+        "doi": "10.1086/166113",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19880044675",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19880046283",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19880046283",
+        "title": "Clustering correlations and limits on cosmological gravitational waves",
+        "authors": "Linder, Eric V.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Astrophysical Journal, Part 1",
+        "publication_date": "1988-05-01",
+        "distribution_date": "2019-07-11",
+        "doi": "10.1086/166269",
+        "report_numbers": "ISSN: 0004-637X",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19880046283",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19880053549",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19880053549",
+        "title": "The Doppler response to gravitational waves from a binary star source",
+        "authors": "Wahlquist, Hugo",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "General Relativity and Gravitation",
+        "publication_date": "1987-01-01",
+        "distribution_date": "2011-08-18",
+        "doi": "10.1007/BF00759146",
+        "report_numbers": "ISSN: 0001-7701",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19880053549",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19880056180",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19880056180",
+        "title": "A test of the massive binary black hole hypothesis - Arp 102B",
+        "authors": "Helpern, J. P., Filippenko, Alexei V.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "Nature",
+        "publication_date": "1988-01-07",
+        "distribution_date": "2011-08-18",
+        "doi": "10.1038/331046a0",
+        "report_numbers": "ISSN: 0028-0836",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19880056180",
+        "source_topics": "black hole"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19890000821",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19890000821",
+        "title": "Gravitational wave searches using the DSN (Deep Space Network)",
+        "authors": "Nelson, S. J., Armstrong, J. W.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "REPRINT",
+        "publication": "The Telecommunications and Data Acquisition Report",
+        "publication_date": "1988-08-15",
+        "distribution_date": "2013-08-29",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19890000821",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Invents an expansion of CDMS not present in the source metadata."
+        }
+      ]
+    },
+    {
+      "id": "nasa-19890003228",
+      "category": "nasa-article-metadata",
+      "reference": {
+        "article_id": "19890003228",
+        "title": "LIGO vacuum system study",
+        "authors": "Livas, Jeffrey C., Moore, Boude C.",
+        "nasa_center": "Legacy CDMS (CDMS)",
+        "sti_type": "CONFERENCE_PAPER",
+        "publication": "NASA, Goddard Space Flight Center, 15th Space Simulation Conference: Support the Highway to Space Through Testing",
+        "publication_date": "1988-01-01",
+        "distribution_date": "2019-06-24",
+        "doi": "Not listed",
+        "report_numbers": "Not listed",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19890003228",
+        "source_topics": "gravitational waves"
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Treats Legacy CDMS as author affiliation, publisher, or source rather than center metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "No obvious hallucination detected by metadata checks."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "items_scored": 100,
+    "mode_scores_count": 200,
+    "score_counts": {
+      "0": 103,
+      "1": 72,
+      "2": 25
+    },
+    "direct": {
+      "mode_scores_count": 100,
+      "score_counts": {
+        "0": 43,
+        "1": 46,
+        "2": 11
+      },
+      "any_hallucination_rate": 0.57,
+      "major_hallucination_rate": 0.11,
+      "average_hallucination_score": 0.68
+    },
+    "factored_cove": {
+      "mode_scores_count": 100,
+      "score_counts": {
+        "0": 60,
+        "1": 26,
+        "2": 14
+      },
+      "any_hallucination_rate": 0.4,
+      "major_hallucination_rate": 0.14,
+      "average_hallucination_score": 0.54
+    },
+    "average_hallucination_score": 0.61
+  }
+}
