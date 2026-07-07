@@ -7,7 +7,7 @@ python3 run_cove_evaluation.py \
   --model deepseek-coder:1.3b \
   --max-questions 2 \
   --num-predict 512 \
-  --output cove_evaluation_results.deepseek-coder.local.json
+  --output results/evaluations/cove_evaluation_results.deepseek-coder.local.json
 ```
 
 ## Environment
@@ -92,9 +92,9 @@ NASA NTRS records on black holes and gravitational waves. The live table has
 500 rows with article metadata and abstracts; there is not a separate full-text
 chunk/vector table in this Supabase project.
 
-The NASA prompt file `cove_benchmark_questions_nasa_30.json` was generated from
-`public.nasa_articles`. Each prompt includes only article metadata/abstract
-facts and instructs the model not to add outside facts.
+The NASA prompt file `benchmarks/cove_benchmark_questions_nasa_30.json` was
+generated from `public.nasa_articles`. Each prompt includes only article
+metadata/abstract facts and instructs the model not to add outside facts.
 
 For these runs, `joint_cove` was skipped. Results compare only:
 
@@ -145,7 +145,7 @@ the current project quota.
 
 ## Next Evaluation Step
 
-Manually score each mode in `cove_evaluation_results.deepseek-coder.local.json`:
+Manually score each mode in `results/evaluations/cove_evaluation_results.deepseek-coder.local.json`:
 
 - Accuracy: `0=mostly wrong`, `1=mixed`, `2=mostly correct`
 - Hallucination: `0=none obvious`, `1=minor/uncertain`, `2=major invented claims`

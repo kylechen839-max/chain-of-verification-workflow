@@ -1,5 +1,5 @@
 {
-  "source_file": "cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.context.json",
+  "source_file": "results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.context.json",
   "source_supabase_run_id": 16,
   "scored_at": "2026-07-06",
   "scoring_scale": {

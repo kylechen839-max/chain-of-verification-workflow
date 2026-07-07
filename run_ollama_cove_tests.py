@@ -36,7 +36,11 @@ def main() -> None:
         dest="questions",
         help="Question to test. Pass multiple times for multiple tests.",
     )
-    parser.add_argument("--output", default="ollama_cove_test_results.json", help="JSON output path.")
+    parser.add_argument(
+        "--output",
+        default="results/ollama/ollama_cove_test_results.json",
+        help="JSON output path.",
+    )
     args = parser.parse_args()
 
     call_llm = make_ollama_call_llm(
