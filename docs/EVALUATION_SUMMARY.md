@@ -193,17 +193,47 @@ reduction. Major hallucinations increased slightly under this deterministic
 scoring pass, from 11.0% to 14.0%. The average hallucination score still
 improved from 0.6800 without CoVe to 0.5400 with factored CoVe.
 
+## NASA Multi-Trial Upscale
+
+The requested 100-, 200-, and 300-question benchmark matrix is complete. Each
+size has three trials, comparing the baseline `direct` answer against the final
+`factored_cove` answer. All runs used local Ollama `deepseek-coder:6.7b`,
+`max_questions=3`, `num_predict=768`, skipped `joint_cove`, and used
+context-backed NASA verification answers.
+
+Aggregate scores are stored in
+`results/scoring/nasa_multi_trial_hallucination_summary.json`.
+
+| Prompt Count | Trials | Outputs Per Mode | Mode | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
+|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
+| 100 | 3 | 300 | Without CoVe (`direct`) | 129 | 138 | 33 | 57.0% | 11.0% | 0.6800 |
+| 100 | 3 | 300 | Factored CoVe final | 180 | 78 | 42 | 40.0% | 14.0% | 0.5400 |
+| 200 | 3 | 600 | Without CoVe (`direct`) | 330 | 207 | 63 | 45.0% | 10.5% | 0.5550 |
+| 200 | 3 | 600 | Factored CoVe final | 420 | 108 | 72 | 30.0% | 12.0% | 0.4200 |
+| 300 | 3 | 900 | Without CoVe (`direct`) | 558 | 240 | 102 | 38.0% | 11.3% | 0.4933 |
+| 300 | 3 | 900 | Factored CoVe final | 684 | 132 | 84 | 24.0% | 9.3% | 0.3333 |
+
+Across all nine trials, there were 1,800 outputs per mode. Factored CoVe
+reduced the any-hallucination rate from 43.5% to 28.7%, a 14.8 percentage-point
+absolute reduction. The major hallucination rate was unchanged overall at
+11.0%, while the average hallucination score improved from 0.5450 to 0.3967.
+
+The trial artifacts are:
+
+| Prompt Count | Trial | Result File | Score File |
+|---:|---:|---|---|
+| 100 | 1 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json` |
+| 100 | 2 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial2.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial2.context.hallucination_scores.json` |
+| 100 | 3 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial3.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial3.context.hallucination_scores.json` |
+| 200 | 1 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial1.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial1.context.hallucination_scores.json` |
+| 200 | 2 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial2.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial2.context.hallucination_scores.json` |
+| 200 | 3 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial3.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial3.context.hallucination_scores.json` |
+| 300 | 1 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial1.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial1.context.hallucination_scores.json` |
+| 300 | 2 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial2.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial2.context.hallucination_scores.json` |
+| 300 | 3 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial3.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial3.context.hallucination_scores.json` |
+
 The quota-limited Google Compute VM was resized to `e2-standard-16`, but its
 one-prompt smoke run took 142.53s. The local Mac one-prompt NASA run took
 34.62s, so the 12- and 24-prompt NASA benchmarks were run locally. VM advantages
 for this workload are reproducibility and offloading long jobs, not speed under
 the current project quota.
-
-## Next Evaluation Step
-
-Manually score each mode in `results/evaluations/cove_evaluation_results.deepseek-coder.local.json`:
-
-- Accuracy: `0=mostly wrong`, `1=mixed`, `2=mostly correct`
-- Hallucination: `0=none obvious`, `1=minor/uncertain`, `2=major invented claims`
-
-Those manual labels are the next piece needed before making a research claim about whether CoVe improved answer quality.
