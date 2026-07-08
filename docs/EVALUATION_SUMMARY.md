@@ -218,6 +218,20 @@ reduced the any-hallucination rate from 43.5% to 28.7%, a 14.8 percentage-point
 absolute reduction. The major hallucination rate was unchanged overall at
 11.0%, while the average hallucination score improved from 0.5450 to 0.3967.
 
+Per-trial runtimes:
+
+| Prompt Count | Trial | Total Runtime | Verification Questions |
+|---:|---:|---:|---:|
+| 100 | 1 | 3308.67s | 300 |
+| 100 | 2 | 3307.05s | 300 |
+| 100 | 3 | 3298.68s | 300 |
+| 200 | 1 | 6874.60s | 600 |
+| 200 | 2 | 6860.52s | 600 |
+| 200 | 3 | 6871.67s | 600 |
+| 300 | 1 | 10154.06s | 900 |
+| 300 | 2 | 10244.21s | 900 |
+| 300 | 3 | 10148.09s | 900 |
+
 The trial artifacts are:
 
 | Prompt Count | Trial | Result File | Score File |
