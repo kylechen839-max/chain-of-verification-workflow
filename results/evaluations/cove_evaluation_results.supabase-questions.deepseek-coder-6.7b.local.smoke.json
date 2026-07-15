@@ -1,0 +1,211 @@
+{
+  "model": "deepseek-coder:6.7b",
+  "host": "http://127.0.0.1:11434",
+  "max_questions": 3,
+  "num_predict": 768,
+  "question_file": "benchmarks/cove_benchmark_questions_supabase_100.json",
+  "manual_scoring_scale": {
+    "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "results": [
+    {
+      "id": "supabase-question-1",
+      "category": "supabase-question-year",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 1\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+      "source_table": "public.questions",
+      "qid": 1,
+      "complexity": "basic",
+      "type": "year",
+      "source_question": "In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?",
+      "reference_answer": "2022",
+      "answer_source_field": "publication_date",
+      "reference_abstract": null,
+      "article_id": "20220003973",
+      "article_title": "PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20220003973",
+      "doi": "10.3847/1538-4365/ac582e",
+      "source_topics": [
+        "black hole"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 12.36,
+          "error": null,
+          "answer_text": "The publication year of the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" can be found in the source field 'publication_date'. However, as per the provided information, the publication date is not available. Therefore, I don't have enough information to provide a direct answer to your question.",
+          "answer_length": 335,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 20.05,
+          "error": null,
+          "answer_text": "The year when the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published is 2022.",
+          "answer_length": 126,
+          "draft_length": 121,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 1\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+            "draft": "The paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published in the year 2022.",
+            "verification_questions": [
+              "What is the publication date for the paper titled 'PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion'?",
+              "In what year was the paper titled 'PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion' published by NASA?",
+              "What is the DOI for the paper titled 'PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion'?"
+            ],
+            "verification_answers": [
+              "I don't know.",
+              "I don't know.",
+              "The Digital Object Identifier (DOI) for the paper \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" is 10.3847/1538-4365/ac582e."
+            ],
+            "final": "The year when the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published is 2022.",
+            "verification_contexts": [
+              "Supabase question id: 1\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+              "Supabase question id: 1\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+              "Supabase question id: 1\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-2",
+      "category": "supabase-question-center",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 2\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nQuestion type: center\nQuestion complexity: basic\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves",
+      "source_table": "public.questions",
+      "qid": 2,
+      "complexity": "basic",
+      "type": "center",
+      "source_question": "Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?",
+      "reference_answer": "Goddard Space Flight Center",
+      "answer_source_field": "center_name",
+      "reference_abstract": null,
+      "article_id": "20190002313",
+      "article_title": "Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20190002313",
+      "doi": null,
+      "source_topics": [
+        "gravitational waves"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 2.91,
+          "error": null,
+          "answer_text": "As per the provided source fields, the NASA center associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\" is Goddard Space Flight Center.",
+          "answer_length": 217,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 29.55,
+          "error": null,
+          "answer_text": "I'm sorry, but as an AI model trained on a dataset that does not include specific information about NASA centers or their association with specific papers, I cannot provide the exact center associated with the paper \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\". My training data is based on a broad range of sources, including textbooks, websites, and other educational material. Therefore, I don't have specific information about NASA centers or their association with specific papers in my knowledge base.",
+          "answer_length": 564,
+          "draft_length": 217,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 2\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nQuestion type: center\nQuestion complexity: basic\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves",
+            "draft": "As per the provided source fields, the NASA center associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\" is Goddard Space Flight Center.",
+            "verification_questions": [
+              "What is the name of the NASA center associated with the paper titled 'Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum'?",
+              "Can you confirm that Goddard Space Flight Center is indeed the NASA center associated with this paper?",
+              "What other sources of information can be used to verify the fact that Goddard Space Flight Center is the NASA center associated with 'Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum'?"
+            ],
+            "verification_answers": [
+              "I don't know.",
+              "I don't know.",
+              "I don't know."
+            ],
+            "final": "I'm sorry, but as an AI model trained on a dataset that does not include specific information about NASA centers or their association with specific papers, I cannot provide the exact center associated with the paper \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\". My training data is based on a broad range of sources, including textbooks, websites, and other educational material. Therefore, I don't have specific information about NASA centers or their association with specific papers in my knowledge base.",
+            "verification_contexts": [
+              "Supabase question id: 2\nQuestion complexity: basic\nQuestion type: center\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 2\nQuestion complexity: basic\nQuestion type: center\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 2\nQuestion complexity: basic\nQuestion type: center\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-3",
+      "category": "supabase-question-method_approach",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 3\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nQuestion type: method_approach\nQuestion complexity: complex\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves",
+      "source_table": "public.questions",
+      "qid": 3,
+      "complexity": "complex",
+      "type": "method_approach",
+      "source_question": "What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?",
+      "reference_answer": null,
+      "answer_source_field": null,
+      "reference_abstract": "Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.",
+      "article_id": "19790003945",
+      "article_title": "Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/19790003945",
+      "doi": null,
+      "source_topics": [
+        "gravitational waves"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 8.0,
+          "error": null,
+          "answer_text": "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses a parametric modeling approach to study the effects of low-frequency water-vapor induced tropospheric path length fluctuations. The authors propose a model that describes these fluctuations in terms of solar wind and tropospheric effects on apparent signal path length. This is done through an observational approach, where experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form.\n\nThe source fields do not provide more specific details about the methods or data used in the study. However, it's clear that they use a methodological approach involving observation and interpretation of experimental results to support their proposal for a parametric model. \n\nIn summary, the paper uses a complex methodology involving observational analysis and parameterization of low-frequency water-vapor induced tropospheric path length fluctuations.",
+          "answer_length": 1028,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 53.31,
+          "error": null,
+          "answer_text": "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses an observational approach to study low-frequency water-vapor induced tropospheric path length fluctuations. The authors propose a parametric model for these fluctuations by combining data from the solar wind with information about the effect of atmospheric conditions on the apparent signal path length. However, more details about how the authors interpret experimental observations of wet tropospheric signal delay fluctuations are not provided in the source fields.",
+          "answer_length": 587,
+          "draft_length": 571,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 3\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nQuestion type: method_approach\nQuestion complexity: complex\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves",
+            "draft": "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses a parametric modeling approach to study the effects of low-frequency water-vapor induced tropospheric path length fluctuations. The authors propose a model that describes these fluctuations in terms of solar wind and tropospheric effects on apparent signal path length. This is done through an observational approach, where experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form.",
+            "verification_questions": [
+              "What type of data does the paper use to study low-frequency water-vapor induced tropospheric path length fluctuations?",
+              "How is the paper proposing to model these fluctuations using solar wind and tropospheric effects on apparent signal path length?",
+              "Can you provide more details about how the authors interpret experimental observations of wet tropospheric signal delay fluctuations?"
+            ],
+            "verification_answers": [
+              "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses observational approach. The authors used experimental observations of wet tropospheric signal delay fluctuations to study the low-frequency water-vapor induced tropospheric path length fluctuations.",
+              "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" proposes to model these fluctuations by combining data from the solar wind with information about the effect of atmospheric conditions on the apparent signal path length. The authors propose a parametric model for low-frequency wet tropospheric path length fluctuation, which is based on similarities between the solar wind and tropospheric effects on apparent signal path length.",
+              "I don't know."
+            ],
+            "final": "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses an observational approach to study low-frequency water-vapor induced tropospheric path length fluctuations. The authors propose a parametric model for these fluctuations by combining data from the solar wind with information about the effect of atmospheric conditions on the apparent signal path length. However, more details about how the authors interpret experimental observations of wet tropospheric signal delay fluctuations are not provided in the source fields.",
+            "verification_contexts": [
+              "Supabase question id: 3\nQuestion complexity: complex\nQuestion type: method_approach\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 3\nQuestion complexity: complex\nQuestion type: method_approach\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 3\nQuestion complexity: complex\nQuestion type: method_approach\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    }
+  ]
+}

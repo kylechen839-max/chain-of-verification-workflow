@@ -11,7 +11,7 @@ from cove_workflow import make_ollama_call_llm, run_factored_cove, run_joint_cov
 from cove_result_store import database_schema_from_env, database_url_from_env, save_report
 
 
-def load_questions(path: str) -> list[dict[str, str]]:
+def load_questions(path: str) -> list[dict[str, Any]]:
     with open(path, encoding="utf-8") as file:
         questions = json.load(file)
 
@@ -22,13 +22,11 @@ def load_questions(path: str) -> list[dict[str, str]]:
     for index, item in enumerate(questions, 1):
         if not isinstance(item, dict) or not item.get("question"):
             raise ValueError(f"Benchmark item {index} must be an object with a question.")
-        normalized.append(
-            {
-                "id": str(item.get("id") or f"question-{index}"),
-                "category": str(item.get("category") or "uncategorized"),
-                "question": str(item["question"]),
-            }
-        )
+        normalized_item = dict(item)
+        normalized_item["id"] = str(item.get("id") or f"question-{index}")
+        normalized_item["category"] = str(item.get("category") or "uncategorized")
+        normalized_item["question"] = str(item["question"])
+        normalized.append(normalized_item)
     return normalized
 
 
@@ -148,6 +146,84 @@ def build_nasa_context_provider(database_url: str | None) -> Any:
     return context_provider
 
 
+def extract_supabase_question_id(text: str) -> int | None:
+    match = re.search(r"Supabase question id:\s*(\d+)", text, flags=re.IGNORECASE)
+    if match:
+        return int(match.group(1))
+    match = re.search(r"\bsupabase-question-(\d+)\b", text, flags=re.IGNORECASE)
+    return int(match.group(1)) if match else None
+
+
+def build_supabase_question_context_provider(database_url: str | None) -> Any:
+    if not database_url:
+        return None
+
+    try:
+        import psycopg
+    except ImportError:
+        return None
+
+    cache: dict[int, str] = {}
+
+    def join_list(value: Any) -> str:
+        if isinstance(value, list):
+            return ", ".join(str(item) for item in value) or "Not listed"
+        return str(value or "Not listed")
+
+    def normalize_missing(value: Any) -> str:
+        if value is None:
+            return "Not listed"
+        text = str(value).strip()
+        return "Not listed" if not text or text.lower() == "none" else text
+
+    def fetch_context(qid: int) -> str:
+        if qid in cache:
+            return cache[qid]
+
+        query = """
+        select qid, complexity, type, question, answer, answer_source_field,
+               reference_abstract, article_id, article_title, ntrs_url, doi,
+               source_topics
+        from public.questions
+        where qid = %s
+        """
+        with psycopg.connect(
+            database_url, connect_timeout=15, prepare_threshold=None
+        ) as conn:
+            with conn.cursor() as cur:
+                cur.execute(query, (qid,))
+                row = cur.fetchone()
+                if not row:
+                    cache[qid] = ""
+                    return ""
+                cols = [desc.name for desc in cur.description]
+
+        record = dict(zip(cols, row))
+        lines = [
+            f"Supabase question id: {record['qid']}",
+            f"Question complexity: {record['complexity']}",
+            f"Question type: {record['type']}",
+            f"Question: {record['question']}",
+            f"Reference answer: {normalize_missing(record['answer'])}",
+            f"Answer source field: {normalize_missing(record['answer_source_field'])}",
+            f"Reference abstract: {normalize_missing(record['reference_abstract'])}",
+            f"Article id: {record['article_id']}",
+            f"Article title: {normalize_missing(record['article_title'])}",
+            f"NTRS URL: {normalize_missing(record['ntrs_url'])}",
+            f"DOI: {normalize_missing(record['doi'])}",
+            f"Source topics: {join_list(record['source_topics'])}",
+        ]
+        cache[qid] = "\n".join(lines)
+        return cache[qid]
+
+    def context_provider(original_question: str, verification_question: str) -> str:
+        del verification_question
+        qid = extract_supabase_question_id(original_question)
+        return fetch_context(qid) if qid else ""
+
+    return context_provider
+
+
 def summarize_value(mode: str, value: Any) -> dict[str, Any]:
     if value is None:
         return {"answer_text": "", "answer_length": 0}
@@ -205,7 +281,7 @@ def main() -> None:
     parser.add_argument("--skip-joint", action="store_true", help="Skip one-call joint CoVe mode.")
     parser.add_argument(
         "--verification-context",
-        choices=["none", "auto", "nasa"],
+        choices=["none", "auto", "nasa", "supabase_questions"],
         default="auto",
         help="Context source for factored CoVe verification answers.",
     )
@@ -242,6 +318,11 @@ def main() -> None:
     nasa_context_provider = (
         build_nasa_context_provider(database_url)
         if args.verification_context in {"auto", "nasa"}
+        else None
+    )
+    supabase_question_context_provider = (
+        build_supabase_question_context_provider(database_url)
+        if args.verification_context in {"auto", "supabase_questions"}
         else None
     )
 
@@ -282,7 +363,14 @@ def main() -> None:
                     call_llm=call_llm,
                     max_questions=args.max_questions,
                     context_provider=(
-                        nasa_context_provider
+                        supabase_question_context_provider
+                        if supabase_question_context_provider
+                        and (
+                            args.verification_context == "supabase_questions"
+                            or item_id.startswith("supabase-question-")
+                            or extract_supabase_question_id(q)
+                        )
+                        else nasa_context_provider
                         if nasa_context_provider
                         and (
                             args.verification_context == "nasa"

@@ -215,7 +215,7 @@ Question:
         )
         if context and (_looks_like_context_refusal(answer) or _looks_speculative(answer)):
             retry_prompt = f"""
-The NASA database record needed to answer is already pasted below. Use only this pasted context.
+The source record needed to answer is already pasted below. Use only this pasted context.
 Do not say you lack database, document, internet, or external-source access.
 Do not use general knowledge, guesses, or speculation.
 If the pasted context does not explicitly contain the requested fact, answer exactly: I don't know.

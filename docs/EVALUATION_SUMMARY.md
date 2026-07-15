@@ -251,3 +251,56 @@ one-prompt smoke run took 142.53s. The local Mac one-prompt NASA run took
 34.62s, so the 12- and 24-prompt NASA benchmarks were run locally. VM advantages
 for this workload are reproducibility and offloading long jobs, not speed under
 the current project quota.
+
+## Supabase Question Table Runs
+
+The newer Supabase benchmark uses `public.questions`, which contains 500 rows
+with the question text plus reference fields: `answer`, `answer_source_field`,
+`reference_abstract`, `article_id`, `article_title`, `ntrs_url`, `doi`, and
+`source_topics`.
+
+Question files were exported with `export_supabase_questions.py`:
+
+- `benchmarks/cove_benchmark_questions_supabase_100.json`
+- `benchmarks/cove_benchmark_questions_supabase_200.json`
+- `benchmarks/cove_benchmark_questions_supabase_300.json`
+
+These runs used local Ollama `deepseek-coder:6.7b`, `max_questions=3`,
+`num_predict=768`, skipped `joint_cove`, and used
+`--verification-context supabase_questions`. The factored verifier receives the
+verification question plus the matching `public.questions` reference row; it
+still does not receive the direct baseline answer or draft answer.
+
+Hallucinations were scored with `score_supabase_question_hallucinations.py`.
+The scorer uses deterministic checks for simple exact-answer cases and a local
+Ollama judge for semantic comparisons against the reference answer, reference
+abstract, DOI, NTRS URL, article title, and source topics. Omissions are not
+penalized.
+
+Aggregate scores are stored in
+`results/scoring/supabase_questions_hallucination_summary.json`.
+
+| Prompt Count | Runtime | Verification Questions | Mode | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
+|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
+| 100 | 3856.25s | 289 | Without CoVe (`direct`) | 47 | 52 | 1 | 53.0% | 1.0% | 0.5400 |
+| 100 | 3856.25s | 289 | Factored CoVe final | 42 | 54 | 4 | 58.0% | 4.0% | 0.6200 |
+| 200 | 7358.23s | 576 | Without CoVe (`direct`) | 94 | 104 | 2 | 53.0% | 1.0% | 0.5400 |
+| 200 | 7358.23s | 576 | Factored CoVe final | 98 | 95 | 7 | 51.0% | 3.5% | 0.5450 |
+| 300 | 11170.51s | 863 | Without CoVe (`direct`) | 137 | 159 | 4 | 54.3% | 1.3% | 0.5567 |
+| 300 | 11170.51s | 863 | Factored CoVe final | 135 | 155 | 10 | 55.0% | 3.3% | 0.5833 |
+
+Across the 100-, 200-, and 300-question runs, there were 600 outputs per mode.
+Factored CoVe did not improve the aggregate hallucination rate on this
+reference-question benchmark: without CoVe had a 53.7% any-hallucination rate,
+while factored CoVe had a 54.2% rate. Major hallucinations increased from 1.2%
+without CoVe to 3.5% with factored CoVe. This suggests the current factored
+rewrite step can lose or distort answer-table facts even when verification
+questions have access to the reference row.
+
+The run artifacts are:
+
+| Prompt Count | Result File | Score File |
+|---:|---|---|
+| 100 | `results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.100.context.json` | `results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.100.context.hallucination_scores.json` |
+| 200 | `results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.200.context.json` | `results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.200.context.hallucination_scores.json` |
+| 300 | `results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.300.context.json` | `results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.300.context.hallucination_scores.json` |
