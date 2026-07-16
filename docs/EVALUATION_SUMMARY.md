@@ -304,3 +304,37 @@ The run artifacts are:
 | 100 | `results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.100.context.json` | `results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.100.context.hallucination_scores.json` |
 | 200 | `results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.200.context.json` | `results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.200.context.hallucination_scores.json` |
 | 300 | `results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.300.context.json` | `results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.300.context.hallucination_scores.json` |
+
+### Supabase 10-90 Question Scaling Runs
+
+Additional Supabase `public.questions` runs were completed at 10-question
+increments from 10 through 90 questions. These use the same model, CoVe
+settings, verification context, and hallucination scorer as the 100/200/300
+Supabase question runs above. Aggregate scores are stored in
+`results/scoring/supabase_questions_scaled_10_90_hallucination_summary.json`.
+
+| Prompt Count | Runtime | Verification Questions | Mode | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
+|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
+| 10 | 362.69s | 28 | Without CoVe (`direct`) | 5 | 5 | 0 | 50.0% | 0.0% | 0.5000 |
+| 10 | 362.69s | 28 | Factored CoVe final | 6 | 4 | 0 | 40.0% | 0.0% | 0.4000 |
+| 20 | 731.23s | 57 | Without CoVe (`direct`) | 9 | 11 | 0 | 55.0% | 0.0% | 0.5500 |
+| 20 | 731.23s | 57 | Factored CoVe final | 8 | 12 | 0 | 60.0% | 0.0% | 0.6000 |
+| 30 | 1165.93s | 85 | Without CoVe (`direct`) | 13 | 17 | 0 | 56.7% | 0.0% | 0.5667 |
+| 30 | 1165.93s | 85 | Factored CoVe final | 12 | 18 | 0 | 60.0% | 0.0% | 0.6000 |
+| 40 | 1453.69s | 115 | Without CoVe (`direct`) | 19 | 21 | 0 | 52.5% | 0.0% | 0.5250 |
+| 40 | 1453.69s | 115 | Factored CoVe final | 16 | 24 | 0 | 60.0% | 0.0% | 0.6000 |
+| 50 | 1813.53s | 144 | Without CoVe (`direct`) | 22 | 28 | 0 | 56.0% | 0.0% | 0.5600 |
+| 50 | 1813.53s | 144 | Factored CoVe final | 20 | 30 | 0 | 60.0% | 0.0% | 0.6000 |
+| 60 | 2142.85s | 174 | Without CoVe (`direct`) | 27 | 33 | 0 | 55.0% | 0.0% | 0.5500 |
+| 60 | 2142.85s | 174 | Factored CoVe final | 24 | 36 | 0 | 60.0% | 0.0% | 0.6000 |
+| 70 | 2473.80s | 203 | Without CoVe (`direct`) | 33 | 37 | 0 | 52.9% | 0.0% | 0.5286 |
+| 70 | 2473.80s | 203 | Factored CoVe final | 28 | 42 | 0 | 60.0% | 0.0% | 0.6000 |
+| 80 | 2847.47s | 232 | Without CoVe (`direct`) | 39 | 41 | 0 | 51.2% | 0.0% | 0.5125 |
+| 80 | 2847.47s | 232 | Factored CoVe final | 33 | 47 | 0 | 58.8% | 0.0% | 0.5875 |
+| 90 | 3278.33s | 262 | Without CoVe (`direct`) | 43 | 43 | 4 | 52.2% | 4.4% | 0.5667 |
+| 90 | 3278.33s | 262 | Factored CoVe final | 37 | 41 | 12 | 58.9% | 13.3% | 0.7222 |
+
+Across the 10-90 scaling runs, there were 450 outputs per mode. Without CoVe
+had a 53.3% any-hallucination rate and a 2.0% major hallucination rate.
+Factored CoVe had a 59.1% any-hallucination rate and a 2.7% major
+hallucination rate.

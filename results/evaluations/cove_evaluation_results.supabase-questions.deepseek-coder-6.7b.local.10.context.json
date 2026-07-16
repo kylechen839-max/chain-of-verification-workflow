@@ -1,0 +1,668 @@
+{
+  "model": "deepseek-coder:6.7b",
+  "host": "http://127.0.0.1:11434",
+  "max_questions": 3,
+  "num_predict": 768,
+  "question_file": "benchmarks/cove_benchmark_questions_supabase_100.json",
+  "manual_scoring_scale": {
+    "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "results": [
+    {
+      "id": "supabase-question-1",
+      "category": "supabase-question-year",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 1\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+      "source_table": "public.questions",
+      "qid": 1,
+      "complexity": "basic",
+      "type": "year",
+      "source_question": "In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?",
+      "reference_answer": "2022",
+      "answer_source_field": "publication_date",
+      "reference_abstract": null,
+      "article_id": "20220003973",
+      "article_title": "PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20220003973",
+      "doi": "10.3847/1538-4365/ac582e",
+      "source_topics": [
+        "black hole"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 10.07,
+          "error": null,
+          "answer_text": "The publication year of the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" can be found in the source field 'publication_date'. However, as per the provided information, the publication date is not available. Therefore, I don't have enough information to provide a direct answer to your question.",
+          "answer_length": 335,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 20.27,
+          "error": null,
+          "answer_text": "The year when the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published is 2022.",
+          "answer_length": 126,
+          "draft_length": 121,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 1\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+            "draft": "The paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published in the year 2022.",
+            "verification_questions": [
+              "What is the publication date for the paper titled 'PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion'?",
+              "In what year was the paper titled 'PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion' published by NASA?",
+              "What is the DOI for the paper titled 'PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion'?"
+            ],
+            "verification_answers": [
+              "I don't know.",
+              "I don't know.",
+              "The Digital Object Identifier (DOI) for the paper \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" is 10.3847/1538-4365/ac582e."
+            ],
+            "final": "The year when the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published is 2022.",
+            "verification_contexts": [
+              "Supabase question id: 1\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+              "Supabase question id: 1\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+              "Supabase question id: 1\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nReference answer: 2022\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-2",
+      "category": "supabase-question-center",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 2\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nQuestion type: center\nQuestion complexity: basic\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves",
+      "source_table": "public.questions",
+      "qid": 2,
+      "complexity": "basic",
+      "type": "center",
+      "source_question": "Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?",
+      "reference_answer": "Goddard Space Flight Center",
+      "answer_source_field": "center_name",
+      "reference_abstract": null,
+      "article_id": "20190002313",
+      "article_title": "Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20190002313",
+      "doi": null,
+      "source_topics": [
+        "gravitational waves"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 2.71,
+          "error": null,
+          "answer_text": "As per the provided source fields, the NASA center associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\" is Goddard Space Flight Center.",
+          "answer_length": 217,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 28.64,
+          "error": null,
+          "answer_text": "I'm sorry, but as an AI model trained on a dataset that does not include specific information about NASA centers or their association with specific papers, I cannot provide the exact center associated with the paper \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\". My training data is based on a broad range of sources, including textbooks, websites, and other educational material. Therefore, I don't have specific information about NASA centers or their association with specific papers in my knowledge base.",
+          "answer_length": 564,
+          "draft_length": 217,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 2\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nQuestion type: center\nQuestion complexity: basic\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves",
+            "draft": "As per the provided source fields, the NASA center associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\" is Goddard Space Flight Center.",
+            "verification_questions": [
+              "What is the name of the NASA center associated with the paper titled 'Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum'?",
+              "Can you confirm that Goddard Space Flight Center is indeed the NASA center associated with this paper?",
+              "What other sources of information can be used to verify the fact that Goddard Space Flight Center is the NASA center associated with 'Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum'?"
+            ],
+            "verification_answers": [
+              "I don't know.",
+              "I don't know.",
+              "I don't know."
+            ],
+            "final": "I'm sorry, but as an AI model trained on a dataset that does not include specific information about NASA centers or their association with specific papers, I cannot provide the exact center associated with the paper \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\". My training data is based on a broad range of sources, including textbooks, websites, and other educational material. Therefore, I don't have specific information about NASA centers or their association with specific papers in my knowledge base.",
+            "verification_contexts": [
+              "Supabase question id: 2\nQuestion complexity: basic\nQuestion type: center\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 2\nQuestion complexity: basic\nQuestion type: center\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 2\nQuestion complexity: basic\nQuestion type: center\nQuestion: Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nArticle id: 20190002313\nArticle title: Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\nNTRS URL: https://ntrs.nasa.gov/citations/20190002313\nDOI: Not listed\nSource topics: gravitational waves"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-3",
+      "category": "supabase-question-method_approach",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 3\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nQuestion type: method_approach\nQuestion complexity: complex\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves",
+      "source_table": "public.questions",
+      "qid": 3,
+      "complexity": "complex",
+      "type": "method_approach",
+      "source_question": "What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?",
+      "reference_answer": null,
+      "answer_source_field": null,
+      "reference_abstract": "Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.",
+      "article_id": "19790003945",
+      "article_title": "Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/19790003945",
+      "doi": null,
+      "source_topics": [
+        "gravitational waves"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 7.7,
+          "error": null,
+          "answer_text": "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses a parametric modeling approach to study the effects of low-frequency water-vapor induced tropospheric path length fluctuations. The authors propose a model that describes these fluctuations in terms of solar wind and tropospheric effects on apparent signal path length. This is done through an observational approach, where experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form.\n\nThe source fields do not provide more specific details about the methods or data used in the study. However, it's clear that they use a methodological approach involving observation and interpretation of experimental results to support their proposal for a parametric model. \n\nIn summary, the paper uses a complex methodology involving observational analysis and parameterization of low-frequency water-vapor induced tropospheric path length fluctuations.",
+          "answer_length": 1028,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 51.43,
+          "error": null,
+          "answer_text": "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses an observational approach to study low-frequency water-vapor induced tropospheric path length fluctuations. The authors propose a parametric model for these fluctuations by combining data from the solar wind with information about the effect of atmospheric conditions on the apparent signal path length. However, more details about how the authors interpret experimental observations of wet tropospheric signal delay fluctuations are not provided in the source fields.",
+          "answer_length": 587,
+          "draft_length": 571,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 3\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nQuestion type: method_approach\nQuestion complexity: complex\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves",
+            "draft": "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses a parametric modeling approach to study the effects of low-frequency water-vapor induced tropospheric path length fluctuations. The authors propose a model that describes these fluctuations in terms of solar wind and tropospheric effects on apparent signal path length. This is done through an observational approach, where experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form.",
+            "verification_questions": [
+              "What type of data does the paper use to study low-frequency water-vapor induced tropospheric path length fluctuations?",
+              "How is the paper proposing to model these fluctuations using solar wind and tropospheric effects on apparent signal path length?",
+              "Can you provide more details about how the authors interpret experimental observations of wet tropospheric signal delay fluctuations?"
+            ],
+            "verification_answers": [
+              "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses observational approach. The authors used experimental observations of wet tropospheric signal delay fluctuations to study the low-frequency water-vapor induced tropospheric path length fluctuations.",
+              "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" proposes to model these fluctuations by combining data from the solar wind with information about the effect of atmospheric conditions on the apparent signal path length. The authors propose a parametric model for low-frequency wet tropospheric path length fluctuation, which is based on similarities between the solar wind and tropospheric effects on apparent signal path length.",
+              "I don't know."
+            ],
+            "final": "The paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" uses an observational approach to study low-frequency water-vapor induced tropospheric path length fluctuations. The authors propose a parametric model for these fluctuations by combining data from the solar wind with information about the effect of atmospheric conditions on the apparent signal path length. However, more details about how the authors interpret experimental observations of wet tropospheric signal delay fluctuations are not provided in the source fields.",
+            "verification_contexts": [
+              "Supabase question id: 3\nQuestion complexity: complex\nQuestion type: method_approach\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 3\nQuestion complexity: complex\nQuestion type: method_approach\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 3\nQuestion complexity: complex\nQuestion type: method_approach\nQuestion: What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.\nArticle id: 19790003945\nArticle title: Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\nNTRS URL: https://ntrs.nasa.gov/citations/19790003945\nDOI: Not listed\nSource topics: gravitational waves"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-4",
+      "category": "supabase-question-subject",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 4\nQuestion: What is the primary NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\"?\nQuestion type: subject\nQuestion complexity: basic\nArticle id: 20060036705\nArticle title: (abstract) OMEGA: A Gravitational Wave MIDEX Mission\nReference answer: Astronomy\nAnswer source field: subject_categories[0]\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20060036705\nDOI: Not listed\nSource topics: black hole, gravitational waves",
+      "source_table": "public.questions",
+      "qid": 4,
+      "complexity": "basic",
+      "type": "subject",
+      "source_question": "What is the primary NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\"?",
+      "reference_answer": "Astronomy",
+      "answer_source_field": "subject_categories[0]",
+      "reference_abstract": null,
+      "article_id": "20060036705",
+      "article_title": "(abstract) OMEGA: A Gravitational Wave MIDEX Mission",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20060036705",
+      "doi": null,
+      "source_topics": [
+        "black hole",
+        "gravitational waves"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 2.04,
+          "error": null,
+          "answer_text": "The primary NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\" is Astronomy.",
+          "answer_length": 126,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 18.33,
+          "error": null,
+          "answer_text": "Astronomy",
+          "answer_length": 9,
+          "draft_length": 126,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 4\nQuestion: What is the primary NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\"?\nQuestion type: subject\nQuestion complexity: basic\nArticle id: 20060036705\nArticle title: (abstract) OMEGA: A Gravitational Wave MIDEX Mission\nReference answer: Astronomy\nAnswer source field: subject_categories[0]\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20060036705\nDOI: Not listed\nSource topics: black hole, gravitational waves",
+            "draft": "The primary NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\" is Astronomy.",
+            "verification_questions": [
+              "What is the first subject category listed in the source fields for the NASA STI record of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\"?",
+              "Is there a specific reference to Astronomy in the abstract or title of this paper?",
+              "What is the DOI (Digital Object Identifier) for the NASA STI record of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\"?"
+            ],
+            "verification_answers": [
+              "The primary subject category listed in the source fields for the NASA STI record of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\" is Astronomy.",
+              "As an AI model developed by OpenAI and trained on a diverse range of internet text, I don't have direct access to databases, documents, the internet, or external sources. Therefore, I can't provide you with specific information about the NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\". My capabilities are limited to processing and generating text based on the input provided to me.",
+              "As an AI model trained on a dataset that includes information about various scientific papers, I can tell you that the Digital Object Identifier (DOI) for the NASA STI record of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\" is not listed in the provided context."
+            ],
+            "final": "Astronomy",
+            "verification_contexts": [
+              "Supabase question id: 4\nQuestion complexity: basic\nQuestion type: subject\nQuestion: What is the primary NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\"?\nReference answer: Astronomy\nAnswer source field: subject_categories[0]\nReference abstract: Not listed\nArticle id: 20060036705\nArticle title: (abstract) OMEGA: A Gravitational Wave MIDEX Mission\nNTRS URL: https://ntrs.nasa.gov/citations/20060036705\nDOI: Not listed\nSource topics: black hole, gravitational waves",
+              "Supabase question id: 4\nQuestion complexity: basic\nQuestion type: subject\nQuestion: What is the primary NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\"?\nReference answer: Astronomy\nAnswer source field: subject_categories[0]\nReference abstract: Not listed\nArticle id: 20060036705\nArticle title: (abstract) OMEGA: A Gravitational Wave MIDEX Mission\nNTRS URL: https://ntrs.nasa.gov/citations/20060036705\nDOI: Not listed\nSource topics: black hole, gravitational waves",
+              "Supabase question id: 4\nQuestion complexity: basic\nQuestion type: subject\nQuestion: What is the primary NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\"?\nReference answer: Astronomy\nAnswer source field: subject_categories[0]\nReference abstract: Not listed\nArticle id: 20060036705\nArticle title: (abstract) OMEGA: A Gravitational Wave MIDEX Mission\nNTRS URL: https://ntrs.nasa.gov/citations/20060036705\nDOI: Not listed\nSource topics: black hole, gravitational waves"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-5",
+      "category": "supabase-question-year",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 5\nQuestion: In what year was the paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 19710037334\nArticle title: Evidence for a collapsar in the binary system epsilon Aur\nReference answer: 1971\nAnswer source field: publication_date\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/19710037334\nDOI: Not listed\nSource topics: black hole",
+      "source_table": "public.questions",
+      "qid": 5,
+      "complexity": "basic",
+      "type": "year",
+      "source_question": "In what year was the paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" published?",
+      "reference_answer": "1971",
+      "answer_source_field": "publication_date",
+      "reference_abstract": null,
+      "article_id": "19710037334",
+      "article_title": "Evidence for a collapsar in the binary system epsilon Aur",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/19710037334",
+      "doi": null,
+      "source_topics": [
+        "black hole"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 1.69,
+          "error": null,
+          "answer_text": "The paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" was published in 1971.",
+          "answer_length": 99,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 13.9,
+          "error": null,
+          "answer_text": "The paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" was published in 1971.",
+          "answer_length": 99,
+          "draft_length": 195,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 5\nQuestion: In what year was the paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 19710037334\nArticle title: Evidence for a collapsar in the binary system epsilon Aur\nReference answer: 1971\nAnswer source field: publication_date\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/19710037334\nDOI: Not listed\nSource topics: black hole",
+            "draft": "The paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" was published in 1971. The information about the publication date is available in the source field 'publication_date'.",
+            "verification_questions": [
+              "What year was the paper titled 'Evidence for a collapsar in the binary system epsilon Aur' published?",
+              "In what year was the article with title 'Evidence for a collapsar in the binary system epsilon Aur' first published?",
+              "When was the publication of the paper titled 'Evidence for a collapsar in the binary system epsilon Aur'?"
+            ],
+            "verification_answers": [
+              "The paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" was published in 1971.",
+              "The article titled \"Evidence for a collapsar in the binary system epsilon Aur\" was first published in 1971.",
+              "The publication year of the paper \"Evidence for a collapsar in the binary system epsilon Aur\" is 1971."
+            ],
+            "final": "The paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" was published in 1971.",
+            "verification_contexts": [
+              "Supabase question id: 5\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" published?\nReference answer: 1971\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 19710037334\nArticle title: Evidence for a collapsar in the binary system epsilon Aur\nNTRS URL: https://ntrs.nasa.gov/citations/19710037334\nDOI: Not listed\nSource topics: black hole",
+              "Supabase question id: 5\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" published?\nReference answer: 1971\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 19710037334\nArticle title: Evidence for a collapsar in the binary system epsilon Aur\nNTRS URL: https://ntrs.nasa.gov/citations/19710037334\nDOI: Not listed\nSource topics: black hole",
+              "Supabase question id: 5\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" published?\nReference answer: 1971\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 19710037334\nArticle title: Evidence for a collapsar in the binary system epsilon Aur\nNTRS URL: https://ntrs.nasa.gov/citations/19710037334\nDOI: Not listed\nSource topics: black hole"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-6",
+      "category": "supabase-question-about_problem",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 6\nQuestion: What is the paper titled \"Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\" about, and what problem or question does it address?\nQuestion type: about_problem\nQuestion complexity: complex\nArticle id: 19770015085\nArticle title: Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: An elementary model of freely falling observers and emitters within a black hole's radius is examined to determine the redshift spectrum reaching a typical observer. The model is independent of scale, the fundamental unit being the radius (mass) of the black hole. The observers/emitters all follow the same kinds of trajectories: radially inward and starting from rest at spatial infinity. The test-particle role is assumed throughout; i.e., the observers/emitters do not themselves contribute to the gravitational field of the system. By means of redshift formulas and luminosity distance to the emitters, a picture of actual redshifts and blueshifts, with their intensities, emerges for an observer within the black hole's radius. No luminosity distances greater than approximately one-half the radius are considered in this particular study; nevertheless, redshifts and blueshifts up to approximately 0.6 are seen in portions of the observer's celestial sphere. An exotic application can be made, as a curiosity, to a black hole the size of the universe, resulting in a particular anisotropic \"cosmology.\"\nNTRS URL: https://ntrs.nasa.gov/citations/19770015085\nDOI: Not listed\nSource topics: black hole",
+      "source_table": "public.questions",
+      "qid": 6,
+      "complexity": "complex",
+      "type": "about_problem",
+      "source_question": "What is the paper titled \"Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\" about, and what problem or question does it address?",
+      "reference_answer": null,
+      "answer_source_field": null,
+      "reference_abstract": "An elementary model of freely falling observers and emitters within a black hole's radius is examined to determine the redshift spectrum reaching a typical observer. The model is independent of scale, the fundamental unit being the radius (mass) of the black hole. The observers/emitters all follow the same kinds of trajectories: radially inward and starting from rest at spatial infinity. The test-particle role is assumed throughout; i.e., the observers/emitters do not themselves contribute to the gravitational field of the system. By means of redshift formulas and luminosity distance to the emitters, a picture of actual redshifts and blueshifts, with their intensities, emerges for an observer within the black hole's radius. No luminosity distances greater than approximately one-half the radius are considered in this particular study; nevertheless, redshifts and blueshifts up to approximately 0.6 are seen in portions of the observer's celestial sphere. An exotic application can be made, as a curiosity, to a black hole the size of the universe, resulting in a particular anisotropic \"cosmology.\"",
+      "article_id": "19770015085",
+      "article_title": "Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/19770015085",
+      "doi": null,
+      "source_topics": [
+        "black hole"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 11.59,
+          "error": null,
+          "answer_text": "The paper titled \"Techniques of Global analysis applied to gravitation theories:  A cosmological black hole\" addresses a complex problem related to the study and understanding of gravitational theories in relation to black holes. The authors propose an elementary model that allows for the examination of freely falling observers and emitters within a black hole's radius, which is independent of scale. This means the fundamental unit being considered is the radius (mass) of the black hole. \n\nThe observers/emitters all follow similar trajectories: radially inward and starting from rest at spatial infinity. The test-particle role is assumed throughout; i.e., the observers/emitters do not contribute to the gravitational field of the system. By using redshift formulas and luminosity distance to the emitters, a picture of actual redshifts and blueshifts with their intensities emerges for an observer within the black hole's radius. \n\nThe study does not consider luminosity distances greater than approximately one-half the radius but it does show redshifts and blueshifts up to approximately 0.6 in portions of the observer's celestial sphere. This suggests that these phenomena could be observed within a black hole, which is an exotic application of their study.\n\nIn conclusion, this paper provides a complex understanding of gravitational theories through the lens of black holes and offers potential applications to cosmology, potentially enabling us to understand black holes at a scale not previously possible.",
+          "answer_length": 1522,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 59.36,
+          "error": null,
+          "answer_text": "The paper titled \"Techniques of Global Analysis Applied to Gravitational Theories: A Cosmological Black Hole\" addresses a complex problem related to gravitational theories and cosmology. Specifically, it explores the application of global analysis techniques to understand how freely falling observers and emitters within a black hole's radius affect the redshift spectrum of an observer. This study provides insights into understanding the redshifts and blueshifts that can be observed by an observer within the black hole's radius, even though they do not contribute directly to the gravitational field of the system. The study also explores potential applications for a black hole the size of the universe, leading to a particular anisotropic \"cosmology\".",
+          "answer_length": 758,
+          "draft_length": 441,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 6\nQuestion: What is the paper titled \"Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\" about, and what problem or question does it address?\nQuestion type: about_problem\nQuestion complexity: complex\nArticle id: 19770015085\nArticle title: Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: An elementary model of freely falling observers and emitters within a black hole's radius is examined to determine the redshift spectrum reaching a typical observer. The model is independent of scale, the fundamental unit being the radius (mass) of the black hole. The observers/emitters all follow the same kinds of trajectories: radially inward and starting from rest at spatial infinity. The test-particle role is assumed throughout; i.e., the observers/emitters do not themselves contribute to the gravitational field of the system. By means of redshift formulas and luminosity distance to the emitters, a picture of actual redshifts and blueshifts, with their intensities, emerges for an observer within the black hole's radius. No luminosity distances greater than approximately one-half the radius are considered in this particular study; nevertheless, redshifts and blueshifts up to approximately 0.6 are seen in portions of the observer's celestial sphere. An exotic application can be made, as a curiosity, to a black hole the size of the universe, resulting in a particular anisotropic \"cosmology.\"\nNTRS URL: https://ntrs.nasa.gov/citations/19770015085\nDOI: Not listed\nSource topics: black hole",
+            "draft": "The paper titled \"Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\" addresses the problem of understanding and analyzing gravitational phenomena within a theoretical framework that is independent of scale. The study examines how freely falling observers and emitters move within a black hole's radius, providing insight into the redshifts and blueshifts observed by an observer at the event horizon.",
+            "verification_questions": [
+              "What problem or question does the paper 'Techniques of Global analysis applied to gravitation theories: A cosmological black hole?' address?",
+              "Can you provide more details about how freely falling observers and emitters move within a black hole's radius in the study?",
+              "How does the study use this information to determine redshifts and blueshifts observed by an observer at the event horizon?"
+            ],
+            "verification_answers": [
+              "The paper titled \"Techniques of Global Analysis Applied to Gravitational Theories: A Cosmological Black Hole\" addresses a complex problem related to gravitational theories and cosmology. Specifically, it explores the application of global analysis techniques to understand how freely falling observers and emitters within a black hole's radius affect the redshift spectrum of an observer. This study provides insights into understanding the redshifts and blueshifts that can be observed by an observer within the black hole's radius, even though they do not contribute directly to the gravitational field of the system. The study also explores potential applications for a black hole the size of the universe, leading to a particular anisotropic \"cosmology.\"",
+              "I don't know.",
+              "The study uses the information about freely falling observers and emitters within a black hole's radius to determine redshifts and blueshifts. The model is independent of scale, with the fundamental unit being the radius (mass) of the black hole. \n\nAll observers/emitters follow the same kinds of trajectories: radially inward and starting from rest at spatial infinity. This means that they all observe the gravitational field of the system without contributing to it. The study uses redshift formulas and luminosity distance to the emitters, which provide a picture of actual redshifts (observations seen by an observer within the black hole's radius) and blueshifts (observations seen by an observer at or beyond the event horizon). \n\nThe study does not consider luminosity distances greater than approximately one-half the radius. However, it does show that redshifts and blueshifts up to approximately 0.6 are visible in portions of the observer's celestial sphere. This suggests that these effects can be observed even at very large distances from the black hole.\n\nThe study also provides an exotic application for a black hole the size of the universe, resulting in a particular anisotropic \"cosmology\". This means that it is possible to observe redshifts and blueshifts not just within the event horizon but even at very large distances from the black hole. \n\nIn summary, the study uses its information about freely falling observers and emitters within a black hole's radius to determine redshifts and blueshifts observed by an observer at the event horizon. This allows for the observation of gravitational effects beyond the event horizon, which is not possible with traditional methods."
+            ],
+            "final": "The paper titled \"Techniques of Global Analysis Applied to Gravitational Theories: A Cosmological Black Hole\" addresses a complex problem related to gravitational theories and cosmology. Specifically, it explores the application of global analysis techniques to understand how freely falling observers and emitters within a black hole's radius affect the redshift spectrum of an observer. This study provides insights into understanding the redshifts and blueshifts that can be observed by an observer within the black hole's radius, even though they do not contribute directly to the gravitational field of the system. The study also explores potential applications for a black hole the size of the universe, leading to a particular anisotropic \"cosmology\".",
+            "verification_contexts": [
+              "Supabase question id: 6\nQuestion complexity: complex\nQuestion type: about_problem\nQuestion: What is the paper titled \"Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\" about, and what problem or question does it address?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: An elementary model of freely falling observers and emitters within a black hole's radius is examined to determine the redshift spectrum reaching a typical observer. The model is independent of scale, the fundamental unit being the radius (mass) of the black hole. The observers/emitters all follow the same kinds of trajectories: radially inward and starting from rest at spatial infinity. The test-particle role is assumed throughout; i.e., the observers/emitters do not themselves contribute to the gravitational field of the system. By means of redshift formulas and luminosity distance to the emitters, a picture of actual redshifts and blueshifts, with their intensities, emerges for an observer within the black hole's radius. No luminosity distances greater than approximately one-half the radius are considered in this particular study; nevertheless, redshifts and blueshifts up to approximately 0.6 are seen in portions of the observer's celestial sphere. An exotic application can be made, as a curiosity, to a black hole the size of the universe, resulting in a particular anisotropic \"cosmology.\"\nArticle id: 19770015085\nArticle title: Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\nNTRS URL: https://ntrs.nasa.gov/citations/19770015085\nDOI: Not listed\nSource topics: black hole",
+              "Supabase question id: 6\nQuestion complexity: complex\nQuestion type: about_problem\nQuestion: What is the paper titled \"Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\" about, and what problem or question does it address?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: An elementary model of freely falling observers and emitters within a black hole's radius is examined to determine the redshift spectrum reaching a typical observer. The model is independent of scale, the fundamental unit being the radius (mass) of the black hole. The observers/emitters all follow the same kinds of trajectories: radially inward and starting from rest at spatial infinity. The test-particle role is assumed throughout; i.e., the observers/emitters do not themselves contribute to the gravitational field of the system. By means of redshift formulas and luminosity distance to the emitters, a picture of actual redshifts and blueshifts, with their intensities, emerges for an observer within the black hole's radius. No luminosity distances greater than approximately one-half the radius are considered in this particular study; nevertheless, redshifts and blueshifts up to approximately 0.6 are seen in portions of the observer's celestial sphere. An exotic application can be made, as a curiosity, to a black hole the size of the universe, resulting in a particular anisotropic \"cosmology.\"\nArticle id: 19770015085\nArticle title: Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\nNTRS URL: https://ntrs.nasa.gov/citations/19770015085\nDOI: Not listed\nSource topics: black hole",
+              "Supabase question id: 6\nQuestion complexity: complex\nQuestion type: about_problem\nQuestion: What is the paper titled \"Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\" about, and what problem or question does it address?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: An elementary model of freely falling observers and emitters within a black hole's radius is examined to determine the redshift spectrum reaching a typical observer. The model is independent of scale, the fundamental unit being the radius (mass) of the black hole. The observers/emitters all follow the same kinds of trajectories: radially inward and starting from rest at spatial infinity. The test-particle role is assumed throughout; i.e., the observers/emitters do not themselves contribute to the gravitational field of the system. By means of redshift formulas and luminosity distance to the emitters, a picture of actual redshifts and blueshifts, with their intensities, emerges for an observer within the black hole's radius. No luminosity distances greater than approximately one-half the radius are considered in this particular study; nevertheless, redshifts and blueshifts up to approximately 0.6 are seen in portions of the observer's celestial sphere. An exotic application can be made, as a curiosity, to a black hole the size of the universe, resulting in a particular anisotropic \"cosmology.\"\nArticle id: 19770015085\nArticle title: Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\nNTRS URL: https://ntrs.nasa.gov/citations/19770015085\nDOI: Not listed\nSource topics: black hole"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-7",
+      "category": "supabase-question-about_problem",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 7\nQuestion: What is the paper titled \"Resource Letter GrW-1: Gravitational Waves\" about, and what problem or question does it address?\nQuestion type: about_problem\nQuestion complexity: complex\nArticle id: 20030025744\nArticle title: Resource Letter GrW-1: Gravitational Waves\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: The phenomenon of gravitational radiation was one of the first predictions of Einstein's general theory of relativity. Progress in understanding this radiation theoretically was slow at first, owing to the difficulty of the nonlinear field equations and the subtleties of their physical effects. The experimental side of this subject also has taken a long time to develop, with efforts at detection severely challenged by the extreme weakness of the waves impinging on the Earth. However, as the 21st century begins, observations of the gravitational waves from astrophysical sources such as black holes, neutron stars, and stellar collapse are expected to open a new window on the universe. Vigorous experimental programs centered on ground-based detectors are being carried out worldwide, and a space-based detector is in the planning stages. On the theoretical side, much effort is being expended to produce robust models of the astrophysical sources and accurate calculations of the waveforms they produce. In this Resource Letter, a set of basic references will be presented first, to provide a general introduction to and overview of the literature in this field. The focus then will shift to highlighting key resources in more specialized areas at the forefront of current research.\nNTRS URL: https://ntrs.nasa.gov/citations/20030025744\nDOI: Not listed\nSource topics: gravitational waves",
+      "source_table": "public.questions",
+      "qid": 7,
+      "complexity": "complex",
+      "type": "about_problem",
+      "source_question": "What is the paper titled \"Resource Letter GrW-1: Gravitational Waves\" about, and what problem or question does it address?",
+      "reference_answer": null,
+      "answer_source_field": null,
+      "reference_abstract": "The phenomenon of gravitational radiation was one of the first predictions of Einstein's general theory of relativity. Progress in understanding this radiation theoretically was slow at first, owing to the difficulty of the nonlinear field equations and the subtleties of their physical effects. The experimental side of this subject also has taken a long time to develop, with efforts at detection severely challenged by the extreme weakness of the waves impinging on the Earth. However, as the 21st century begins, observations of the gravitational waves from astrophysical sources such as black holes, neutron stars, and stellar collapse are expected to open a new window on the universe. Vigorous experimental programs centered on ground-based detectors are being carried out worldwide, and a space-based detector is in the planning stages. On the theoretical side, much effort is being expended to produce robust models of the astrophysical sources and accurate calculations of the waveforms they produce. In this Resource Letter, a set of basic references will be presented first, to provide a general introduction to and overview of the literature in this field. The focus then will shift to highlighting key resources in more specialized areas at the forefront of current research.",
+      "article_id": "20030025744",
+      "article_title": "Resource Letter GrW-1: Gravitational Waves",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20030025744",
+      "doi": null,
+      "source_topics": [
+        "gravitational waves"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 4.9,
+          "error": null,
+          "answer_text": "The paper titled \"Resource Letter GrW-1: Gravitational Waves\" is about the study and understanding of gravitational waves, which are a type of radiation produced by objects in space. The problem or question addressed by this paper is its exploration and application in theoretical physics and astrophysics. It provides an overview of the literature on gravitational waves, including basic references for general introduction to the field and resources in specialized areas at the forefront of current research.",
+          "answer_length": 510,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 52.53,
+          "error": null,
+          "answer_text": "The paper titled \"Resource Letter GrW-1: Gravitational Waves\" addresses several key problems and questions related to gravitational waves. These include understanding their theoretical underpinning, developing robust models of astrophysical sources that produce these waves, and accurately calculating the waveforms they produce. The paper also provides a general introduction to and overview of the literature in this field, as well as presents resources for further research in specialized areas.",
+          "answer_length": 498,
+          "draft_length": 464,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 7\nQuestion: What is the paper titled \"Resource Letter GrW-1: Gravitational Waves\" about, and what problem or question does it address?\nQuestion type: about_problem\nQuestion complexity: complex\nArticle id: 20030025744\nArticle title: Resource Letter GrW-1: Gravitational Waves\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: The phenomenon of gravitational radiation was one of the first predictions of Einstein's general theory of relativity. Progress in understanding this radiation theoretically was slow at first, owing to the difficulty of the nonlinear field equations and the subtleties of their physical effects. The experimental side of this subject also has taken a long time to develop, with efforts at detection severely challenged by the extreme weakness of the waves impinging on the Earth. However, as the 21st century begins, observations of the gravitational waves from astrophysical sources such as black holes, neutron stars, and stellar collapse are expected to open a new window on the universe. Vigorous experimental programs centered on ground-based detectors are being carried out worldwide, and a space-based detector is in the planning stages. On the theoretical side, much effort is being expended to produce robust models of the astrophysical sources and accurate calculations of the waveforms they produce. In this Resource Letter, a set of basic references will be presented first, to provide a general introduction to and overview of the literature in this field. The focus then will shift to highlighting key resources in more specialized areas at the forefront of current research.\nNTRS URL: https://ntrs.nasa.gov/citations/20030025744\nDOI: Not listed\nSource topics: gravitational waves",
+            "draft": "The paper titled \"Resource Letter GrW-1: Gravitational Waves\" is about the study and understanding of gravitational waves, which are a type of radiation produced by a black hole. The problem or question addressed in this paper is how to accurately model these phenomena using mathematical equations and theoretical frameworks. It also discusses the experimental challenges associated with detecting them, such as their weak impact on Earth's sensitive instruments.",
+            "verification_questions": [
+              "What is the problem or question addressed in the paper titled 'Resource Letter GrW-1: Gravitational Waves'?",
+              "Can you provide more details about how gravitational waves are produced by black holes and their theoretical frameworks used for modelling?",
+              "How do the experimental challenges associated with detecting gravitational waves, such as their weak impact on Earth's sensitive instruments, affect the research in this field?"
+            ],
+            "verification_answers": [
+              "The paper \"Resource Letter GrW-1: Gravitational Waves\" addresses several key problems and questions related to gravitational waves. These include understanding their theoretical underpinning, developing robust models of astrophysical sources that produce these waves, and accurately calculating the waveforms they produce. The paper also provides a general introduction to and overview of the literature in this field, as well as presents resources for further research in specialized areas.",
+              "The paper titled \"Resource Letter GrW-1: Gravitational Waves\" addresses the problem of understanding and addressing the production of gravitational waves by black holes. The focus is on developing a robust model to accurately calculate the waveforms produced by these astrophysical sources, which are crucial for understanding how they can be detected experimentally.\n\nGravitational waves are a type of radiation emitted by black holes as they collapse. They are generated through the process known as ringdown, where energy is released into space in the form of light and other forms of electromagnetic radiation. The amplitude and frequency of these waves depend on the mass of the black hole and its environment.\n\nTheoretical frameworks used for modelling gravitational waves include General Relativity theory, which describes gravity as a curvature of spacetime caused by massive objects or black holes. This theory is based on Einstein's equations, but with modifications to account for the additional effects of black holes. \n\nIn addition to General Relativity, there are also other theories that can be used to model gravitational waves. For instance, String Theory proposes that particles are not points in space, but one-dimensional strings vibrating at different frequencies. This theory has been tested with some success, but it remains a complex and controversial area of research.\n\nThe paper presents a set of basic references for understanding the literature on this topic, followed by highlighting key resources in specialized areas of current research. It suggests that further research is needed to fully understand how gravitational waves can be detected experimentally.",
+              "The question is asking about how the difficulties of detecting gravitational waves, particularly their weak impact on Earth's sensitive instruments, can influence the research in this field. The context provides a general overview of the subject and its challenges, but does not provide specific details or examples of these challenges. Therefore, I don't have an answer to your question based solely on the provided context."
+            ],
+            "final": "The paper titled \"Resource Letter GrW-1: Gravitational Waves\" addresses several key problems and questions related to gravitational waves. These include understanding their theoretical underpinning, developing robust models of astrophysical sources that produce these waves, and accurately calculating the waveforms they produce. The paper also provides a general introduction to and overview of the literature in this field, as well as presents resources for further research in specialized areas.",
+            "verification_contexts": [
+              "Supabase question id: 7\nQuestion complexity: complex\nQuestion type: about_problem\nQuestion: What is the paper titled \"Resource Letter GrW-1: Gravitational Waves\" about, and what problem or question does it address?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: The phenomenon of gravitational radiation was one of the first predictions of Einstein's general theory of relativity. Progress in understanding this radiation theoretically was slow at first, owing to the difficulty of the nonlinear field equations and the subtleties of their physical effects. The experimental side of this subject also has taken a long time to develop, with efforts at detection severely challenged by the extreme weakness of the waves impinging on the Earth. However, as the 21st century begins, observations of the gravitational waves from astrophysical sources such as black holes, neutron stars, and stellar collapse are expected to open a new window on the universe. Vigorous experimental programs centered on ground-based detectors are being carried out worldwide, and a space-based detector is in the planning stages. On the theoretical side, much effort is being expended to produce robust models of the astrophysical sources and accurate calculations of the waveforms they produce. In this Resource Letter, a set of basic references will be presented first, to provide a general introduction to and overview of the literature in this field. The focus then will shift to highlighting key resources in more specialized areas at the forefront of current research.\nArticle id: 20030025744\nArticle title: Resource Letter GrW-1: Gravitational Waves\nNTRS URL: https://ntrs.nasa.gov/citations/20030025744\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 7\nQuestion complexity: complex\nQuestion type: about_problem\nQuestion: What is the paper titled \"Resource Letter GrW-1: Gravitational Waves\" about, and what problem or question does it address?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: The phenomenon of gravitational radiation was one of the first predictions of Einstein's general theory of relativity. Progress in understanding this radiation theoretically was slow at first, owing to the difficulty of the nonlinear field equations and the subtleties of their physical effects. The experimental side of this subject also has taken a long time to develop, with efforts at detection severely challenged by the extreme weakness of the waves impinging on the Earth. However, as the 21st century begins, observations of the gravitational waves from astrophysical sources such as black holes, neutron stars, and stellar collapse are expected to open a new window on the universe. Vigorous experimental programs centered on ground-based detectors are being carried out worldwide, and a space-based detector is in the planning stages. On the theoretical side, much effort is being expended to produce robust models of the astrophysical sources and accurate calculations of the waveforms they produce. In this Resource Letter, a set of basic references will be presented first, to provide a general introduction to and overview of the literature in this field. The focus then will shift to highlighting key resources in more specialized areas at the forefront of current research.\nArticle id: 20030025744\nArticle title: Resource Letter GrW-1: Gravitational Waves\nNTRS URL: https://ntrs.nasa.gov/citations/20030025744\nDOI: Not listed\nSource topics: gravitational waves",
+              "Supabase question id: 7\nQuestion complexity: complex\nQuestion type: about_problem\nQuestion: What is the paper titled \"Resource Letter GrW-1: Gravitational Waves\" about, and what problem or question does it address?\nReference answer: Not listed\nAnswer source field: Not listed\nReference abstract: The phenomenon of gravitational radiation was one of the first predictions of Einstein's general theory of relativity. Progress in understanding this radiation theoretically was slow at first, owing to the difficulty of the nonlinear field equations and the subtleties of their physical effects. The experimental side of this subject also has taken a long time to develop, with efforts at detection severely challenged by the extreme weakness of the waves impinging on the Earth. However, as the 21st century begins, observations of the gravitational waves from astrophysical sources such as black holes, neutron stars, and stellar collapse are expected to open a new window on the universe. Vigorous experimental programs centered on ground-based detectors are being carried out worldwide, and a space-based detector is in the planning stages. On the theoretical side, much effort is being expended to produce robust models of the astrophysical sources and accurate calculations of the waveforms they produce. In this Resource Letter, a set of basic references will be presented first, to provide a general introduction to and overview of the literature in this field. The focus then will shift to highlighting key resources in more specialized areas at the forefront of current research.\nArticle id: 20030025744\nArticle title: Resource Letter GrW-1: Gravitational Waves\nNTRS URL: https://ntrs.nasa.gov/citations/20030025744\nDOI: Not listed\nSource topics: gravitational waves"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-8",
+      "category": "supabase-question-year",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 8\nQuestion: In what year was the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 19840053922\nArticle title: Interstellar scintillation and ultra-low-frequency gravitational wave observations\nReference answer: 1984\nAnswer source field: publication_date\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/19840053922\nDOI: 10.1038/307527a0\nSource topics: gravitational waves",
+      "source_table": "public.questions",
+      "qid": 8,
+      "complexity": "basic",
+      "type": "year",
+      "source_question": "In what year was the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" published?",
+      "reference_answer": "1984",
+      "answer_source_field": "publication_date",
+      "reference_abstract": null,
+      "article_id": "19840053922",
+      "article_title": "Interstellar scintillation and ultra-low-frequency gravitational wave observations",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/19840053922",
+      "doi": "10.1038/307527a0",
+      "source_topics": [
+        "gravitational waves"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 2.08,
+          "error": null,
+          "answer_text": "The paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" was published in the year 2009.",
+          "answer_length": 133,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 19.18,
+          "error": null,
+          "answer_text": "The year when the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" was published, according to the provided source fields, is 1984.",
+          "answer_length": 180,
+          "draft_length": 133,
+          "verification_question_count": 3,
+          "verification_answer_count": 3,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 8\nQuestion: In what year was the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 19840053922\nArticle title: Interstellar scintillation and ultra-low-frequency gravitational wave observations\nReference answer: 1984\nAnswer source field: publication_date\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/19840053922\nDOI: 10.1038/307527a0\nSource topics: gravitational waves",
+            "draft": "The paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" was published in the year 1984.",
+            "verification_questions": [
+              "What is the publication date of the article with title 'Interstellar scintillation and ultra-low-frequency gravitational wave observations'?",
+              "In what year was the paper titled 'Interstellar scintillation and ultra-low-frequency gravitational wave observations' published by NASA?",
+              "What is the DOI of the article with title 'Interstellar scintillation and ultra-low-frequency gravitational wave observations'?"
+            ],
+            "verification_answers": [
+              "I don't know.",
+              "I don't know.",
+              "The Digital Object Identifier (DOI) for the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" is 10.1038/307527a0."
+            ],
+            "final": "The year when the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" was published, according to the provided source fields, is 1984.",
+            "verification_contexts": [
+              "Supabase question id: 8\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" published?\nReference answer: 1984\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 19840053922\nArticle title: Interstellar scintillation and ultra-low-frequency gravitational wave observations\nNTRS URL: https://ntrs.nasa.gov/citations/19840053922\nDOI: 10.1038/307527a0\nSource topics: gravitational waves",
+              "Supabase question id: 8\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" published?\nReference answer: 1984\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 19840053922\nArticle title: Interstellar scintillation and ultra-low-frequency gravitational wave observations\nNTRS URL: https://ntrs.nasa.gov/citations/19840053922\nDOI: 10.1038/307527a0\nSource topics: gravitational waves",
+              "Supabase question id: 8\nQuestion complexity: basic\nQuestion type: year\nQuestion: In what year was the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" published?\nReference answer: 1984\nAnswer source field: publication_date\nReference abstract: Not listed\nArticle id: 19840053922\nArticle title: Interstellar scintillation and ultra-low-frequency gravitational wave observations\nNTRS URL: https://ntrs.nasa.gov/citations/19840053922\nDOI: 10.1038/307527a0\nSource topics: gravitational waves"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-9",
+      "category": "supabase-question-authors_list",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 9\nQuestion: Name all the authors of the paper titled \"Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\".\nQuestion type: authors_list\nQuestion complexity: basic\nArticle id: 20210010702\nArticle title: Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\nReference answer: H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu\nAnswer source field: author_names\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20210010702\nDOI: 10.1038/s41550-019-0880-2\nSource topics: gravitational waves",
+      "source_table": "public.questions",
+      "qid": 9,
+      "complexity": "basic",
+      "type": "authors_list",
+      "source_question": "Name all the authors of the paper titled \"Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\".",
+      "reference_answer": "H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu",
+      "answer_source_field": "author_names",
+      "reference_abstract": null,
+      "article_id": "20210010702",
+      "article_title": "Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20210010702",
+      "doi": "10.1038/s41550-019-0880-2",
+      "source_topics": [
+        "gravitational waves"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 8.24,
+          "error": null,
+          "answer_text": "H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu\n### Instield answer:\nI'm sorry, but the source fields provided do not contain enough information to answer this question. The authors of the paper titled \"Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\" are listed in the reference answer.",
+          "answer_length": 595,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 24.78,
+          "error": null,
+          "answer_text": "H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu",
+          "answer_length": 320,
+          "draft_length": 320,
+          "verification_question_count": 2,
+          "verification_answer_count": 2,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 9\nQuestion: Name all the authors of the paper titled \"Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\".\nQuestion type: authors_list\nQuestion complexity: basic\nArticle id: 20210010702\nArticle title: Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\nReference answer: H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu\nAnswer source field: author_names\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20210010702\nDOI: 10.1038/s41550-019-0880-2\nSource topics: gravitational waves",
+            "draft": "H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu",
+            "verification_questions": [
+              "Who are the authors of the paper titled 'Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar'?",
+              "What is the title of this paper?"
+            ],
+            "verification_answers": [
+              "H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu",
+              "The title of this paper is \"Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\"."
+            ],
+            "final": "H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu",
+            "verification_contexts": [
+              "Supabase question id: 9\nQuestion complexity: basic\nQuestion type: authors_list\nQuestion: Name all the authors of the paper titled \"Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\".\nReference answer: H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu\nAnswer source field: author_names\nReference abstract: Not listed\nArticle id: 20210010702\nArticle title: Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\nNTRS URL: https://ntrs.nasa.gov/citations/20210010702\nDOI: 10.1038/s41550-019-0880-2\nSource topics: gravitational waves",
+              "Supabase question id: 9\nQuestion complexity: basic\nQuestion type: authors_list\nQuestion: Name all the authors of the paper titled \"Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\".\nReference answer: H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu\nAnswer source field: author_names\nReference abstract: Not listed\nArticle id: 20210010702\nArticle title: Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\nNTRS URL: https://ntrs.nasa.gov/citations/20210010702\nDOI: 10.1038/s41550-019-0880-2\nSource topics: gravitational waves"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-10",
+      "category": "supabase-question-center",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 10\nQuestion: Which NASA center is associated with the paper titled \"A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\"?\nQuestion type: center\nQuestion complexity: basic\nArticle id: 20210014091\nArticle title: A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20210014091\nDOI: doi:10.1093/mnras/sty3047\nSource topics: gravitational waves",
+      "source_table": "public.questions",
+      "qid": 10,
+      "complexity": "basic",
+      "type": "center",
+      "source_question": "Which NASA center is associated with the paper titled \"A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\"?",
+      "reference_answer": "Goddard Space Flight Center",
+      "answer_source_field": "center_name",
+      "reference_abstract": null,
+      "article_id": "20210014091",
+      "article_title": "A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20210014091",
+      "doi": "doi:10.1093/mnras/sty3047",
+      "source_topics": [
+        "gravitational waves"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 3.11,
+          "error": null,
+          "answer_text": "The information provided in the source fields does not contain enough details to answer this question. The \"center_name\" field suggests that the NASA Goddard Space Flight Center is associated with the paper, but more context would be needed to confirm this. As such, I don't have sufficient information to provide an accurate answer.",
+          "answer_length": 333,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 20.14,
+          "error": null,
+          "answer_text": "The NASA center associated with the paper titled \"A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\" is Goddard Space Flight Center.",
+          "answer_length": 182,
+          "draft_length": 170,
+          "verification_question_count": 2,
+          "verification_answer_count": 2,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 10\nQuestion: Which NASA center is associated with the paper titled \"A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\"?\nQuestion type: center\nQuestion complexity: basic\nArticle id: 20210014091\nArticle title: A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nNTRS URL: https://ntrs.nasa.gov/citations/20210014091\nDOI: doi:10.1093/mnras/sty3047\nSource topics: gravitational waves",
+            "draft": "The Goddard Space Flight Center is associated with the paper titled \"A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\".",
+            "verification_questions": [
+              "What is the name of the NASA center associated with the paper titled 'A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations'?",
+              "Can you confirm that Goddard Space Flight Center is indeed associated with this paper? If not, which NASA center is it associated with?"
+            ],
+            "verification_answers": [
+              "The name of the NASA center associated with the paper titled 'A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations' is Goddard Space Flight Center.",
+              "I don't know."
+            ],
+            "final": "The NASA center associated with the paper titled \"A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\" is Goddard Space Flight Center.",
+            "verification_contexts": [
+              "Supabase question id: 10\nQuestion complexity: basic\nQuestion type: center\nQuestion: Which NASA center is associated with the paper titled \"A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\"?\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nArticle id: 20210014091\nArticle title: A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\nNTRS URL: https://ntrs.nasa.gov/citations/20210014091\nDOI: doi:10.1093/mnras/sty3047\nSource topics: gravitational waves",
+              "Supabase question id: 10\nQuestion complexity: basic\nQuestion type: center\nQuestion: Which NASA center is associated with the paper titled \"A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\"?\nReference answer: Goddard Space Flight Center\nAnswer source field: center_name\nReference abstract: Not listed\nArticle id: 20210014091\nArticle title: A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\nNTRS URL: https://ntrs.nasa.gov/citations/20210014091\nDOI: doi:10.1093/mnras/sty3047\nSource topics: gravitational waves"
+            ]
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    }
+  ]
+}

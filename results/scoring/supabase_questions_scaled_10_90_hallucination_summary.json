@@ -1,0 +1,354 @@
+{
+  "benchmark": "Supabase public.questions scaled 10-90 CoVe benchmark, local Ollama deepseek-coder:6.7b",
+  "question_table": "public.questions",
+  "scoring_scale": {
+    "0": "none obvious",
+    "1": "minor/uncertain",
+    "2": "major invented claims"
+  },
+  "runs": [
+    {
+      "question_count": 10,
+      "result_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.10.context.json",
+      "score_file": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.10.context.hallucination_scores.json",
+      "questions": 10,
+      "mode_rows": 20,
+      "total_elapsed_seconds": 362.69,
+      "verification_questions": 28,
+      "modes": {
+        "direct": {
+          "outputs": 10,
+          "score_counts": {
+            "0": 5,
+            "1": 4,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.5,
+          "major_hallucination_rate": 0.1,
+          "average_hallucination_score": 0.6
+        },
+        "factored_cove": {
+          "outputs": 10,
+          "score_counts": {
+            "0": 6,
+            "1": 4,
+            "2": 0
+          },
+          "any_hallucination_rate": 0.4,
+          "major_hallucination_rate": 0.0,
+          "average_hallucination_score": 0.4
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": -0.1,
+      "factored_minus_direct_major_hallucination_rate": -0.1
+    },
+    {
+      "question_count": 20,
+      "result_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.20.context.json",
+      "score_file": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.20.context.hallucination_scores.json",
+      "questions": 20,
+      "mode_rows": 40,
+      "total_elapsed_seconds": 731.23,
+      "verification_questions": 57,
+      "modes": {
+        "direct": {
+          "outputs": 20,
+          "score_counts": {
+            "0": 9,
+            "1": 10,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.55,
+          "major_hallucination_rate": 0.05,
+          "average_hallucination_score": 0.6
+        },
+        "factored_cove": {
+          "outputs": 20,
+          "score_counts": {
+            "0": 8,
+            "1": 12,
+            "2": 0
+          },
+          "any_hallucination_rate": 0.6,
+          "major_hallucination_rate": 0.0,
+          "average_hallucination_score": 0.6
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": 0.05,
+      "factored_minus_direct_major_hallucination_rate": -0.05
+    },
+    {
+      "question_count": 30,
+      "result_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.30.context.json",
+      "score_file": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.30.context.hallucination_scores.json",
+      "questions": 30,
+      "mode_rows": 60,
+      "total_elapsed_seconds": 1165.93,
+      "verification_questions": 85,
+      "modes": {
+        "direct": {
+          "outputs": 30,
+          "score_counts": {
+            "0": 13,
+            "1": 16,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.566667,
+          "major_hallucination_rate": 0.033333,
+          "average_hallucination_score": 0.6
+        },
+        "factored_cove": {
+          "outputs": 30,
+          "score_counts": {
+            "0": 12,
+            "1": 18,
+            "2": 0
+          },
+          "any_hallucination_rate": 0.6,
+          "major_hallucination_rate": 0.0,
+          "average_hallucination_score": 0.6
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": 0.033333,
+      "factored_minus_direct_major_hallucination_rate": -0.033333
+    },
+    {
+      "question_count": 40,
+      "result_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.40.context.json",
+      "score_file": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.40.context.hallucination_scores.json",
+      "questions": 40,
+      "mode_rows": 80,
+      "total_elapsed_seconds": 1453.69,
+      "verification_questions": 115,
+      "modes": {
+        "direct": {
+          "outputs": 40,
+          "score_counts": {
+            "0": 19,
+            "1": 20,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.525,
+          "major_hallucination_rate": 0.025,
+          "average_hallucination_score": 0.55
+        },
+        "factored_cove": {
+          "outputs": 40,
+          "score_counts": {
+            "0": 16,
+            "1": 23,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.6,
+          "major_hallucination_rate": 0.025,
+          "average_hallucination_score": 0.625
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": 0.075,
+      "factored_minus_direct_major_hallucination_rate": 0.0
+    },
+    {
+      "question_count": 50,
+      "result_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.50.context.json",
+      "score_file": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.50.context.hallucination_scores.json",
+      "questions": 50,
+      "mode_rows": 100,
+      "total_elapsed_seconds": 1813.53,
+      "verification_questions": 144,
+      "modes": {
+        "direct": {
+          "outputs": 50,
+          "score_counts": {
+            "0": 22,
+            "1": 27,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.56,
+          "major_hallucination_rate": 0.02,
+          "average_hallucination_score": 0.58
+        },
+        "factored_cove": {
+          "outputs": 50,
+          "score_counts": {
+            "0": 20,
+            "1": 29,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.6,
+          "major_hallucination_rate": 0.02,
+          "average_hallucination_score": 0.62
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": 0.04,
+      "factored_minus_direct_major_hallucination_rate": 0.0
+    },
+    {
+      "question_count": 60,
+      "result_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.60.context.json",
+      "score_file": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.60.context.hallucination_scores.json",
+      "questions": 60,
+      "mode_rows": 120,
+      "total_elapsed_seconds": 2142.85,
+      "verification_questions": 174,
+      "modes": {
+        "direct": {
+          "outputs": 60,
+          "score_counts": {
+            "0": 27,
+            "1": 32,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.55,
+          "major_hallucination_rate": 0.016667,
+          "average_hallucination_score": 0.566667
+        },
+        "factored_cove": {
+          "outputs": 60,
+          "score_counts": {
+            "0": 24,
+            "1": 35,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.6,
+          "major_hallucination_rate": 0.016667,
+          "average_hallucination_score": 0.616667
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": 0.05,
+      "factored_minus_direct_major_hallucination_rate": 0.0
+    },
+    {
+      "question_count": 70,
+      "result_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.70.context.json",
+      "score_file": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.70.context.hallucination_scores.json",
+      "questions": 70,
+      "mode_rows": 140,
+      "total_elapsed_seconds": 2473.8,
+      "verification_questions": 203,
+      "modes": {
+        "direct": {
+          "outputs": 70,
+          "score_counts": {
+            "0": 33,
+            "1": 36,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.528571,
+          "major_hallucination_rate": 0.014286,
+          "average_hallucination_score": 0.542857
+        },
+        "factored_cove": {
+          "outputs": 70,
+          "score_counts": {
+            "0": 28,
+            "1": 39,
+            "2": 3
+          },
+          "any_hallucination_rate": 0.6,
+          "major_hallucination_rate": 0.042857,
+          "average_hallucination_score": 0.642857
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": 0.071429,
+      "factored_minus_direct_major_hallucination_rate": 0.028571
+    },
+    {
+      "question_count": 80,
+      "result_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.80.context.json",
+      "score_file": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.80.context.hallucination_scores.json",
+      "questions": 80,
+      "mode_rows": 160,
+      "total_elapsed_seconds": 2847.47,
+      "verification_questions": 232,
+      "modes": {
+        "direct": {
+          "outputs": 80,
+          "score_counts": {
+            "0": 39,
+            "1": 40,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.5125,
+          "major_hallucination_rate": 0.0125,
+          "average_hallucination_score": 0.525
+        },
+        "factored_cove": {
+          "outputs": 80,
+          "score_counts": {
+            "0": 33,
+            "1": 44,
+            "2": 3
+          },
+          "any_hallucination_rate": 0.5875,
+          "major_hallucination_rate": 0.0375,
+          "average_hallucination_score": 0.625
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": 0.075,
+      "factored_minus_direct_major_hallucination_rate": 0.025
+    },
+    {
+      "question_count": 90,
+      "result_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.90.context.json",
+      "score_file": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.90.context.hallucination_scores.json",
+      "questions": 90,
+      "mode_rows": 180,
+      "total_elapsed_seconds": 3278.33,
+      "verification_questions": 262,
+      "modes": {
+        "direct": {
+          "outputs": 90,
+          "score_counts": {
+            "0": 43,
+            "1": 46,
+            "2": 1
+          },
+          "any_hallucination_rate": 0.522222,
+          "major_hallucination_rate": 0.011111,
+          "average_hallucination_score": 0.533333
+        },
+        "factored_cove": {
+          "outputs": 90,
+          "score_counts": {
+            "0": 37,
+            "1": 50,
+            "2": 3
+          },
+          "any_hallucination_rate": 0.588889,
+          "major_hallucination_rate": 0.033333,
+          "average_hallucination_score": 0.622222
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": 0.066667,
+      "factored_minus_direct_major_hallucination_rate": 0.022222
+    }
+  ],
+  "overall": {
+    "direct": {
+      "outputs": 450,
+      "score_counts": {
+        "0": 210,
+        "1": 231,
+        "2": 9
+      },
+      "any_hallucination_rate": 0.533333,
+      "major_hallucination_rate": 0.02,
+      "average_hallucination_score": 0.553333
+    },
+    "factored_cove": {
+      "outputs": 450,
+      "score_counts": {
+        "0": 184,
+        "1": 254,
+        "2": 12
+      },
+      "any_hallucination_rate": 0.591111,
+      "major_hallucination_rate": 0.026667,
+      "average_hallucination_score": 0.617778
+    },
+    "factored_minus_direct_any_hallucination_rate": 0.057778,
+    "factored_minus_direct_major_hallucination_rate": 0.006667,
+    "total_elapsed_seconds": 16269.52,
+    "verification_questions": 1300
+  }
+}
