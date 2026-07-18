@@ -181,11 +181,15 @@ def build_supabase_question_context_provider(database_url: str | None) -> Any:
             return cache[qid]
 
         query = """
-        select qid, complexity, type, question, answer, answer_source_field,
-               reference_abstract, article_id, article_title, ntrs_url, doi,
-               source_topics
-        from public.questions
-        where qid = %s
+        select q.qid, q.complexity, q.type, q.question, q.answer_source_field,
+               q.reference_abstract, q.article_id, q.article_title, q.ntrs_url,
+               q.doi, q.source_topics,
+               a.abstract, a.author_names, a.keywords, a.subject_categories,
+               a.center_name, a.center_code, a.sti_type, a.publication_name,
+               a.publication_date, a.distribution_date, a.report_numbers
+        from public.questions q
+        left join public.nasa_articles a on a.id = q.article_id
+        where q.qid = %s
         """
         with psycopg.connect(
             database_url, connect_timeout=15, prepare_threshold=None
@@ -204,11 +208,20 @@ def build_supabase_question_context_provider(database_url: str | None) -> Any:
             f"Question complexity: {record['complexity']}",
             f"Question type: {record['type']}",
             f"Question: {record['question']}",
-            f"Reference answer: {normalize_missing(record['answer'])}",
-            f"Answer source field: {normalize_missing(record['answer_source_field'])}",
+            f"Requested source field: {normalize_missing(record['answer_source_field'])}",
             f"Reference abstract: {normalize_missing(record['reference_abstract'])}",
             f"Article id: {record['article_id']}",
             f"Article title: {normalize_missing(record['article_title'])}",
+            f"Article abstract: {normalize_missing(record['abstract'])}",
+            f"Authors: {join_list(record['author_names'])}",
+            f"Keywords: {join_list(record['keywords'])}",
+            f"Subject categories: {join_list(record['subject_categories'])}",
+            f"NASA center: {normalize_missing(record['center_name'])} ({normalize_missing(record['center_code'])})",
+            f"STI type: {normalize_missing(record['sti_type'])}",
+            f"Publication: {normalize_missing(record['publication_name'])}",
+            f"Publication date: {normalize_missing(record['publication_date'])}",
+            f"Distribution date: {normalize_missing(record['distribution_date'])}",
+            f"Report numbers: {join_list(record['report_numbers'])}",
             f"NTRS URL: {normalize_missing(record['ntrs_url'])}",
             f"DOI: {normalize_missing(record['doi'])}",
             f"Source topics: {join_list(record['source_topics'])}",

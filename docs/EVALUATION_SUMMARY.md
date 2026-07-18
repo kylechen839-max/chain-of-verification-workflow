@@ -259,6 +259,12 @@ with the question text plus reference fields: `answer`, `answer_source_field`,
 `reference_abstract`, `article_id`, `article_title`, `ntrs_url`, `doi`, and
 `source_topics`.
 
+The benchmark exporter now keeps `answer` as `reference_answer` only for
+scoring. It is no longer included in any LLM-facing prompt or CoVe context.
+Future Supabase question runs provide the article metadata/source context to
+direct answering and every factored CoVe step, while hiding the reference answer
+until hallucination scoring.
+
 Question files were exported with `export_supabase_questions.py`:
 
 - `benchmarks/cove_benchmark_questions_supabase_100.json`

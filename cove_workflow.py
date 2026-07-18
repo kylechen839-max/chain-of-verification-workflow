@@ -137,13 +137,26 @@ def run_factored_cove(
     question, not the draft answer. That separation is the key CoVe safeguard.
     """
 
+    source_context = context_provider(question, "") if context_provider else ""
+    draft_user_content = question
+    if source_context:
+        draft_user_content = f"""
+Answer the user question using only the source context below. If the source context does not contain enough information, say that you don't know.
+
+User question:
+{question}
+
+Source context:
+{source_context}
+""".strip()
+
     draft = call_llm(
         [
             {
                 "role": "system",
                 "content": "You answer clearly and precisely. Do not add caveats unless they matter.",
             },
-            {"role": "user", "content": question},
+            {"role": "user", "content": draft_user_content},
         ]
     ).strip()
 
@@ -163,6 +176,9 @@ Rules:
 
 User question:
 {question}
+
+Source context:
+{source_context or "No separate source context provided."}
 
 Draft answer:
 {draft}
@@ -185,7 +201,13 @@ Draft answer:
     verification_answers: list[str] = []
     verification_contexts: list[str] = []
     for verification_question in verification_questions:
-        context = context_provider(question, verification_question) if context_provider else ""
+        context = (
+            context_provider(question, verification_question)
+            if context_provider
+            else source_context
+        )
+        if not context:
+            context = source_context
         verification_contexts.append(context)
         user_content = verification_question
         if context:
@@ -243,7 +265,7 @@ Question:
         verification_answers.append(answer.strip())
 
     rewrite_prompt = f"""
-Rewrite the answer to the user question using only the verification answers below as evidence.
+Rewrite the answer to the user question using only the source context and verification answers below as evidence.
 
 Rules:
 - Remove or mark claims that are unsupported, uncertain, or contradicted.
@@ -252,6 +274,9 @@ Rules:
 
 User question:
 {question}
+
+Source context:
+{source_context or "No separate source context provided."}
 
 Verification questions:
 {_as_bullets(verification_questions)}

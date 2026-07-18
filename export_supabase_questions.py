@@ -34,9 +34,38 @@ def build_prompt(row: dict[str, Any]) -> str:
         f"Question complexity: {row['complexity']}",
         f"Article id: {row['article_id']}",
         f"Article title: {normalize_missing(row['article_title']) or 'Not listed'}",
-        f"Reference answer: {normalize_missing(row['answer']) or 'Not listed'}",
-        f"Answer source field: {normalize_missing(row['answer_source_field']) or 'Not listed'}",
+        f"Requested source field: {normalize_missing(row['answer_source_field']) or 'Not listed'}",
         f"Reference abstract: {normalize_missing(row['reference_abstract']) or 'Not listed'}",
+        f"Article abstract: {normalize_missing(row.get('abstract')) or 'Not listed'}",
+        "Authors: "
+        + (
+            ", ".join(str(item) for item in row["author_names"])
+            if isinstance(row.get("author_names"), list)
+            else str(row.get("author_names") or "Not listed")
+        ),
+        "Keywords: "
+        + (
+            ", ".join(str(item) for item in row["keywords"])
+            if isinstance(row.get("keywords"), list)
+            else str(row.get("keywords") or "Not listed")
+        ),
+        "Subject categories: "
+        + (
+            ", ".join(str(item) for item in row["subject_categories"])
+            if isinstance(row.get("subject_categories"), list)
+            else str(row.get("subject_categories") or "Not listed")
+        ),
+        f"NASA center: {normalize_missing(row.get('center_name')) or 'Not listed'} ({normalize_missing(row.get('center_code')) or 'not listed'})",
+        f"STI type: {normalize_missing(row.get('sti_type')) or 'Not listed'}",
+        f"Publication: {normalize_missing(row.get('publication_name')) or 'Not listed'}",
+        f"Publication date: {normalize_missing(row.get('publication_date')) or 'Not listed'}",
+        f"Distribution date: {normalize_missing(row.get('distribution_date')) or 'Not listed'}",
+        "Report numbers: "
+        + (
+            ", ".join(str(item) for item in row["report_numbers"])
+            if isinstance(row.get("report_numbers"), list)
+            else str(row.get("report_numbers") or "Not listed")
+        ),
         f"NTRS URL: {normalize_missing(row['ntrs_url']) or 'Not listed'}",
         f"DOI: {normalize_missing(row['doi']) or 'Not listed'}",
         "Source topics: "
@@ -67,11 +96,15 @@ def main() -> None:
     import psycopg
 
     query = """
-    select qid, complexity, type, question, answer, answer_source_field,
-           reference_abstract, article_id, article_title, ntrs_url, doi,
-           source_topics, inserted_at
-    from public.questions
-    order by qid
+    select q.qid, q.complexity, q.type, q.question, q.answer, q.answer_source_field,
+           q.reference_abstract, q.article_id, q.article_title, q.ntrs_url, q.doi,
+           q.source_topics, q.inserted_at,
+           a.abstract, a.author_names, a.keywords, a.subject_categories,
+           a.center_name, a.center_code, a.sti_type, a.publication_name,
+           a.publication_date, a.distribution_date, a.report_numbers
+    from public.questions q
+    left join public.nasa_articles a on a.id = q.article_id
+    order by q.qid
     limit %s offset %s
     """
     database_url = args.database_url or database_url_from_env()
