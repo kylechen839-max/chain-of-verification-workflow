@@ -1,0 +1,455 @@
+{
+  "benchmark": "NASA article metadata CoVe upscale, local Ollama deepseek-coder:6.7b",
+  "scoring_scale": {
+    "0": "none obvious",
+    "1": "minor/uncertain",
+    "2": "major invented claims"
+  },
+  "scoring_method": "deterministic NASA metadata contradiction checks; omissions are not penalized",
+  "question_files": {
+    "100": "benchmarks/cove_benchmark_questions_nasa_100.json",
+    "200": "benchmarks/cove_benchmark_questions_nasa_200.json",
+    "300": "benchmarks/cove_benchmark_questions_nasa_300.json"
+  },
+  "per_trial": [
+    {
+      "question_count": 100,
+      "trial": 1,
+      "score_file": "results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json",
+      "result_file": "results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json",
+      "prompts": 100,
+      "mode_rows": 200,
+      "total_elapsed_seconds": 3308.67,
+      "verification_questions": 300,
+      "modes": {
+        "direct": {
+          "outputs": 100,
+          "score_counts": {
+            "0": 43,
+            "1": 46,
+            "2": 11
+          },
+          "any_hallucination_rate": 0.57,
+          "major_hallucination_rate": 0.11,
+          "average_hallucination_score": 0.68
+        },
+        "factored_cove": {
+          "outputs": 100,
+          "score_counts": {
+            "0": 60,
+            "1": 26,
+            "2": 14
+          },
+          "any_hallucination_rate": 0.4,
+          "major_hallucination_rate": 0.14,
+          "average_hallucination_score": 0.54
+        }
+      }
+    },
+    {
+      "question_count": 100,
+      "trial": 2,
+      "score_file": "results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial2.context.hallucination_scores.json",
+      "result_file": "results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial2.context.json",
+      "prompts": 100,
+      "mode_rows": 200,
+      "total_elapsed_seconds": 3307.05,
+      "verification_questions": 300,
+      "modes": {
+        "direct": {
+          "outputs": 100,
+          "score_counts": {
+            "0": 43,
+            "1": 46,
+            "2": 11
+          },
+          "any_hallucination_rate": 0.57,
+          "major_hallucination_rate": 0.11,
+          "average_hallucination_score": 0.68
+        },
+        "factored_cove": {
+          "outputs": 100,
+          "score_counts": {
+            "0": 60,
+            "1": 26,
+            "2": 14
+          },
+          "any_hallucination_rate": 0.4,
+          "major_hallucination_rate": 0.14,
+          "average_hallucination_score": 0.54
+        }
+      }
+    },
+    {
+      "question_count": 100,
+      "trial": 3,
+      "score_file": "results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial3.context.hallucination_scores.json",
+      "result_file": "results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial3.context.json",
+      "prompts": 100,
+      "mode_rows": 200,
+      "total_elapsed_seconds": 3298.68,
+      "verification_questions": 300,
+      "modes": {
+        "direct": {
+          "outputs": 100,
+          "score_counts": {
+            "0": 43,
+            "1": 46,
+            "2": 11
+          },
+          "any_hallucination_rate": 0.57,
+          "major_hallucination_rate": 0.11,
+          "average_hallucination_score": 0.68
+        },
+        "factored_cove": {
+          "outputs": 100,
+          "score_counts": {
+            "0": 60,
+            "1": 26,
+            "2": 14
+          },
+          "any_hallucination_rate": 0.4,
+          "major_hallucination_rate": 0.14,
+          "average_hallucination_score": 0.54
+        }
+      }
+    },
+    {
+      "question_count": 200,
+      "trial": 1,
+      "score_file": "results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial1.context.hallucination_scores.json",
+      "result_file": "results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial1.context.json",
+      "prompts": 200,
+      "mode_rows": 400,
+      "total_elapsed_seconds": 6874.6,
+      "verification_questions": 600,
+      "modes": {
+        "direct": {
+          "outputs": 200,
+          "score_counts": {
+            "0": 110,
+            "1": 69,
+            "2": 21
+          },
+          "any_hallucination_rate": 0.45,
+          "major_hallucination_rate": 0.105,
+          "average_hallucination_score": 0.555
+        },
+        "factored_cove": {
+          "outputs": 200,
+          "score_counts": {
+            "0": 140,
+            "1": 36,
+            "2": 24
+          },
+          "any_hallucination_rate": 0.3,
+          "major_hallucination_rate": 0.12,
+          "average_hallucination_score": 0.42
+        }
+      }
+    },
+    {
+      "question_count": 200,
+      "trial": 2,
+      "score_file": "results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial2.context.hallucination_scores.json",
+      "result_file": "results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial2.context.json",
+      "prompts": 200,
+      "mode_rows": 400,
+      "total_elapsed_seconds": 6860.52,
+      "verification_questions": 600,
+      "modes": {
+        "direct": {
+          "outputs": 200,
+          "score_counts": {
+            "0": 110,
+            "1": 69,
+            "2": 21
+          },
+          "any_hallucination_rate": 0.45,
+          "major_hallucination_rate": 0.105,
+          "average_hallucination_score": 0.555
+        },
+        "factored_cove": {
+          "outputs": 200,
+          "score_counts": {
+            "0": 140,
+            "1": 36,
+            "2": 24
+          },
+          "any_hallucination_rate": 0.3,
+          "major_hallucination_rate": 0.12,
+          "average_hallucination_score": 0.42
+        }
+      }
+    },
+    {
+      "question_count": 200,
+      "trial": 3,
+      "score_file": "results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial3.context.hallucination_scores.json",
+      "result_file": "results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial3.context.json",
+      "prompts": 200,
+      "mode_rows": 400,
+      "total_elapsed_seconds": 6871.67,
+      "verification_questions": 600,
+      "modes": {
+        "direct": {
+          "outputs": 200,
+          "score_counts": {
+            "0": 110,
+            "1": 69,
+            "2": 21
+          },
+          "any_hallucination_rate": 0.45,
+          "major_hallucination_rate": 0.105,
+          "average_hallucination_score": 0.555
+        },
+        "factored_cove": {
+          "outputs": 200,
+          "score_counts": {
+            "0": 140,
+            "1": 36,
+            "2": 24
+          },
+          "any_hallucination_rate": 0.3,
+          "major_hallucination_rate": 0.12,
+          "average_hallucination_score": 0.42
+        }
+      }
+    },
+    {
+      "question_count": 300,
+      "trial": 1,
+      "score_file": "results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial1.context.hallucination_scores.json",
+      "result_file": "results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial1.context.json",
+      "prompts": 300,
+      "mode_rows": 600,
+      "total_elapsed_seconds": 10154.06,
+      "verification_questions": 900,
+      "modes": {
+        "direct": {
+          "outputs": 300,
+          "score_counts": {
+            "0": 186,
+            "1": 80,
+            "2": 34
+          },
+          "any_hallucination_rate": 0.38,
+          "major_hallucination_rate": 0.113333,
+          "average_hallucination_score": 0.493333
+        },
+        "factored_cove": {
+          "outputs": 300,
+          "score_counts": {
+            "0": 228,
+            "1": 44,
+            "2": 28
+          },
+          "any_hallucination_rate": 0.24,
+          "major_hallucination_rate": 0.093333,
+          "average_hallucination_score": 0.333333
+        }
+      }
+    },
+    {
+      "question_count": 300,
+      "trial": 2,
+      "score_file": "results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial2.context.hallucination_scores.json",
+      "result_file": "results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial2.context.json",
+      "prompts": 300,
+      "mode_rows": 600,
+      "total_elapsed_seconds": 10244.21,
+      "verification_questions": 900,
+      "modes": {
+        "direct": {
+          "outputs": 300,
+          "score_counts": {
+            "0": 186,
+            "1": 80,
+            "2": 34
+          },
+          "any_hallucination_rate": 0.38,
+          "major_hallucination_rate": 0.113333,
+          "average_hallucination_score": 0.493333
+        },
+        "factored_cove": {
+          "outputs": 300,
+          "score_counts": {
+            "0": 228,
+            "1": 44,
+            "2": 28
+          },
+          "any_hallucination_rate": 0.24,
+          "major_hallucination_rate": 0.093333,
+          "average_hallucination_score": 0.333333
+        }
+      }
+    },
+    {
+      "question_count": 300,
+      "trial": 3,
+      "score_file": "results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial3.context.hallucination_scores.json",
+      "result_file": "results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial3.context.json",
+      "prompts": 300,
+      "mode_rows": 600,
+      "total_elapsed_seconds": 10148.09,
+      "verification_questions": 900,
+      "modes": {
+        "direct": {
+          "outputs": 300,
+          "score_counts": {
+            "0": 186,
+            "1": 80,
+            "2": 34
+          },
+          "any_hallucination_rate": 0.38,
+          "major_hallucination_rate": 0.113333,
+          "average_hallucination_score": 0.493333
+        },
+        "factored_cove": {
+          "outputs": 300,
+          "score_counts": {
+            "0": 228,
+            "1": 44,
+            "2": 28
+          },
+          "any_hallucination_rate": 0.24,
+          "major_hallucination_rate": 0.093333,
+          "average_hallucination_score": 0.333333
+        }
+      }
+    }
+  ],
+  "by_question_count": {
+    "100": {
+      "trials": 3,
+      "prompts_per_trial": 100,
+      "outputs_per_mode": 300,
+      "total_elapsed_seconds": 9914.4,
+      "verification_questions": 900,
+      "modes": {
+        "direct": {
+          "outputs": 300,
+          "score_counts": {
+            "0": 129,
+            "1": 138,
+            "2": 33
+          },
+          "any_hallucination_rate": 0.57,
+          "major_hallucination_rate": 0.11,
+          "average_hallucination_score": 0.68
+        },
+        "factored_cove": {
+          "outputs": 300,
+          "score_counts": {
+            "0": 180,
+            "1": 78,
+            "2": 42
+          },
+          "any_hallucination_rate": 0.4,
+          "major_hallucination_rate": 0.14,
+          "average_hallucination_score": 0.54
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": -0.17,
+      "factored_minus_direct_major_hallucination_rate": 0.03
+    },
+    "200": {
+      "trials": 3,
+      "prompts_per_trial": 200,
+      "outputs_per_mode": 600,
+      "total_elapsed_seconds": 20606.79,
+      "verification_questions": 1800,
+      "modes": {
+        "direct": {
+          "outputs": 600,
+          "score_counts": {
+            "0": 330,
+            "1": 207,
+            "2": 63
+          },
+          "any_hallucination_rate": 0.45,
+          "major_hallucination_rate": 0.105,
+          "average_hallucination_score": 0.555
+        },
+        "factored_cove": {
+          "outputs": 600,
+          "score_counts": {
+            "0": 420,
+            "1": 108,
+            "2": 72
+          },
+          "any_hallucination_rate": 0.3,
+          "major_hallucination_rate": 0.12,
+          "average_hallucination_score": 0.42
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": -0.15,
+      "factored_minus_direct_major_hallucination_rate": 0.015
+    },
+    "300": {
+      "trials": 3,
+      "prompts_per_trial": 300,
+      "outputs_per_mode": 900,
+      "total_elapsed_seconds": 30546.36,
+      "verification_questions": 2700,
+      "modes": {
+        "direct": {
+          "outputs": 900,
+          "score_counts": {
+            "0": 558,
+            "1": 240,
+            "2": 102
+          },
+          "any_hallucination_rate": 0.38,
+          "major_hallucination_rate": 0.113333,
+          "average_hallucination_score": 0.493333
+        },
+        "factored_cove": {
+          "outputs": 900,
+          "score_counts": {
+            "0": 684,
+            "1": 132,
+            "2": 84
+          },
+          "any_hallucination_rate": 0.24,
+          "major_hallucination_rate": 0.093333,
+          "average_hallucination_score": 0.333333
+        }
+      },
+      "factored_minus_direct_any_hallucination_rate": -0.14,
+      "factored_minus_direct_major_hallucination_rate": -0.02
+    }
+  },
+  "overall": {
+    "trials": 9,
+    "outputs_per_mode": 1800,
+    "total_elapsed_seconds": 61067.55,
+    "verification_questions": 5400,
+    "modes": {
+      "direct": {
+        "outputs": 1800,
+        "score_counts": {
+          "0": 1017,
+          "1": 585,
+          "2": 198
+        },
+        "any_hallucination_rate": 0.435,
+        "major_hallucination_rate": 0.11,
+        "average_hallucination_score": 0.545
+      },
+      "factored_cove": {
+        "outputs": 1800,
+        "score_counts": {
+          "0": 1284,
+          "1": 318,
+          "2": 198
+        },
+        "any_hallucination_rate": 0.286667,
+        "major_hallucination_rate": 0.11,
+        "average_hallucination_score": 0.396667
+      }
+    },
+    "factored_minus_direct_any_hallucination_rate": -0.148333,
+    "factored_minus_direct_major_hallucination_rate": 0.0
+  }
+}

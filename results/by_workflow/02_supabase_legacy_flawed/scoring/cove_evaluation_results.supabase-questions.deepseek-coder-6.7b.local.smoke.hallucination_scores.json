@@ -1,0 +1,139 @@
+{
+  "source_file": "results/by_workflow/02_supabase_legacy_flawed/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.smoke.json",
+  "source_model": "deepseek-coder:6.7b",
+  "judge_model": "deepseek-coder:6.7b",
+  "scoring_scale": {
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "scoring_method": "Reference-grounded hallucination scoring against public.questions fields: answer, answer_source_field, reference_abstract, article_title, ntrs_url, doi, and source_topics. Exact/simple-answer checks are deterministic; remaining semantic checks use the configured local Ollama judge.",
+  "results": [
+    {
+      "id": "supabase-question-1",
+      "category": "supabase-question-year",
+      "qid": 1,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?",
+        "answer": "2022",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "20220003973",
+        "article_title": "PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20220003973",
+        "doi": "10.3847/1538-4365/ac582e",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Expected year 2022 was not clearly stated."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-2",
+      "category": "supabase-question-center",
+      "qid": 2,
+      "type": "center",
+      "complexity": "basic",
+      "reference": {
+        "question": "Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?",
+        "answer": "Goddard Space Flight Center",
+        "answer_source_field": "center_name",
+        "reference_abstract": null,
+        "article_id": "20190002313",
+        "article_title": "Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20190002313",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Expected answer 'Goddard Space Flight Center' was not clearly stated."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-3",
+      "category": "supabase-question-method_approach",
+      "qid": 3,
+      "type": "method_approach",
+      "complexity": "complex",
+      "reference": {
+        "question": "What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.",
+        "article_id": "19790003945",
+        "article_title": "Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19790003945",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "The model answer mentions a parametric modeling approach but does not provide specific details about the methods or data used in the study. The source fields do not match with the reference abstract and metadata."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "The model answer mentions an observational approach but does not provide any details about how this is used in the paper. The reference abstract and metadata indicate that data from the solar wind and atmospheric conditions are combined to propose a parametric model for low-frequency water-vapor induced tropospheric path length fluctuations."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "items_scored": 3,
+    "mode_scores_count": 6,
+    "score_counts": {
+      "0": 2,
+      "1": 4,
+      "2": 0
+    },
+    "direct": {
+      "mode_scores_count": 3,
+      "score_counts": {
+        "0": 1,
+        "1": 2,
+        "2": 0
+      },
+      "any_hallucination_rate": 0.6667,
+      "major_hallucination_rate": 0.0,
+      "average_hallucination_score": 0.6667
+    },
+    "factored_cove": {
+      "mode_scores_count": 3,
+      "score_counts": {
+        "0": 1,
+        "1": 2,
+        "2": 0
+      },
+      "any_hallucination_rate": 0.6667,
+      "major_hallucination_rate": 0.0,
+      "average_hallucination_score": 0.6667
+    },
+    "average_hallucination_score": 0.6667
+  }
+}

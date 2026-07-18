@@ -7,7 +7,7 @@ python3 run_cove_evaluation.py \
   --model deepseek-coder:1.3b \
   --max-questions 2 \
   --num-predict 512 \
-  --output results/evaluations/cove_evaluation_results.deepseek-coder.local.json
+  --output results/by_workflow/00_exploratory_and_infrastructure/evaluations/cove_evaluation_results.deepseek-coder.local.json
 ```
 
 ## Environment
@@ -141,7 +141,7 @@ and 0 flagged speculative answers.
 ## NASA Hallucination Summary
 
 Manual hallucination scores for run 16 are stored in
-`results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.context.hallucination_scores.json`.
+`results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.context.hallucination_scores.json`.
 The scoring scale is:
 
 - `0`: none obvious
@@ -172,8 +172,8 @@ errors in the final answer.
 The 100-prompt upscale benchmark is stored in:
 
 - Questions: `benchmarks/cove_benchmark_questions_nasa_100.json`
-- Results: `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json`
-- Scores: `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json`
+- Results: `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json`
+- Scores: `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json`
 
 The 100-prompt scores were generated with deterministic NASA metadata checks
 in `score_nasa_hallucinations.py`. The scorer flags concrete contradictions
@@ -202,7 +202,7 @@ size has three trials, comparing the baseline `direct` answer against the final
 context-backed NASA verification answers.
 
 Aggregate scores are stored in
-`results/scoring/nasa_multi_trial_hallucination_summary.json`.
+`results/by_workflow/01_nasa_context_backed/scoring/nasa_multi_trial_hallucination_summary.json`.
 
 | Prompt Count | Trials | Outputs Per Mode | Mode | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
 |---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
@@ -236,15 +236,15 @@ The trial artifacts are:
 
 | Prompt Count | Trial | Result File | Score File |
 |---:|---:|---|---|
-| 100 | 1 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json` |
-| 100 | 2 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial2.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial2.context.hallucination_scores.json` |
-| 100 | 3 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial3.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial3.context.hallucination_scores.json` |
-| 200 | 1 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial1.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial1.context.hallucination_scores.json` |
-| 200 | 2 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial2.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial2.context.hallucination_scores.json` |
-| 200 | 3 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial3.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial3.context.hallucination_scores.json` |
-| 300 | 1 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial1.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial1.context.hallucination_scores.json` |
-| 300 | 2 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial2.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial2.context.hallucination_scores.json` |
-| 300 | 3 | `results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial3.context.json` | `results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial3.context.hallucination_scores.json` |
+| 100 | 1 | `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json` | `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json` |
+| 100 | 2 | `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial2.context.json` | `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial2.context.hallucination_scores.json` |
+| 100 | 3 | `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial3.context.json` | `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.trial3.context.hallucination_scores.json` |
+| 200 | 1 | `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial1.context.json` | `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial1.context.hallucination_scores.json` |
+| 200 | 2 | `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial2.context.json` | `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial2.context.hallucination_scores.json` |
+| 200 | 3 | `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial3.context.json` | `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.200.trial3.context.hallucination_scores.json` |
+| 300 | 1 | `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial1.context.json` | `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial1.context.hallucination_scores.json` |
+| 300 | 2 | `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial2.context.json` | `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial2.context.hallucination_scores.json` |
+| 300 | 3 | `results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial3.context.json` | `results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.300.trial3.context.hallucination_scores.json` |
 
 The quota-limited Google Compute VM was resized to `e2-standard-16`, but its
 one-prompt smoke run took 142.53s. The local Mac one-prompt NASA run took
@@ -289,7 +289,7 @@ abstract, DOI, NTRS URL, article title, and source topics. Omissions are not
 penalized.
 
 Aggregate scores are stored in
-`results/scoring/supabase_questions_hallucination_summary.json`.
+`results/by_workflow/02_supabase_legacy_flawed/scoring/supabase_questions_hallucination_summary.json`.
 
 | Prompt Count | Runtime | Verification Questions | Mode | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
 |---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
@@ -312,9 +312,9 @@ The run artifacts are:
 
 | Prompt Count | Result File | Score File |
 |---:|---|---|
-| 100 | `results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.100.context.json` | `results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.100.context.hallucination_scores.json` |
-| 200 | `results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.200.context.json` | `results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.200.context.hallucination_scores.json` |
-| 300 | `results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.300.context.json` | `results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.300.context.hallucination_scores.json` |
+| 100 | `results/by_workflow/02_supabase_legacy_flawed/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.100.context.json` | `results/by_workflow/02_supabase_legacy_flawed/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.100.context.hallucination_scores.json` |
+| 200 | `results/by_workflow/02_supabase_legacy_flawed/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.200.context.json` | `results/by_workflow/02_supabase_legacy_flawed/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.200.context.hallucination_scores.json` |
+| 300 | `results/by_workflow/02_supabase_legacy_flawed/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.300.context.json` | `results/by_workflow/02_supabase_legacy_flawed/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-6.7b.local.300.context.hallucination_scores.json` |
 
 ### Supabase 10-90 Question Scaling Runs
 
@@ -322,7 +322,7 @@ Additional Supabase `public.questions` runs were completed at 10-question
 increments from 10 through 90 questions. These use the same model, CoVe
 settings, verification context, and hallucination scorer as the 100/200/300
 Supabase question runs above. Aggregate scores are stored in
-`results/scoring/supabase_questions_scaled_10_90_hallucination_summary.json`.
+`results/by_workflow/02_supabase_legacy_flawed/scoring/supabase_questions_scaled_10_90_hallucination_summary.json`.
 
 | Prompt Count | Runtime | Verification Questions | Mode | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
 |---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
@@ -363,7 +363,7 @@ therefore used the stable local downgrade `deepseek-coder:1.3b`.
 To avoid rerunning the same prefix questions repeatedly, the first 90 Supabase
 questions were run once with checkpointing and then split into 10-, 20-, ...,
 90-question prefix trial files. The aggregate summary is stored in
-`results/scoring/supabase_questions_scaled_10_90_corrected_workflow_deepseek-coder-1.3b_summary.json`.
+`results/by_workflow/03_supabase_corrected_current/scoring/supabase_questions_scaled_10_90_corrected_workflow_deepseek-coder-1.3b_summary.json`.
 
 | Prompt Count | Runtime | Verification Questions | Mode | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
 |---:|---:|---:|---|---:|---:|---:|---:|---:|---:|

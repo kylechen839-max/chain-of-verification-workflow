@@ -14,9 +14,7 @@ The workflow:
 - `benchmarks/` - benchmark prompt JSON files.
 - `docs/` - evaluation notes and summaries.
 - `notebooks/` - notebook examples for running the workflow.
-- `results/evaluations/` - full evaluation result JSON files.
-- `results/ollama/` - smaller Ollama smoke-test result JSON files.
-- `results/scoring/` - manual hallucination scoring JSON files.
+- `results/` - organized evaluation, scoring, and smoke-test artifacts by workflow phase.
 - `cove_workflow.py` - reusable Python implementation.
 - `run_cove_evaluation.py` - direct vs CoVe benchmark runner.
 - `run_ollama_cove_tests.py` - quick Ollama CoVe test runner.
@@ -48,6 +46,10 @@ To reduce API calls while testing, set:
 MAX_QUESTIONS = 2
 ```
 
+## Result Lineage
+
+Use `results/README.md` as the main index for benchmark artifacts. The current corrected Supabase-question runs are in `results/by_workflow/03_supabase_corrected_current/`. The previous flawed Supabase-question runs are intentionally isolated in `results/by_workflow/02_supabase_legacy_flawed/` for audit only.
+
 ## Ollama Tests
 
 Ollama can run local/open models, but it cannot run proprietary ChatGPT models directly.
@@ -67,7 +69,7 @@ Run the CoVe test suite:
 python3 run_ollama_cove_tests.py \
   --model llama3.2:1b \
   --max-questions 2 \
-  --output results/ollama/ollama_cove_test_results.local.json
+  --output results/by_workflow/00_exploratory_and_infrastructure/ollama/ollama_cove_test_results.local.json
 ```
 
 You can also run a DeepSeek model through Ollama. `deepseek-r1` is a reasoning
@@ -82,7 +84,7 @@ python3 run_ollama_cove_tests.py \
   --model deepseek-coder:1.3b \
   --max-questions 2 \
   --num-predict 512 \
-  --output results/ollama/ollama_cove_test_results.deepseek-coder.local.json \
+  --output results/by_workflow/00_exploratory_and_infrastructure/ollama/ollama_cove_test_results.deepseek-coder.local.json \
   --question "Give a concise history of the Python programming language, including creator, first release year, and major version milestones." \
   --question "Explain Git core workflow, including clone, branch, commit, merge, and push."
 ```
@@ -105,7 +107,7 @@ ollama pull llama3.2:1b
 python3 run_ollama_cove_tests.py \
   --model llama3.2:1b \
   --max-questions 2 \
-  --output results/ollama/ollama_cove_test_results.gce.json
+  --output results/by_workflow/00_exploratory_and_infrastructure/ollama/ollama_cove_test_results.gce.json
 ```
 
 The checked-in result files show one local run and one Google Compute Engine run.
@@ -125,7 +127,7 @@ python3 run_cove_evaluation.py \
   --model deepseek-coder:1.3b \
   --max-questions 2 \
   --num-predict 512 \
-  --output results/evaluations/cove_evaluation_results.deepseek-coder.local.json
+  --output results/by_workflow/00_exploratory_and_infrastructure/evaluations/cove_evaluation_results.deepseek-coder.local.json
 ```
 
 The benchmark questions live in `benchmarks/cove_benchmark_questions.json`. The
@@ -151,7 +153,7 @@ python3 run_cove_evaluation.py \
   --limit 24 \
   --max-questions 3 \
   --num-predict 768 \
-  --output results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.context.json \
+  --output results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.24.context.json \
   --database-schema cove_test \
   --skip-db-init \
   --skip-joint \
@@ -167,7 +169,7 @@ python3 run_cove_evaluation.py \
   --limit 100 \
   --max-questions 3 \
   --num-predict 768 \
-  --output results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json \
+  --output results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json \
   --database-schema cove_test \
   --skip-db-init \
   --skip-joint \
@@ -178,8 +180,8 @@ Score NASA metadata hallucinations for direct vs factored CoVe:
 
 ```bash
 python3 score_nasa_hallucinations.py \
-  results/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json \
-  --output results/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json
+  results/by_workflow/01_nasa_context_backed/evaluations/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.json \
+  --output results/by_workflow/01_nasa_context_backed/scoring/cove_evaluation_results.nasa.deepseek-coder-6.7b.local.100.context.hallucination_scores.json
 ```
 
 Use `--skip-joint` when testing the strict factored CoVe safeguard. In factored
@@ -204,7 +206,7 @@ python3 run_cove_evaluation.py \
   --limit 1 \
   --max-questions 2 \
   --num-predict 512 \
-  --output results/evaluations/cove_evaluation_results.confined.smoke.json \
+  --output results/by_workflow/00_exploratory_and_infrastructure/evaluations/cove_evaluation_results.confined.smoke.json \
   --database-url sqlite:///cove_results.confined.local.db
 ```
 
@@ -226,7 +228,7 @@ python3 run_cove_evaluation.py \
   --model deepseek-coder:1.3b \
   --max-questions 2 \
   --num-predict 512 \
-  --output results/evaluations/cove_evaluation_results.supabase.json \
+  --output results/by_workflow/03_supabase_corrected_current/evaluations/cove_evaluation_results.supabase.json \
   --database-schema cove_test
 ```
 
@@ -242,7 +244,7 @@ through the Supabase Management API:
 
 ```bash
 python3 sync_cove_report_to_supabase.py \
-  results/evaluations/cove_evaluation_results.deepseek-coder-6.7b.full.local.json \
+  results/by_workflow/00_exploratory_and_infrastructure/evaluations/cove_evaluation_results.deepseek-coder-6.7b.full.local.json \
   --project-ref hcjrjkhqseqozdsfzufm \
   --schema cove_test
 ```
