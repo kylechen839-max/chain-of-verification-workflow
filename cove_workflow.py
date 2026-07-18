@@ -125,6 +125,33 @@ def _sanitize_verification_question(question: str) -> str:
     return sanitized
 
 
+def _is_source_answerable_verification_question(question: str) -> bool:
+    """Reject verification questions that ask for outside confirmation."""
+
+    outside_source_patterns = [
+        r"\bother sources?\b",
+        r"\bexternal sources?\b",
+        r"\boutside (?:information|sources?|context|knowledge)\b",
+        r"\bcan you confirm\b",
+        r"\bconfirm that\b",
+        r"\bverify (?:if|whether|that)\b",
+        r"\bis (?:it )?(?:indeed|actually)\b",
+        r"\bmore information\b",
+        r"\badditional information\b",
+        r"\bavailable information\b",
+        r"\bbased on (?:the )?information available\b",
+        r"\blook up\b",
+        r"\bsearch\b",
+        r"\bbrowse\b",
+        r"\binternet\b",
+        r"\bdatabase\b",
+    ]
+    return not any(
+        re.search(pattern, question, flags=re.IGNORECASE)
+        for pattern in outside_source_patterns
+    )
+
+
 def run_factored_cove(
     question: str,
     call_llm: CallLLM,
@@ -161,16 +188,23 @@ Source context:
     ).strip()
 
     planner_prompt = f"""
-Given the user question and draft answer, write up to {max_questions} verification questions
-that would fact-check the draft's factual claims.
+Given the user question, source context, and draft answer, write up to {max_questions}
+verification questions that would fact-check the draft's factual claims using only
+the source context.
 
 Rules:
-- Prefer open-ended factual questions over yes/no questions.
-- Make each question answerable without seeing the draft.
-- If the user question contains source text, records, or metadata, include only
-  the source facts needed to answer each verification question.
+- Every verification question must be answerable from the source context below.
+- Do not ask questions that require outside knowledge, internet access, database
+  access, external documents, or other sources.
+- Do not ask whether a claim can be confirmed, verified, or supported by other sources.
+- Do not ask yes/no questions such as "Can you confirm..." or "Is it true that...".
+- Prefer open-ended metadata questions that point to a source field or entity:
+  publication date, author, NASA center, DOI, document type, title, abstract
+  claim, subject category, report number, URL, or source topic.
 - Never refer to "the draft", "draft answer", "baseline answer", "response",
   or "the answer" in a verification question.
+- If a draft claim cannot be checked from the source context, do not create a
+  verification question for it.
 - Focus on atomic claims: dates, names, locations, numbers, causal claims, and entity membership.
 - Return JSON only, exactly in this shape: {{"questions": ["...", "..."]}}
 
@@ -195,8 +229,11 @@ Draft answer:
     )
     verification_questions = _parse_questions(question_text, max_questions=max_questions)
     verification_questions = [
-        _sanitize_verification_question(item) for item in verification_questions
-    ]
+        sanitized
+        for item in verification_questions
+        if (sanitized := _sanitize_verification_question(item))
+        and _is_source_answerable_verification_question(sanitized)
+    ][:max_questions]
 
     verification_answers: list[str] = []
     verification_contexts: list[str] = []

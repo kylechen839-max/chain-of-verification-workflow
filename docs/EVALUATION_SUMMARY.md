@@ -265,6 +265,11 @@ Future Supabase question runs provide the article metadata/source context to
 direct answering and every factored CoVe step, while hiding the reference answer
 until hallucination scoring.
 
+The factored CoVe verification planner is constrained to create only questions
+answerable from the supplied source context. Planner outputs that ask for outside
+sources, internet/database access, or generic confirmation are filtered before
+the verification-answer step.
+
 Question files were exported with `export_supabase_questions.py`:
 
 - `benchmarks/cove_benchmark_questions_supabase_100.json`
