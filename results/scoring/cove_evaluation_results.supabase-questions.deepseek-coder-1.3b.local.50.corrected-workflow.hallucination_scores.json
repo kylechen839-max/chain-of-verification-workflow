@@ -1,0 +1,1641 @@
+{
+  "source_file": "results/evaluations/cove_evaluation_results.supabase-questions.deepseek-coder-1.3b.local.90.corrected-workflow.full.json",
+  "source_model": "deepseek-coder:1.3b",
+  "judge_model": "deepseek-coder:1.3b",
+  "scoring_scale": {
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "scoring_method": "Reference-grounded hallucination scoring against public.questions fields: answer, answer_source_field, reference_abstract, article_title, ntrs_url, doi, and source_topics. Exact/simple-answer checks are deterministic; remaining semantic checks use the configured local Ollama judge.",
+  "results": [
+    {
+      "id": "supabase-question-1",
+      "category": "supabase-question-year",
+      "qid": 1,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?",
+        "answer": "2022",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "20220003973",
+        "article_title": "PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20220003973",
+        "doi": "10.3847/1538-4365/ac582e",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-2",
+      "category": "supabase-question-center",
+      "qid": 2,
+      "type": "center",
+      "complexity": "basic",
+      "reference": {
+        "question": "Which NASA center is associated with the paper titled \"Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum\"?",
+        "answer": "Goddard Space Flight Center",
+        "answer_source_field": "center_name",
+        "reference_abstract": null,
+        "article_id": "20190002313",
+        "article_title": "Gravitational-Wave Astronomy in the 2020s and Beyond: A View Across the Gravitational Wave Spectrum",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20190002313",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-3",
+      "category": "supabase-question-method_approach",
+      "qid": 3,
+      "type": "method_approach",
+      "complexity": "complex",
+      "reference": {
+        "question": "What methods, data, or observational approach does the paper titled \"Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations\" use?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "Detailed wet tropospheric fluctuation information is presented in support of proposals to search for gravitational waves in ultra-precise Doppler data. The similarities between the solar wind and tropospheric effects on apparent signal path length are used to hypothesize a parametric model for low-frequency wet tropospheric path length fluctuation. Experimental observations of wet tropospheric signal delay fluctuations are interpreted as confirmation of this parametric form. The model is used to suggest the appropriate conditions for collection of experimental tropospheric fluctuation data.",
+        "article_id": "19790003945",
+        "article_title": "Parametric modeling of low-frequency water-vapor-induced tropospheric path length fluctuations",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19790003945",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The model suggests a parametric form for low frequency water vapor induced tropospheric path length fluctuations based on similarities between solar wind and Tropospheric effects. However, the observed data does not support this hypothesis."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "The paper uses observational data to hypothesize a parametric model for low frequency water vapor induced tropospheric path length fluctuations."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-4",
+      "category": "supabase-question-subject",
+      "qid": 4,
+      "type": "subject",
+      "complexity": "basic",
+      "reference": {
+        "question": "What is the primary NASA STI subject category of the paper titled \"(abstract) OMEGA: A Gravitational Wave MIDEX Mission\"?",
+        "answer": "Astronomy",
+        "answer_source_field": "subject_categories[0]",
+        "reference_abstract": null,
+        "article_id": "20060036705",
+        "article_title": "(abstract) OMEGA: A Gravitational Wave MIDEX Mission",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20060036705",
+        "doi": null,
+        "source_topics": [
+          "black hole",
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-5",
+      "category": "supabase-question-year",
+      "qid": 5,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Evidence for a collapsar in the binary system epsilon Aur\" published?",
+        "answer": "1971",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19710037334",
+        "article_title": "Evidence for a collapsar in the binary system epsilon Aur",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19710037334",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Expected year 1971; answer stated other year(s): 2016."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Expected year 1971; answer stated other year(s): 1972."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-6",
+      "category": "supabase-question-about_problem",
+      "qid": 6,
+      "type": "about_problem",
+      "complexity": "complex",
+      "reference": {
+        "question": "What is the paper titled \"Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?\" about, and what problem or question does it address?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "An elementary model of freely falling observers and emitters within a black hole's radius is examined to determine the redshift spectrum reaching a typical observer. The model is independent of scale, the fundamental unit being the radius (mass) of the black hole. The observers/emitters all follow the same kinds of trajectories: radially inward and starting from rest at spatial infinity. The test-particle role is assumed throughout; i.e., the observers/emitters do not themselves contribute to the gravitational field of the system. By means of redshift formulas and luminosity distance to the emitters, a picture of actual redshifts and blueshifts, with their intensities, emerges for an observer within the black hole's radius. No luminosity distances greater than approximately one-half the radius are considered in this particular study; nevertheless, redshifts and blueshifts up to approximately 0.6 are seen in portions of the observer's celestial sphere. An exotic application can be made, as a curiosity, to a black hole the size of the universe, resulting in a particular anisotropic \"cosmology.\"",
+        "article_id": "19770015085",
+        "article_title": "Techniques of Global analysis applied to gravitation theories:  A cosmological black hole?",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19770015085",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The model's answer is a comprehensive exploration of gravitational theories applied to black holes at different scales and distances from the observer. The paper provides an in-depth analysis that includes redshift spectra for observers within various radii (masses) or larger than one half radius due to space limitations, which further adds complexity."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "The model's analysis of gravity theories within a black hole radius scenario provides an interesting perspective on gravitational phenomena and can be applied to other scenarios as well. However, the provided evidence does not fully address this particular case which is why it scores high."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-7",
+      "category": "supabase-question-about_problem",
+      "qid": 7,
+      "type": "about_problem",
+      "complexity": "complex",
+      "reference": {
+        "question": "What is the paper titled \"Resource Letter GrW-1: Gravitational Waves\" about, and what problem or question does it address?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "The phenomenon of gravitational radiation was one of the first predictions of Einstein's general theory of relativity. Progress in understanding this radiation theoretically was slow at first, owing to the difficulty of the nonlinear field equations and the subtleties of their physical effects. The experimental side of this subject also has taken a long time to develop, with efforts at detection severely challenged by the extreme weakness of the waves impinging on the Earth. However, as the 21st century begins, observations of the gravitational waves from astrophysical sources such as black holes, neutron stars, and stellar collapse are expected to open a new window on the universe. Vigorous experimental programs centered on ground-based detectors are being carried out worldwide, and a space-based detector is in the planning stages. On the theoretical side, much effort is being expended to produce robust models of the astrophysical sources and accurate calculations of the waveforms they produce. In this Resource Letter, a set of basic references will be presented first, to provide a general introduction to and overview of the literature in this field. The focus then will shift to highlighting key resources in more specialized areas at the forefront of current research.",
+        "article_id": "20030025744",
+        "article_title": "Resource Letter GrW-1: Gravitational Waves",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20030025744",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The paper introduces a new field of gravitational waves with an overview on key resources in more specialized areas at the forefront. The author's resource letter provides comprehensive information about this topic and highlights important references."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Scoring fallback after judge error: ValueError: Judge did not return JSON: Based on your question's context, I can provide a general approach to evaluate whether an answer contains hallucinations relative to another source or not based on my understanding of how the model is structured. However, please note that this evaluation may vary depending upon specific requirements"
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-8",
+      "category": "supabase-question-year",
+      "qid": 8,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Interstellar scintillation and ultra-low-frequency gravitational wave observations\" published?",
+        "answer": "1984",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19840053922",
+        "article_title": "Interstellar scintillation and ultra-low-frequency gravitational wave observations",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19840053922",
+        "doi": "10.1038/307527a0",
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-9",
+      "category": "supabase-question-authors_list",
+      "qid": 9,
+      "type": "authors_list",
+      "complexity": "basic",
+      "reference": {
+        "question": "Name all the authors of the paper titled \"Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar\".",
+        "answer": "H T Cromartie; E Fonseca; S M Ransom; P B Demorest; Z Arzoumanian; H Blumer; P R Brook; M E DeCesar; T Dolch; J A Ellis; R D Ferdman; E C Ferrara; N Garver-Daniels; P Gentile; M L Jones; M T Lam; D R Lorimer; R S Lynch; M A McLaughlin; C Ng; D J Nice; T T Pennucci; R Spiewak; I H Stairs; K Stovall; J K Swiggum; W W Zhu",
+        "answer_source_field": "author_names",
+        "reference_abstract": null,
+        "article_id": "20210010702",
+        "article_title": "Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210010702",
+        "doi": "10.1038/s41550-019-0880-2",
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "[Major invented claims] The authors of this paper claim that they have found a way to measure the mass of an extremely massive millisecond pulsar using relativistic Shapiro delay measurements. However, their findings contradict with existing research in gravitational waves and other astrophysics fields."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "[Model] The authors of 'Relativistic Shapiro Delay Measurements of an Extremely Massive Millisecond Pulsar' are not only correct but also innovative. They have significantly contributed to the understanding and application of gravitational waves in astrophysics at a fundamental level, which is crucial for our current understanding."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-10",
+      "category": "supabase-question-center",
+      "qid": 10,
+      "type": "center",
+      "complexity": "basic",
+      "reference": {
+        "question": "Which NASA center is associated with the paper titled \"A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations\"?",
+        "answer": "Goddard Space Flight Center",
+        "answer_source_field": "center_name",
+        "reference_abstract": null,
+        "article_id": "20210014091",
+        "article_title": "A Long-Lived Neutron Star Merger Remnant in GW170817: Constraints and Clues from X-ray Observations",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210014091",
+        "doi": "doi:10.1093/mnras/sty3047",
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-11",
+      "category": "supabase-question-summary",
+      "qid": 11,
+      "type": "summary",
+      "complexity": "complex",
+      "reference": {
+        "question": "Summarize the main finding or contribution of the paper titled \"Electromagnetic Chirps from Neutron Star-Black Hole Mergers\".",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "We calculate the electromagnetic signal of a gamma-ray flare coming from the surface of a neutron star shortly before merger with a black hole companion. Using a new version of the Monte Carlo radiation transport code Pandurata that incorporates dynamic spacetimes, we integrate photon geodesics from the neutron star surface until they reach a distant observer or are captured by the black hole. The gamma-ray light curve is modulated by a number of relativistic effects, including Doppler beaming and gravitational lensing. Because the photons originate from the inspiraling neutron star, the light curve closely resembles the corresponding gravitational waveform: a chirp signal characterized by a steadily increasing frequency and amplitude. We propose to search for these electromagnetic chirps using matched filtering algorithms similar to those used in LIGO data analysis.",
+        "article_id": "20180002889",
+        "article_title": "Electromagnetic Chirps from Neutron Star-Black Hole Mergers",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20180002889",
+        "doi": "10.3847/1538-4357/aaa08b",
+        "source_topics": [
+          "black hole",
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "[Model] The proposed method of matched filtering similar to those used in LIGO data analysis is more suitable for searching and analyzing electromagnetic chirps compared with gravitational waves. This might be due to the fact that it uses a different type of signal (gamma-ray bursts) which may not have been previously studied or has additional effects added by relativistic dynamics."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "[...] a new method for analyzing gamma-ray bursts originating from merger of neutron stars with black holes using Pandurata's Monte Carlo radiation transport code [...]. The resulting electromagnetic chirp is modulated by a combination of relativistic effects such as Doppler beaming (changing frequency) and gravitational lensing(modifying amplitude)."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-12",
+      "category": "supabase-question-first_author",
+      "qid": 12,
+      "type": "first_author",
+      "complexity": "basic",
+      "reference": {
+        "question": "Who is the first author of the paper titled \"Neutrino damping of nonradial pulsations in gravitational collapse\"?",
+        "answer": "Kazanas, D.",
+        "answer_source_field": "author_names[0]",
+        "reference_abstract": null,
+        "article_id": "19770052261",
+        "article_title": "Neutrino damping of nonradial pulsations in gravitational collapse",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19770052261",
+        "doi": "10.1086/155312",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The author Kazanas D (from astrophysics) is not a hallucination source relative to reference sources."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "[Model] The first author of 'Neutrino damping of nonradial pulsations in gravitational collapse' is Kazanas D. and Schramm, D., but they must also consider other factors such as hydrodynamic calculations which may have influenced their conclusions based on this paper\u2019s findings."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-13",
+      "category": "supabase-question-about_problem",
+      "qid": 13,
+      "type": "about_problem",
+      "complexity": "complex",
+      "reference": {
+        "question": "What is the paper titled \"Computations of Photon Orbits Emitted by Flares at the ISCO of Accretion Disks Around Rotating Black Holes\" about, and what problem or question does it address?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "We present detailed computations of photon orbits emitted by flares at the ISCO of accretion disks around rotating black holes. We show that for sufficiently large spin parameter, i.e. $a > 0.94 M$, following a flare at ISCO, a sufficient number of photons arrive at an observer after multiple orbits around the black hole, to produce an \"photon echo\" of constant lag, i.e. independent of the relative phase between the black hole and the observer, of $\\Delta T \\simeq 14 M$. This constant time delay, then, leads to the presence of a QPO in the source power spectrum at a frequency $\\nu \\simeq 1/14M \\simeq 10 (M_[\\odot]/M])$ kHz, even for a totally random ensemble of such flares. Observation of such a QPO will provide incontrovertible evidence for the high spin of the black hole and a very accurate, independent, measurement of its mass.",
+        "article_id": "20090032314",
+        "article_title": "Computations of Photon Orbits Emitted by Flares at the ISCO of Accretion Disks Around Rotating Black Holes",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20090032314",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Scoring fallback after judge error: ValueError: Judge did not return JSON: I'm sorry for any confusion but your request seems to be more related to a scientific research paper analysis rather than an evaluation of model answer against expected reference source content or not in line with the rules. As such I can only provide general advice on how you might approach this ta"
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "The model's answer is supported by a detailed computation of photon orbits emitted when multiple foresighted photons collide with the ISCO (Infrared Compton Scattering) around rotating black holes. This process provides valuable insights into how these phenomena interact within larger systems and can provide incontrovertible evidence for various aspects related to astrophysics, cosmology."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-14",
+      "category": "supabase-question-significance",
+      "qid": 14,
+      "type": "significance",
+      "complexity": "complex",
+      "reference": {
+        "question": "Why is the work in the paper titled \"Pulsar timing and general relativity\" significant to the study of gravitational waves?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "Techniques are described for accounting for relativistic effects in the analysis of pulsar signals. Design features of instrumentation used to achieve millisecond accuracy in the signal measurements are discussed. The accuracy of the data permits modeling the pulsar physical characteristics from the natural glitches in the emissions. Relativistic corrections are defined for adjusting for differences between the pulsar motion in its spacetime coordinate system relative to the terrestrial coordinate system, the earth's motion, and the gravitational potentials of solar system bodies. Modifications of the model to allow for a binary pulsar system are outlined, including treatment of the system as a point mass. Finally, a quadrupole model is presented for gravitational radiation and techniques are defined for using pulsars in the search for gravitational waves.",
+        "article_id": "19870039470",
+        "article_title": "Pulsar timing and general relativity",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19870039470",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "[DOI] The work in this paper is significant to gravitational waves because it provides a method for accurately measuring pulsars' physical characteristics. This allows us to model gravity-induced changes on celestial bodies (like planets or stars) over time using data from other nearby sources such as pulsar signals and general relativity theory."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Scoring fallback after judge error: ValueError: Judge did not return JSON: I'm sorry for any confusion but I can provide a general approach to score your model answer based on expected information from other sources such as literature or published articles in astrophysics. However, please note that the specifics of this process would depend heavily on how you define \"signi"
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-15",
+      "category": "supabase-question-year",
+      "qid": 15,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Particle Acceleration in Active Galactic Nuclei\" published?",
+        "answer": "1996",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19980119844",
+        "article_title": "Particle Acceleration in Active Galactic Nuclei",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19980119844",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-16",
+      "category": "supabase-question-venue",
+      "qid": 16,
+      "type": "venue",
+      "complexity": "basic",
+      "reference": {
+        "question": "In which journal or publication did the paper titled \"NICER Observations of the Black Hole Candidate MAXI J0637-430 during the 2019-2020 Outburst\" appear?",
+        "answer": "Monthly Notices of the Royal Astronomical Society",
+        "answer_source_field": "publication_name",
+        "reference_abstract": null,
+        "article_id": "20210026562",
+        "article_title": "NICER Observations of the Black Hole Candidate MAXI J0637-430 during the 2019-2020 Outburst",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210026562",
+        "doi": "doi:10.1093/mnras/stab1231",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-17",
+      "category": "supabase-question-summary",
+      "qid": 17,
+      "type": "summary",
+      "complexity": "complex",
+      "reference": {
+        "question": "Summarize the main finding or contribution of the paper titled \"Data Analysis Challenges for Multi-Messenger Astrophysics\".",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "Recent multi-messenger observations of gravitational-wave and high-energy neutrino sources together with electromagnetic signatures have opened new ways of observing the Universe. These promise a future in which physics and astronomy will be advanced by combining observations and data from across the electromagnetic spectrum with gravitational waves and neutrinos. We consider the challenges the field is facing in fully utilizing data for multi-messenger astrophysics. Such data come from heterogeneous detector networks and standards, and their analysis is often time-critical to guide further observations. In this area, science capabilities depend on the interplay among observation, theory and computational/modeling work. Advances in data science and computing present additional opportunities and considerations in analyzing such data. We invited ADASS participants to a Birds of a Feather session to engage in discussion on the challenges and opportunities in data analysis for multimessenger astrophysics.",
+        "article_id": "20210014240",
+        "article_title": "Data Analysis Challenges for Multi-Messenger Astrophysics",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210014240",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The paper presents a comprehensive analysis of data challenges faced in fully utilizing multi messenger astrophysics data while also highlighting the need for more advanced techniques to analyze such data. The findings suggest that science capabilities depend on interplay among observation and theory work during observations which could be improved by incorporating machine learning algorithms or deep neural networks into our field."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "The paper discusses several challenges faced during data analysis when utilizing multiple communication channels simultaneously to observe and analyze gravitational waves from various sources. The primary challenge is ensuring that all these different detectors are correctly processed into a unified format so they can be analyzed together effectively in real time using computational models or simulations, while considering their interdependencies and coherence timescale limitations for RT data processing as well the need for accurate modeling across various channels when analyzing simultaneously-observed signals from diverse sources. The paper also mentions that science capabilities depend on observation work (the multi messenger aspect), theory in addition to computational/modeling works."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-18",
+      "category": "supabase-question-year",
+      "qid": 18,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Does an orbiting star cause periodic modulation of X-rays from NGC6814?\" published?",
+        "answer": "1992",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19920045824",
+        "article_title": "Does an orbiting star cause periodic modulation of X-rays from NGC6814?",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19920045824",
+        "doi": "10.1038/356224a0",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Expected year 1992 was not clearly stated."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-19",
+      "category": "supabase-question-center",
+      "qid": 19,
+      "type": "center",
+      "complexity": "basic",
+      "reference": {
+        "question": "Which NASA center is associated with the paper titled \"Optical Follow-Up of the Neutron Star-Black Hole Mergers S200105ae and S200115j\"?",
+        "answer": "Goddard Space Flight Center",
+        "answer_source_field": "center_name",
+        "reference_abstract": null,
+        "article_id": "20210013638",
+        "article_title": "Optical Follow-Up of the Neutron Star-Black Hole Mergers S200105ae and S200115j",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210013638",
+        "doi": "https://doi.org/10.1038/s41550-020-1183-3",
+        "source_topics": [
+          "black hole",
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-20",
+      "category": "supabase-question-keyword_result",
+      "qid": 20,
+      "type": "keyword_result",
+      "complexity": "complex",
+      "reference": {
+        "question": "According to the paper titled \"Stochastic Template Bank for Gravitational Wave Searches for Precessing Neutron Star-Black Hole Coalescence Events\", what is the key finding related to gravitational wave?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "Gravitational wave searches to date have largely focused on non-precessing systems. Including precession effects greatly increases the number of templates to be searched over. This leads to a corresponding increase in the computational cost and can increase the false alarm rate of a realistic search. On the other hand, there might be astrophysical systems that are entirely missed by non-precessing searches. In this paper we consider the problem of constructing a template bank using stochastic methods for neutron star-black hole binaries allowing for precession, but with the restrictions that the total angular momentum of the binary is pointing toward the detector and that the neutron star spin is negligible relative to that of the black hole. We quantify the number of templates required for the search, and we explicitly construct the template bank. We show that despite the large number of templates, stochastic methods can be adapted to solve the problem. We quantify the parameter space region over which the non-precessing search might miss signals.",
+        "article_id": "20170002442",
+        "article_title": "Stochastic Template Bank for Gravitational Wave Searches for Precessing Neutron Star-Black Hole Coalescence Events",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20170002442",
+        "doi": "10.1103/PhysRevD.95.064056",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The model's answer suggests that stochastic methods can be used effectively when constructing a template bank for gravitational wave searches. This method ensures the minimum false alarm rate and reduces computational costs while enhancing detection accuracy."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "The model's answer suggests a method that can adapt to nonprecessing searches due to lack of total angular momentum pointing toward the detector. This could potentially lead to more accurate detection in astrophysical systems not previously possible by precession effects."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-21",
+      "category": "supabase-question-about_problem",
+      "qid": 21,
+      "type": "about_problem",
+      "complexity": "complex",
+      "reference": {
+        "question": "What is the paper titled \"Application of the Hilbert-Huang Transform to the Search for Gravitational Waves\" about, and what problem or question does it address?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "We present the application of a novel method of time-series analysis, the Hilbert-Huang Transform, to the search for gravitational waves. This algorithm is adaptive and does not impose a basis set on the data, and thus the time-frequency decomposition it provides is not limited by time-frequency uncertainty spreading. Because of its high time-frequency resolution it has important applications to both signal detection and instrumental characterization. Applications to the data analysis of the ground and space based gravitational wave detectors, LIGO and LISA, are described.",
+        "article_id": "20070034819",
+        "article_title": "Application of the Hilbert-Huang Transform to the Search for Gravitational Waves",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20070034819",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "[DOI]: The paper provides a comprehensive overview of its method but lacks specific details about how it addresses the problem. This could be due to missing references or additional information."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "[DOI]: The paper provides a comprehensive overview of its application to gravitational waves in astronomy and astrophysics. It uses the Hilbert-Huang Transform as an adaptive method that does not impose any basis set on data; thus providing unrestricted decomposition into frequency components which are neither limited by uncertainty over time nor space, making it crucial for studying early universe phenomena at large distances such as black holes due to GWs in gravitational waves. The paper has significant applications within the field of astrophysics and astronomical research tools designed specifically\u7528\u4e8e detecting events related with gravity wave detection on ground-based or space based detectors like LIGO (Laser Interferometry With Gravitational Waves) as well as specific experiments such as Large Infrared Variable Spallation Experiment. The reference abstract and metadata provide the basis for its analysis."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-22",
+      "category": "supabase-question-author_count",
+      "qid": 22,
+      "type": "author_count",
+      "complexity": "basic",
+      "reference": {
+        "question": "How many authors does the paper titled \"NICER Uncovers the Transient Nature of the Type-B Quasi-periodic Oscillation in the Black Hole Candidate MAXI J1348\u221263\" have?",
+        "answer": "16",
+        "answer_source_field": "len(author_names)",
+        "reference_abstract": null,
+        "article_id": "20210026565",
+        "article_title": "NICER Uncovers the Transient Nature of the Type-B Quasi-periodic Oscillation in the Black Hole Candidate MAXI J1348\u221263",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210026565",
+        "doi": "doi:10.1093/mnras/stab1553",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "[Model] The paper titled 'NICER Uncovers the Transient Nature of the Type-B Quasi-periodic Oscillation in the Black Hole Candidate MAXI J1348\u221263' has more authors than expected. It claims to have 9, but only lists L Zhang and his colleagues."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "'NICER Uncovers the Transient Nature of the Type-B Quasi-periodic Oscillation in the Black Hole Candidate MAXI J1348\u221263' paper has one author L Zhang (also known as Author 2). He/she was involved during this research process. This is a major invented claim, contradicting reference and metadata."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-23",
+      "category": "supabase-question-keyword_result",
+      "qid": 23,
+      "type": "keyword_result",
+      "complexity": "complex",
+      "reference": {
+        "question": "According to the paper titled \"Black Hole Solar Systems Extreme Mass Ratio Inspirals\", what is the key finding related to general relativity?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "Waveforms known well enough to detect some EMRIs today. Soon, enough to realize Gair et al estimate of approx. 100's to 1000's of detections to z = 1. Not yet enough to for precision parameter estimation of Barack and Cutler (mass and spin to 10(exp -4)). Some turning to the more exotic: non-Kerr background, gas interaction, third body, ... More status and refs: Drasco, gr-qc/0604115.",
+        "article_id": "20060050277",
+        "article_title": "Black Hole Solar Systems Extreme Mass Ratio Inspirals",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20060050277",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The model's answer contradicts with the expected knowledge in terms of general relativity and waveforms known enough today can detect some EMRIs. However, there are still gaps to fill for precision parameter estimation using Barack and Cutler\u2019s mass and spin parameters."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "[...] has added important unsupported facts about General Relativity that contradicts our understanding of gravity and the universe. It also mentions more exotic theories such as non-Kerr background or gas interaction which are not yet fully understood."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-24",
+      "category": "supabase-question-summary",
+      "qid": 24,
+      "type": "summary",
+      "complexity": "complex",
+      "reference": {
+        "question": "Summarize the main finding or contribution of the paper titled \"Evidence for an Intermediate Mass Black Hole in NGC 5408 X-1\".",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "We report the discovery with XMM-Newton of correlated spectral and timing behavior in the ultraluminous X-ray source (ULX) NGC 5408 X-1. An approx. 100 ksec pointing with XMM/Newton obtained in January, 2008 reveals a strong 10 mHz QPO in the > 1 keV flux, as well as flat-topped, band limited noise breaking to a power law. The energy spectrum is again dominated by two components, a 0.16 keV thermal disk and a power-law with an index of approx. 2.5. These new measurements, combined with results from our previous January 2006 pointing in which we first detected QPOs, show for the first time in a ULX a pattern of spectral and temporal correlations strongly analogous to that seen in Galactic black hole sources, but at much higher X-ray luminosity and longer characteristic time-scales. We find that the QPO frequency is proportional to the inferred disk flux, while the QPO and broad-band noise amplitude (root mean squared, rms) are inversely proportional to the disk flux. Assuming that QPO frequency scales inversely with black hole mass at a given power-law spectral index we derive mass estimates using the observed QPO frequency - spectral index relations from five stellar-mass black hole systems with dynamical mass constraints. The results from all sources are consistent with a mass range for NGC 5408 X-1 from 1000 - 9000 Stellar mass. We argue that these are conservative limits, and a more likely range is from 2000 - 5000 Stellar mass. Moreover, the recent relation from Gierlinski et al. that relates black hole mass to the strength of variability at high frequencies (above the break in the power spectrum), and the variability plane results of McHardy et al. and Koerding et al., are also suggestive of such a. high mass for NGC 5408 X-1. Importantly, none of the above estimates appears consistent with a black hole mass less than approx. 1000 Stellar mass for NGC 5408 X-1. We argue that these new findings strongly support the conclusion that NGC 5408 X-1 harbors an intermediate mass black hole.",
+        "article_id": "20090032024",
+        "article_title": "Evidence for an Intermediate Mass Black Hole in NGC 5408 X-1",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20090032024",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The paper provides strong support for a massive intermediate mass black hole at approximately between 1,000 -9000 stellar masses. However, the conclusion does not fully capture this evidence."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "The paper provides compelling evidence to suggest that a black hole at midpoint of Gamma Ray Burst could potentially be found within the Milky Way galaxy. This discovery supports our understanding and confirmation from previous work which has shown how QPO frequencies in ULX sources with spectral index equal to two are closely related to those observed for other types X-ray light sources such as Galactic bulges or even black holes at lower stellar masses (approximately 1000 -9000 Stellar Masses)."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-25",
+      "category": "supabase-question-year",
+      "qid": 25,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Gravitational radiation in the limit of high frequency.  II - Nonlinear terms and the effective stress tensor.\" published?",
+        "answer": "1968",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19680041451",
+        "article_title": "Gravitational radiation in the limit of high frequency.  II - Nonlinear terms and the effective stress tensor.",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19680041451",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-26",
+      "category": "supabase-question-summary",
+      "qid": 26,
+      "type": "summary",
+      "complexity": "complex",
+      "reference": {
+        "question": "Summarize the main finding or contribution of the paper titled \"Multimessenger Gravitational-wave Searches with Pulsar Timing Arrays: Application to 3C 66B Using the NANOGrav 11-year Data Set\".",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "When galaxies merge, the supermassive black holes in their centers may form binaries and emit low-frequency gravitational radiation in the process. In this paper, we consider the galaxy 3C 66B, which was used as the target of the first multimessenger search for gravitational waves. Due to the observed periodicities present in the photometric and astrometric data of the source, it has been theorized to contain a supermassive black hole binary. Its apparent 1.05-year orbital period would place the gravitational-wave emission directly in the pulsar timing band. Since the first pulsar timing array study of 3C 66B, revised models of the source have been published, and timing array sensitivities and techniques have improved dramatically. With these advances, we further constrain the chirp mass of the potential supermassive black hole binary in 3C 66B to less than (1.65\uf0a0\u00b1\uf0a00.02)\uf0a0\u00d7\uf0a0109\uf0a0Me using data from the NANOGrav 11-year data set. This upper limit provides a factor of 1.6 improvement over previous limits and a factor of 4.3 over the first search done. Nevertheless, the most recent orbital model for the source is still consistent with our limit from pulsar timing array data. In addition, we are able to quantify the improvement made by the inclusion of source properties gleaned from electromagnetic data over \u201cblind\u201d pulsar timing array searches. With these methods, it is apparent that it is not necessary to obtain exact a priori knowledge of the period of a binary to gain meaningful astrophysical inferences.",
+        "article_id": "20210010483",
+        "article_title": "Multimessenger Gravitational-wave Searches with Pulsar Timing Arrays: Application to 3C 66B Using the NANOGrav 11-year Data Set",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210010483",
+        "doi": "https://doi.org/10.3847/1538-4357/ababa1",
+        "source_topics": [
+          "black hole",
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The model's answer is supported by a significant amount of information from both sources (the paper and the NANOGrav dataset), but it does not fully capture all aspects. The inclusion of source properties over pulsar timing array searches could provide more accurate astrophysical inferences."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "The paper provides a comprehensive understanding of gravitational waves from galaxy 3C 66B and discusses how it was possible for this binary to have an apparent orbital period longer than what we expect. The study suggests that obtaining a priori knowledge of the mass of supermassive black holes is not necessary to gain meaningful astrophysical inferences, thus providing unbiased verification for this claim in our current understanding and research scope."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-27",
+      "category": "supabase-question-first_author",
+      "qid": 27,
+      "type": "first_author",
+      "complexity": "basic",
+      "reference": {
+        "question": "Who is the first author of the paper titled \"Characterization of Photodetectors for LISA\"?",
+        "answer": "Guzman, Felipe",
+        "answer_source_field": "author_names[0]",
+        "reference_abstract": null,
+        "article_id": "20100014812",
+        "article_title": "Characterization of Photodetectors for LISA",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20100014812",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-28",
+      "category": "supabase-question-year",
+      "qid": 28,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Active Galactic Nuclei with James Webb Space Telescope (JWST)\" published?",
+        "answer": "2011",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "20110023364",
+        "article_title": "Active Galactic Nuclei with James Webb Space Telescope (JWST)",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20110023364",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Expected year 2011; answer stated other year(s): 2019."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Expected year 2011; answer stated other year(s): 2019."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-29",
+      "category": "supabase-question-about_problem",
+      "qid": 29,
+      "type": "about_problem",
+      "complexity": "complex",
+      "reference": {
+        "question": "What is the paper titled \"The First X-Ray Polarimetric Observation of the Black Hole Binary LMC X-1\" about, and what problem or question does it address?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "We report on an X-ray polarimetric observation of the high-mass X-ray binary LMC X-1 in the high/soft state, obtained by the Imaging X-ray Polarimetry Explorer ( IXPE ) in 2022 October. The measured polarization is below the minimum detectable polarization of 1.1 per cent (at the 99 per cent confidence level). Simultaneously, the source was observed with the Neutron Star Interior Composition Explorer (NICER), Nuclear Spectroscopic Telescope Array ( NuSTAR ), and Spectrum-Rontgen-Gamma ( SRG )/Astronomical Roentgen Telescope \u2013 X-ray Concentrator (ART-XC) instruments, which enabled spectral decomposition into a dominant thermal component and a Comptonized one. The low 2\u20138 keV polarization of the source did not allow for strong constraints on the black hole spin and inclination of the accretion disc. However, if the orbital inclination of about 36\u25e6 is assumed, then the upper limit is consistent with predictions for pure thermal emission from geometrically thin and optically thick discs. Assuming the polarization degree of the Comptonization component to be 0, 4, or 10 per cent, and oriented perpendicular to the\npolarization of the disc emission (in turn assumed to be perpendicular to the large-scale ionization cone orientation detected in the optical band), an upper limit to the polarization of the disc emission of 1.0, 0.9, or 0.9 per cent, respectively, is found (at the 99 per cent confidence level).",
+        "article_id": "20240006033",
+        "article_title": "The First X-Ray Polarimetric Observation of the Black Hole Binary LMC X-1",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20240006033",
+        "doi": "10.1093/mnras/stad3103",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 1,
+          "notes": "Scoring fallback after judge error: ValueError: Judge did not return JSON: Based on your model's response to this question (which seems more related to astrophysics than computer science), I can provide a score for it based on my understanding of the topic. The paper titled \"The First X-Ray Polarimetric Observation of the Black Hole Binary LMC X-1\" is addressing an issue w"
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Scoring fallback after judge error: ValueError: Judge did not return JSON: Based on your description of a paper titled \"The First X-Ray Polarimetric Observation of the Black Hole Binary LMC X-1\", and its address as well as expected answer (not listed), I'm going to score it based on my understanding. \n\nScore: **2** - Major Invented Claims  \nReasoning: The paper provides a "
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-30",
+      "category": "supabase-question-year",
+      "qid": 30,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Gravitational waves.\" published?",
+        "answer": "1968",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19680044126",
+        "article_title": "Gravitational waves.",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19680044126",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Expected year 1968; answer stated other year(s): 1973."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Expected year 1968; answer stated other year(s): 1973."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-31",
+      "category": "supabase-question-method_approach",
+      "qid": 31,
+      "type": "method_approach",
+      "complexity": "complex",
+      "reference": {
+        "question": "What methods, data, or observational approach does the paper titled \"Binary Black Holes, Accretion Disks and Relativistic Jets: Photocenters of Nearby AGN and Quasars\" use?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "One of the most challenging questions in astronomy today is to understand the origin, structure, and evolution of the central engines in the nuclei of quasars and active galaxies (AGNs). The favoured theory involves the activation of relativistic jets from the fueling of a supermassive black hole through an accretion disk. In some AGN an outer optically thick, dusty torus is seen orbiting the black hole system. This torus is probably related to an inner accretion disk - black hole system that forms the actual powerhouse of the AGN. In radio-loud AGN two oppositely-directed radio jets are ejected perpendicular to the torus/disk system. Although there is a wealth of observational data on AGN, some very basic questions have not been definitively answered. The Space Interferometry Mission (SIM) will address the following three key questions about AGN. 1) Does the most compact optical emission from an AGN come from an accretion disk or from a relativistic jet? 2) Does the separation of the radio core and optical photocenter of the quasars used for the reference frame tie, change on the timescales of their photometric variability, or is the separation stable at the level of a few microarcseconds? 3) Do the cores of galaxies harbor binary supermassive black holes remaining from galaxy mergers? It is not known whether such mergers are common, and whether binaries would persist for a significant time.",
+        "article_id": "20050186755",
+        "article_title": "Binary Black Holes, Accretion Disks and Relativistic Jets: Photocenters of Nearby AGN and Quasars",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20050186755",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The paper discusses how SIM will address three key questions about AGN but does not provide a detailed answer to the first two. The separation between radio cores and optically focused photocenters could change over time due to changes in AGN's evolution."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "The paper uses a combination of methods to understand how black holes are formed in nearby active galaxies (AGNs). The most compact optical emission from an AGN could come either from the fueling of a supermassive black hole through an accretion disk or it might be related with another type of jet. This is supported by observations and studies that confirm this hypothesis using SIM data about nearby active galaxies ."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-32",
+      "category": "supabase-question-first_author",
+      "qid": 32,
+      "type": "first_author",
+      "complexity": "basic",
+      "reference": {
+        "question": "Who is the first author of the paper titled \"Testing Cosmic Inflation\"?",
+        "answer": "Chuss, David",
+        "answer_source_field": "author_names[0]",
+        "reference_abstract": null,
+        "article_id": "20100014820",
+        "article_title": "Testing Cosmic Inflation",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20100014820",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-33",
+      "category": "supabase-question-first_author",
+      "qid": 33,
+      "type": "first_author",
+      "complexity": "basic",
+      "reference": {
+        "question": "Who is the first author of the paper titled \"Enabling Real-time Multi-messenger Astrophysics Discoveries with Deep Learning\"?",
+        "answer": "E A Huerta",
+        "answer_source_field": "author_names[0]",
+        "reference_abstract": null,
+        "article_id": "20210013583",
+        "article_title": "Enabling Real-time Multi-messenger Astrophysics Discoveries with Deep Learning",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210013583",
+        "doi": "10.1038/s42254-019-0097-4",
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-34",
+      "category": "supabase-question-year",
+      "qid": 34,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Quantum descriptions of singularities leading to pair creation\" published?",
+        "answer": "1974",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19750037779",
+        "article_title": "Quantum descriptions of singularities leading to pair creation",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19750037779",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-35",
+      "category": "supabase-question-year",
+      "qid": 35,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Competition of supermassive black holes and galactic spheroids in the destruction of globular clusters\" published?",
+        "answer": "1995",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19950060150",
+        "article_title": "Competition of supermassive black holes and galactic spheroids in the destruction of globular clusters",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19950060150",
+        "doi": "10.1086/175594",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-36",
+      "category": "supabase-question-first_author",
+      "qid": 36,
+      "type": "first_author",
+      "complexity": "basic",
+      "reference": {
+        "question": "Who is the first author of the paper titled \"A test of the massive binary black hole hypothesis - Arp 102B\"?",
+        "answer": "Helpern, J. P.",
+        "answer_source_field": "author_names[0]",
+        "reference_abstract": null,
+        "article_id": "19880056180",
+        "article_title": "A test of the massive binary black hole hypothesis - Arp 102B",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19880056180",
+        "doi": "10.1038/331046a0",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "[Helpern's name] is known for their work in astrophysics and has published numerous articles on this topic with significant contributions to our understanding of AGNs behavior at the scale we currently perceive them. The paper titled 'A test of the massive binary black hole hypothesis - Arp 102B', by [Filippenko's name], is a major invented claim."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-37",
+      "category": "supabase-question-summary",
+      "qid": 37,
+      "type": "summary",
+      "complexity": "complex",
+      "reference": {
+        "question": "Summarize the main finding or contribution of the paper titled \"The Doppler response to gravitational waves from a binary star source\".",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "The equations are developed for spacecraft Doppler detection of periodic gravitational waves from a single binary star source. Graphical examples are included to indicate the great variety of Doppler signals which can be generated by these systems.",
+        "article_id": "19880053549",
+        "article_title": "The Doppler response to gravitational waves from a binary star source",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19880053549",
+        "doi": "10.1007/BF00759146",
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The paper presents an interesting contribution in astrophysics but lacks specific information about its spatial distribution patterns and the source fields themselves. The authors have developed equations for spacecraft Doppler detection that can detect periodic gravitational waves generated by single binary star sources with great variety among them due to their unknown characteristics."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Scoring fallback after judge error: ValueError: Judge did not return JSON: Based on your request for a model's response to summarize \"The Doppler response to gravitational waves from a binary star source\", I can provide an analysis of how the score would be calculated. The scoring scale is based off three factors - clarity, completeness and relevance (R). \n\nClarity: This f"
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-38",
+      "category": "supabase-question-year",
+      "qid": 38,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Response of a Doppler canceling system to plane gravitational waves\" published?",
+        "answer": "1982",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19820063007",
+        "article_title": "Response of a Doppler canceling system to plane gravitational waves",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19820063007",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-39",
+      "category": "supabase-question-first_author",
+      "qid": 39,
+      "type": "first_author",
+      "complexity": "basic",
+      "reference": {
+        "question": "Who is the first author of the paper titled \"General Relativistic Simulations of Magnetized Plasmas Around Merging Supermassive Black Holes\"?",
+        "answer": "Giacomazzo, Bruno",
+        "answer_source_field": "author_names[0]",
+        "reference_abstract": null,
+        "article_id": "20120011800",
+        "article_title": "General Relativistic Simulations of Magnetized Plasmas Around Merging Supermassive Black Holes",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20120011800",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "[DOI] The authors claim that they have developed a general relativistic simulation for magnetized plasmas around merging supermassive black holes using an electromagnetic counterpart. They explore how magnetic fields affect these dynamics and possible emission signals."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "[Baker's work] The answer contradicts with what is expected from a reference source and also includes unsupported details. It does not match the abstract or metadata of an existing article."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-40",
+      "category": "supabase-question-venue",
+      "qid": 40,
+      "type": "venue",
+      "complexity": "basic",
+      "reference": {
+        "question": "In which journal or publication did the paper titled \"Sensitivity Limits of Space-Based Interferometric Gravitational Wave Observatories from the Solar Wind\" appear?",
+        "answer": "Physical Review D",
+        "answer_source_field": "publication_name",
+        "reference_abstract": null,
+        "article_id": "20210020436",
+        "article_title": "Sensitivity Limits of Space-Based Interferometric Gravitational Wave Observatories from the Solar Wind",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210020436",
+        "doi": "10.1103/PhysRevD.104.062003",
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "The paper titled 'Sensitivity Limits of Space-Based Interferometric Gravitational Wave Observatories from the Solar Wind' does not contain enough information for me as per my knowledge and source context provided in this question. I don't have access to external facts or databases that provide more detailed sources of data about specific scientific articles such as 'Sensitivity Limits of Space-Based Interferometric Gravitational Wave Observatories from the Solar Wind'. The reference answer is \u2018Not listed\u2019, and using this information would be against my knowledge."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-41",
+      "category": "supabase-question-center",
+      "qid": 41,
+      "type": "center",
+      "complexity": "basic",
+      "reference": {
+        "question": "Which NASA center is associated with the paper titled \"Discovery of Nine Gamma-Ray Pulsars in Fermi-Lat Data Using a New Blind Search Method\"?",
+        "answer": "Goddard Space Flight Center",
+        "answer_source_field": "center_name",
+        "reference_abstract": null,
+        "article_id": "20120009378",
+        "article_title": "Discovery of Nine Gamma-Ray Pulsars in Fermi-Lat Data Using a New Blind Search Method",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20120009378",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-42",
+      "category": "supabase-question-significance",
+      "qid": 42,
+      "type": "significance",
+      "complexity": "complex",
+      "reference": {
+        "question": "Why is the work in the paper titled \"The generation of gravitational waves. I - Weak-field sources\" significant to the study of gravitational waves?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "This paper derives and summarizes a 'plug-in-and-grind' formalism for calculating the gravitational waves emitted by any system with weak internal gravitational fields. If the internal fields have negligible influence on the system's motions, the formalism reduces to standard 'linearized theory'. Independent of the effects of gravity on the motions, the formalism reduces to the standard 'quadrupole-moment formalism' if the motions are slow and internal stresses are weak. In  the general case, the formalism expresses the radiation in terms of a retarded Green's function for slightly curved spacetime and breaks the Green's function integral into five easily understood pieces: direct radiation, produced directly by the motions of the source; whump radiation, produced by the 'gravitational stresses' of the source; transition radiation, produced by a time-changing time delay ('Shapiro effect') in the propagation of the nonradiative 1/r field of the source; focusing radiation, produced when one portion of the source focuses, in a time-dependent way, the nonradiative field of another portion of the source; and tail radiation, produced by 'back-scatter' of the nonradiative field in regions of focusing.",
+        "article_id": "19750060829",
+        "article_title": "The generation of gravitational waves. I - Weak-field sources",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19750060829",
+        "doi": "10.1086/153783",
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "[DOI] The work in this paper is significant to study gravitational waves due to its ability of accurately modeling gravity induced changes on a scale that would be difficult or impossible with standard models. It introduces an entirely new approach for calculating gravitational waves - 'plug and grind' theory which reduces complexities in quantum field theories by breaking them down into simpler components (direct radiation etc.). This method is particularly useful when dealing with systems where internal fields have negligible influence on the system\u2019s motions."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "[DOI] The work by Thorne & Kovacs (1975) titled 'The generation of gravitational waves' is significant to our study because it provides us with an understanding of how fundamental forces interact in a universe. This unique property of gravity plays crucial role and has been instrumental for the development of various scientific theories such as quantum mechanics or general relativity that have influenced nature at large scales today."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-43",
+      "category": "supabase-question-year",
+      "qid": 43,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"Radar observations of gravitational waves in a clear atmosphere.\" published?",
+        "answer": "1968",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "19680060065",
+        "article_title": "Radar observations of gravitational waves in a clear atmosphere.",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19680060065",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Expected year 1968; answer stated other year(s): 1973."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-44",
+      "category": "supabase-question-about_problem",
+      "qid": 44,
+      "type": "about_problem",
+      "complexity": "complex",
+      "reference": {
+        "question": "What is the paper titled \"On the Maximum Stellar Rotation to Form a Black Hole without an Accompanying Luminous Transient\" about, and what problem or question does it address?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "The collapse  of a  massive star  with  low angular  momentum content  is commonly argued  to result  in the formation of a black hole without an accompanying bright transient.  Our goal in this Letter is to understand the flow in and around a newly-formed black hole,  involving accretion and rotation,  via general relativistic hydrodynamics simulations aimed at studying the conditions under which infalling material can accrete without forming a centrifugally supported structure and,  as a result,  generate no effective feedback.  If the feedback from the black hole is,  on the other hand,  significant,  the collapse would be halted and we suggest that the event is likely to be followed by a bright transient. We find that feedback is only efficient if the specific angular momentum of the infalling material at the innermost stable circular orbit exceeds that of geodesic circular flow at that radius by at least\u224820%. We use the results of our simulations to constrain the maximal stellar rotation rates of the disappearing massive progenitors PHL293B-LBV and N6946-BH1, and to provide an estimate of the overall rate of disappearing massive stars. We find that about a few percent of single O-type stars with measured rotational velocities are expected to spin below the critical value before collapse and are thus predicted to vanish without a trace.",
+        "article_id": "20205008252",
+        "article_title": "On the Maximum Stellar Rotation to Form a Black Hole without an Accompanying Luminous Transient",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20205008252",
+        "doi": "doi: 10.3847/2041-8213/abb818",
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The paper discusses a topic related to stellar rotation in massive stars which is not addressed by this model's answer. The author suggests that the collapse of such an enormous star with low angular momentum content can result into forming a black hole without accompanying luminous transient event due to feedback occurring through general relativistic hydrodynamics simulations."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "Scoring fallback after judge error: ValueError: Judge did not return JSON: Based on your question's context (which seems to be a scientific paper related to black holes), I can provide an analysis of how well this model answer fits into what is expected by the reference source. The score would depend heavily upon whether or not all details from both sources are present in "
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-45",
+      "category": "supabase-question-summary",
+      "qid": 45,
+      "type": "summary",
+      "complexity": "complex",
+      "reference": {
+        "question": "Summarize the main finding or contribution of the paper titled \"On the heterodyne method of detecting gravitational waves\".",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "A mathematical model on the heterodyne method of detecting gravitational waves is presented, using a dumbbell consisting of two masses situated in a plane and a plane-fronted gravitational wave traveling perpendicular to the plane. It is concluded that the detector sensitivity is not likely to be improved without employing very complicated and expensive super low temperature techniques.",
+        "article_id": "19720006134",
+        "article_title": "On the heterodyne method of detecting gravitational waves",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/19720006134",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The model's claim that detector sensitivity can be improved without complex super low temperature techniques contradicts with the expected answer. The reference source provides a mathematical method for detecting gravitational waves and suggests using more complicated methods like high precision accelerometers or other advanced wave detection systems designed specifically to handle long duration signals."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "The model's answer contradicts with a significant part of what is presented in this paper and adds important unsupported facts. It also uses advanced super low-temperature techniques which could potentially enhance detection accuracy by more than the current technology."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-46",
+      "category": "supabase-question-year",
+      "qid": 46,
+      "type": "year",
+      "complexity": "basic",
+      "reference": {
+        "question": "In what year was the paper titled \"GRMHD Simulations of Jet Formation with RAISHIN\" published?",
+        "answer": "2006",
+        "answer_source_field": "publication_date",
+        "reference_abstract": null,
+        "article_id": "20070002527",
+        "article_title": "GRMHD Simulations of Jet Formation with RAISHIN",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20070002527",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "Expected year 2006; answer stated other year(s): 1986."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "Expected year 2006; answer stated other year(s): 2019."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-47",
+      "category": "supabase-question-author_count",
+      "qid": 47,
+      "type": "author_count",
+      "complexity": "basic",
+      "reference": {
+        "question": "How many authors does the paper titled \"Gamma-Ray Astronomy Across 6 Decades of Energy: Synergy between Fermi, IACTs, and HAWC\" have?",
+        "answer": "1",
+        "answer_source_field": "len(author_names)",
+        "reference_abstract": null,
+        "article_id": "20170010287",
+        "article_title": "Gamma-Ray Astronomy Across 6 Decades of Energy: Synergy between Fermi, IACTs, and HAWC",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20170010287",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "'Gamma Ray Astronomy Across 6 Decades of Energy' paper has more authors than expected (1 vs. Expected answer). The author mentioned in the abstract is 'NASA Marshall Space Flight Center', a member of NASA\u2019s Gamma-Ray Observatories."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "'Hui C. Michelle' is one of the authors in this paper when counting from a given context about Gamma-Ray Astronomy Across 6 Decades of Energy: Synergy between Fermi, IACTs and HAWC titled by NASA Space Flight Center (MSFC)."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-48",
+      "category": "supabase-question-summary",
+      "qid": 48,
+      "type": "summary",
+      "complexity": "complex",
+      "reference": {
+        "question": "Summarize the main finding or contribution of the paper titled \"When Black Holes Collide\".",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "Among the fascinating phenomena predicted by General Relativity, Einstein's theory of gravity, black holes and gravitational waves, are particularly important in astronomy. Though once viewed as a mathematical oddity, black holes are now recognized as the central engines of many of astronomy's most energetic cataclysms. Gravitational waves, though weakly interacting with ordinary matter, may be observed with new gravitational wave telescopes, opening a new window to the universe. These observations promise a direct view of the strong gravitational dynamics involving dense, often dark objects, such as black holes. The most powerful of these events may be merger of two colliding black holes. Though dark, these mergers may briefly release more energy that all the stars in the visible universe, in gravitational waves. General relativity makes precise predictions for the gravitational-wave signatures of these events, predictions which we can now calculate with the aid of supercomputer simulations. These results provide a foundation for interpreting expect observations in the emerging field of gravitational wave astronomy.",
+        "article_id": "20100014855",
+        "article_title": "When Black Holes Collide",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20100014855",
+        "doi": null,
+        "source_topics": [
+          "gravitational waves"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The study provides a foundation for interpreting expect observations from the field of Gravitational Wave Astronomy. This is an emerging area that aims to understand and interpret these mysterious phenomena occurring within our universe."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "[DOI] The paper provides a comprehensive understanding of black hole merger events in general relativity and gravitational waves. However, the reference source is not listed or missing."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-49",
+      "category": "supabase-question-keyword_result",
+      "qid": 49,
+      "type": "keyword_result",
+      "complexity": "complex",
+      "reference": {
+        "question": "According to the paper titled \"MoonBEAM: A Beyond Earth-Orbit Gamma-Ray Burst Detector for Multi-Messenger Astronomy\", what is the key finding related to Beyond Earth-Orbit?",
+        "answer": null,
+        "answer_source_field": null,
+        "reference_abstract": "MoonBEAM is a 12U CubeSat concept of deploying gamma-ray detectors in cislunar space to increase gamma-ray burst detections and improve localization precision with the timing triangulation technique. Such an instrument would probe the extreme processes in cosmic collision of compact objects and facilitate multi-messenger time-domain astronomy to explore the end of explore the end of stellar life cycles and black hole formation.",
+        "article_id": "20180007257",
+        "article_title": "MoonBEAM: A Beyond Earth-Orbit Gamma-Ray Burst Detector for Multi-Messenger Astronomy",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20180007257",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 2,
+          "notes": "The model's answer contradicts with the expected knowledge about Beyond Earth-Orbit in MoonBEAM paper. The author claims that this technology would probe extreme processes such as cosmic collision of compact objects and facilitate multi messenger time domain astronomy to explore end of stellar life cycles or black hole formation."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 1,
+          "notes": "The key finding related to Beyond Earth-Orbit in MoonBEAM (MoonBeam) is that it provides a comprehensive view of cosmic collision processes and facilitates multi-messenger time domain astronomy for exploring the end of stellar life cycles."
+        }
+      ]
+    },
+    {
+      "id": "supabase-question-50",
+      "category": "supabase-question-first_author",
+      "qid": 50,
+      "type": "first_author",
+      "complexity": "basic",
+      "reference": {
+        "question": "Who is the first author of the paper titled \"Concepts for Project Galaxy\"?",
+        "answer": "Woeltjen, L.",
+        "answer_source_field": "author_names[0]",
+        "reference_abstract": null,
+        "article_id": "20210005500",
+        "article_title": "Concepts for Project Galaxy",
+        "ntrs_url": "https://ntrs.nasa.gov/citations/20210005500",
+        "doi": null,
+        "source_topics": [
+          "black hole"
+        ]
+      },
+      "mode_scores": [
+        {
+          "mode": "direct",
+          "manual_hallucination_score": 0,
+          "notes": "Reference answer appears in the model answer."
+        },
+        {
+          "mode": "factored_cove",
+          "manual_hallucination_score": 2,
+          "notes": "[Model Answer] The authors of 'Concepts for Project Galaxy' are not supported by their expected answer or the reference source. They added important unsupported facts and contradictory claims."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "direct": {
+      "items": 50,
+      "score_counts": {
+        "0": 19,
+        "1": 2,
+        "2": 29
+      },
+      "any_hallucination_rate": 0.62,
+      "major_hallucination_rate": 0.58,
+      "average_hallucination_score": 1.2
+    },
+    "factored_cove": {
+      "items": 50,
+      "score_counts": {
+        "0": 18,
+        "1": 9,
+        "2": 23
+      },
+      "any_hallucination_rate": 0.64,
+      "major_hallucination_rate": 0.46,
+      "average_hallucination_score": 1.1
+    }
+  },
+  "source_full_score_run": "results/scoring/cove_evaluation_results.supabase-questions.deepseek-coder-1.3b.local.90.corrected-workflow.full.hallucination_scores.json",
+  "prefix_trial_size": 50
+}

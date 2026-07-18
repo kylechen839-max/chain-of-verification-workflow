@@ -47,6 +47,11 @@ def run_timed(label: str, fn: Any) -> dict[str, Any]:
     }
 
 
+def write_report(path: str, report: dict[str, Any]) -> None:
+    with open(path, "w", encoding="utf-8") as file:
+        json.dump(report, file, indent=2)
+
+
 def answer_direct(question: str, call_llm: Any) -> str:
     return call_llm(
         [
@@ -316,6 +321,11 @@ def main() -> None:
         action="store_true",
         help="Skip schema/table creation for database writes when tables already exist.",
     )
+    parser.add_argument(
+        "--checkpoint-each",
+        action="store_true",
+        help="Write the output JSON after each completed question.",
+    )
     args = parser.parse_args()
 
     call_llm = make_ollama_call_llm(
@@ -416,9 +426,11 @@ def main() -> None:
             )
 
         report["results"].append({**item, "modes": mode_results})
+        if args.checkpoint_each:
+            write_report(args.output, report)
+            print(f"Checkpointed {len(report['results'])} results to {args.output}")
 
-    with open(args.output, "w", encoding="utf-8") as file:
-        json.dump(report, file, indent=2)
+    write_report(args.output, report)
 
     print(f"Wrote {args.output}")
 

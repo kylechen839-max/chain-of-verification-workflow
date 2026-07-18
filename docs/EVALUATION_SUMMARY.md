@@ -349,3 +349,47 @@ Across the 10-90 scaling runs, there were 450 outputs per mode. Without CoVe
 had a 53.3% any-hallucination rate and a 2.0% major hallucination rate.
 Factored CoVe had a 59.1% any-hallucination rate and a 2.7% major
 hallucination rate.
+
+### Corrected Supabase 10-90 Question Scaling Run
+
+After hiding the reference answer from all LLM-facing prompts and injecting the
+source metadata into every CoVe step, a corrected 10-90 scaling pass was run
+locally. `deepseek-r1:32b` was downloaded but was too slow for a one-question
+CoVe smoke test. `deepseek-r1:7b` completed 10- and 20-question runs but stalled
+on the 30-question run. `deepseek-coder:6.7b` also produced repeated 300-second
+blank timeouts after the larger-model attempts. The completed corrected sweep
+therefore used the stable local downgrade `deepseek-coder:1.3b`.
+
+To avoid rerunning the same prefix questions repeatedly, the first 90 Supabase
+questions were run once with checkpointing and then split into 10-, 20-, ...,
+90-question prefix trial files. The aggregate summary is stored in
+`results/scoring/supabase_questions_scaled_10_90_corrected_workflow_deepseek-coder-1.3b_summary.json`.
+
+| Prompt Count | Runtime | Verification Questions | Mode | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
+|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
+| 10 | 119.63s | 14 | Without CoVe (`direct`) | 5 | 0 | 5 | 50.0% | 50.0% | 1.0000 |
+| 10 | 119.63s | 14 | Factored CoVe final | 5 | 1 | 4 | 50.0% | 40.0% | 0.9000 |
+| 20 | 249.61s | 26 | Without CoVe (`direct`) | 9 | 1 | 10 | 55.0% | 50.0% | 1.0500 |
+| 20 | 249.61s | 26 | Factored CoVe final | 8 | 3 | 9 | 60.0% | 45.0% | 1.0500 |
+| 30 | 389.61s | 36 | Without CoVe (`direct`) | 11 | 2 | 17 | 63.3% | 56.7% | 1.2000 |
+| 30 | 389.61s | 36 | Factored CoVe final | 10 | 4 | 16 | 66.7% | 53.3% | 1.2000 |
+| 40 | 498.44s | 45 | Without CoVe (`direct`) | 17 | 2 | 21 | 57.5% | 52.5% | 1.1000 |
+| 40 | 498.44s | 45 | Factored CoVe final | 16 | 6 | 18 | 60.0% | 45.0% | 1.0500 |
+| 50 | 632.03s | 56 | Without CoVe (`direct`) | 19 | 2 | 29 | 62.0% | 58.0% | 1.2000 |
+| 50 | 632.03s | 56 | Factored CoVe final | 18 | 9 | 23 | 64.0% | 46.0% | 1.1000 |
+| 60 | 753.77s | 71 | Without CoVe (`direct`) | 21 | 4 | 35 | 65.0% | 58.3% | 1.2333 |
+| 60 | 753.77s | 71 | Factored CoVe final | 19 | 14 | 27 | 68.3% | 45.0% | 1.1333 |
+| 70 | 908.38s | 87 | Without CoVe (`direct`) | 25 | 5 | 40 | 64.3% | 57.1% | 1.2143 |
+| 70 | 908.38s | 87 | Factored CoVe final | 23 | 15 | 32 | 67.1% | 45.7% | 1.1286 |
+| 80 | 1050.57s | 97 | Without CoVe (`direct`) | 28 | 9 | 43 | 65.0% | 53.8% | 1.1875 |
+| 80 | 1050.57s | 97 | Factored CoVe final | 25 | 18 | 37 | 68.8% | 46.2% | 1.1500 |
+| 90 | 1182.76s | 109 | Without CoVe (`direct`) | 31 | 9 | 50 | 65.6% | 55.6% | 1.2111 |
+| 90 | 1182.76s | 109 | Factored CoVe final | 29 | 19 | 42 | 67.8% | 46.7% | 1.1444 |
+
+Across the corrected 10-90 prefix trials, there were 450 outputs per mode.
+Without CoVe had a 63.1% any-hallucination rate, a 55.6% major hallucination
+rate, and an average score of 1.1867. Factored CoVe had a 66.0%
+any-hallucination rate, a 46.2% major hallucination rate, and an average score
+of 1.1222. With this small local model, factored CoVe did not reduce the
+presence of any hallucination, but it did reduce major hallucinations and the
+average hallucination severity.
