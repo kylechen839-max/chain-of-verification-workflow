@@ -1,0 +1,67 @@
+{
+  "model": "deepseek-r1:7b",
+  "host": "http://127.0.0.1:11434",
+  "max_questions": 2,
+  "num_predict": 384,
+  "question_file": "benchmarks/cove_benchmark_questions_supabase_100.json",
+  "manual_scoring_scale": {
+    "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+    "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+  },
+  "results": [
+    {
+      "id": "supabase-question-1",
+      "category": "supabase-question-year",
+      "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 1\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nRequested source field: publication_date\nReference abstract: Not listed\nArticle abstract: The Event Horizon Telescope (EHT) has released analyses of reconstructed images of horizon-scale millimeter emission near the supermassive black hole at the center of the M87 galaxy. Parts of the analyses made use of a large library of synthetic black hole images and spectra, which were produced using numerical general relativistic magnetohydrodynamics fluid simulations and polarized ray tracing. In this article, we describe the PATOKA pipeline, which was used to generate the Illinois contribution to the EHT simulation library. We begin by describing the relevant accretion systems and radiative processes. We then describe the details of the three numerical codes we use, iharm, ipole, and igrmonty, paying particular attention to differences between the current generation of the codes and the originally published versions. Finally, we provide a brief overview of simulated data as produced by PATOKA and conclude with a discussion of limitations and future directions.\nAuthors: George N. Wong, Ben  S. Prather , Vedant Dhruv, Benjamin R. Ryan , Monika Mo\u015bcibrodzka, Chi-kwan Chan, Abhishek V. Joshi, Ricardo Yarza, Angelo Ricarte, Hotaka Shiokawa, Joshua C. Dolence, Scott C. Noble, Jonathan C. McKinney, Charles F. Gammie\nKeywords: supermassive black holes, accretion, plasma astrophysics, magnetohydrodynamics, radiative transfer, low-luminosity active galactic nuclei, black hole physics, computational methods\nSubject categories: Plasma Physics, Astrophysics\nNASA center: Goddard Space Flight Center (GSFC)\nSTI type: ACCEPTED_MANUSCRIPT\nPublication: Astrophysical Journal\nPublication date: 2022-04-13\nDistribution date: 2022-04-13\nReport numbers: LA-UR-21-28826\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+      "source_table": "public.questions",
+      "qid": 1,
+      "complexity": "basic",
+      "type": "year",
+      "source_question": "In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?",
+      "reference_answer": "2022",
+      "answer_source_field": "publication_date",
+      "reference_abstract": null,
+      "article_id": "20220003973",
+      "article_title": "PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20220003973",
+      "doi": "10.3847/1538-4365/ac582e",
+      "source_topics": [
+        "black hole"
+      ],
+      "inserted_at": "2026-07-08 20:06:35.731855+00:00",
+      "modes": [
+        {
+          "mode": "direct",
+          "elapsed_seconds": 12.46,
+          "error": null,
+          "answer_text": "The paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published in **2022**.\n\nAnswer:  \nThe paper was published in the year **2022**.",
+          "answer_length": 173,
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        },
+        {
+          "mode": "factored_cove",
+          "elapsed_seconds": 60.95,
+          "error": null,
+          "answer_text": "The paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published in the year 2022.\n\nAnswer: The paper was published in 2022.",
+          "answer_length": 163,
+          "draft_length": 139,
+          "verification_question_count": 0,
+          "verification_answer_count": 0,
+          "raw": {
+            "question": "Answer the question using only the provided source fields.\nIf the source fields do not contain enough information, say that you don't know.\nDo not add outside facts.\n\nSupabase question id: 1\nQuestion: In what year was the paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" published?\nQuestion type: year\nQuestion complexity: basic\nArticle id: 20220003973\nArticle title: PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\nRequested source field: publication_date\nReference abstract: Not listed\nArticle abstract: The Event Horizon Telescope (EHT) has released analyses of reconstructed images of horizon-scale millimeter emission near the supermassive black hole at the center of the M87 galaxy. Parts of the analyses made use of a large library of synthetic black hole images and spectra, which were produced using numerical general relativistic magnetohydrodynamics fluid simulations and polarized ray tracing. In this article, we describe the PATOKA pipeline, which was used to generate the Illinois contribution to the EHT simulation library. We begin by describing the relevant accretion systems and radiative processes. We then describe the details of the three numerical codes we use, iharm, ipole, and igrmonty, paying particular attention to differences between the current generation of the codes and the originally published versions. Finally, we provide a brief overview of simulated data as produced by PATOKA and conclude with a discussion of limitations and future directions.\nAuthors: George N. Wong, Ben  S. Prather , Vedant Dhruv, Benjamin R. Ryan , Monika Mo\u015bcibrodzka, Chi-kwan Chan, Abhishek V. Joshi, Ricardo Yarza, Angelo Ricarte, Hotaka Shiokawa, Joshua C. Dolence, Scott C. Noble, Jonathan C. McKinney, Charles F. Gammie\nKeywords: supermassive black holes, accretion, plasma astrophysics, magnetohydrodynamics, radiative transfer, low-luminosity active galactic nuclei, black hole physics, computational methods\nSubject categories: Plasma Physics, Astrophysics\nNASA center: Goddard Space Flight Center (GSFC)\nSTI type: ACCEPTED_MANUSCRIPT\nPublication: Astrophysical Journal\nPublication date: 2022-04-13\nDistribution date: 2022-04-13\nReport numbers: LA-UR-21-28826\nNTRS URL: https://ntrs.nasa.gov/citations/20220003973\nDOI: 10.3847/1538-4365/ac582e\nSource topics: black hole",
+            "draft": "The paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published in the year **2022**.\n\nAnswer: 2022",
+            "verification_questions": [],
+            "verification_answers": [],
+            "final": "The paper titled \"PATOKA: Simulating Electromagnetic Observables of Black Hole Accretion\" was published in the year 2022.\n\nAnswer: The paper was published in 2022.",
+            "verification_contexts": null
+          },
+          "manual_accuracy_score": null,
+          "manual_hallucination_score": null,
+          "manual_notes": ""
+        }
+      ]
+    }
+  ]
+}
