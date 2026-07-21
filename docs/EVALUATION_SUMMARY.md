@@ -402,32 +402,53 @@ average hallucination severity.
 `deepseek-r1:7b` was retried on the corrected Supabase workflow with
 `num_predict=768`, `max_questions=2`, skipped `joint_cove`, and checkpointed
 output. A raw `ollama run` sanity check still showed slow reasoning behavior,
-but the Python Ollama API path with `think=False` completed the benchmark.
+but the Python Ollama API path with `think=False` completed the 90-question
+benchmark.
 
-The first one-question smoke run with `num_predict=384` completed but generated
-0 verification checks, so it was not treated as a valid CoVe test. A debug pass
-with `num_predict=768` produced valid planner JSON and source-answerable
-verification questions. The 10-question retry then completed successfully:
+The run initially hit Ollama's default 4096-token context limit on a long
+question, so the completed retry used `num_ctx=32768`. The first 90 Supabase
+questions were run once and then split into 10-, 20-, ..., 90-question prefix
+trial files. Aggregate scores are stored in
+`results/by_workflow/03_supabase_corrected_current/scoring/supabase_questions_scaled_10_90_corrected_workflow_deepseek-r1-7b_summary.json`.
 
-- Results:
-  `results/by_workflow/03_supabase_corrected_current/evaluations/cove_evaluation_results.supabase-questions.deepseek-r1-7b.local.10.corrected-workflow.json`
-- Scores:
-  `results/by_workflow/03_supabase_corrected_current/scoring/cove_evaluation_results.supabase-questions.deepseek-r1-7b.local.10.corrected-workflow.hallucination_scores.json`
-- Supabase run id: 46
-- Runtime: 939.72s
-- Verification questions: 18
-- Zero-check factored CoVe items: 1 of 10 (`supabase-question-7`)
+- Full results:
+  `results/by_workflow/03_supabase_corrected_current/evaluations/cove_evaluation_results.supabase-questions.deepseek-r1-7b.local.90.corrected-workflow.full.json`
+- Full scores:
+  `results/by_workflow/03_supabase_corrected_current/scoring/cove_evaluation_results.supabase-questions.deepseek-r1-7b.local.90.corrected-workflow.full.hallucination_scores.json`
+- Supabase run id: 47
+- Full 90-question runtime: 9228.60s
+- Full 90-question verification questions: 148
 
 | Prompt Count | Runtime | Verification Questions | Mode | Score 0 | Score 1 | Score 2 | Any Hallucination Rate | Major Hallucination Rate | Avg Score |
 |---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
 | 10 | 939.72s | 18 | Without CoVe (`direct`) | 9 | 1 | 0 | 10.0% | 0.0% | 0.1000 |
 | 10 | 939.72s | 18 | Factored CoVe final | 7 | 3 | 0 | 30.0% | 0.0% | 0.3000 |
+| 20 | 2036.44s | 35 | Without CoVe (`direct`) | 19 | 1 | 0 | 5.0% | 0.0% | 0.0500 |
+| 20 | 2036.44s | 35 | Factored CoVe final | 17 | 3 | 0 | 15.0% | 0.0% | 0.1500 |
+| 30 | 3148.20s | 53 | Without CoVe (`direct`) | 28 | 2 | 0 | 6.7% | 0.0% | 0.0667 |
+| 30 | 3148.20s | 53 | Factored CoVe final | 26 | 3 | 1 | 13.3% | 3.3% | 0.1667 |
+| 40 | 4030.45s | 72 | Without CoVe (`direct`) | 36 | 3 | 1 | 10.0% | 2.5% | 0.1250 |
+| 40 | 4030.45s | 72 | Factored CoVe final | 36 | 3 | 1 | 10.0% | 2.5% | 0.1250 |
+| 50 | 4976.50s | 89 | Without CoVe (`direct`) | 43 | 6 | 1 | 14.0% | 2.0% | 0.1600 |
+| 50 | 4976.50s | 89 | Factored CoVe final | 46 | 3 | 1 | 8.0% | 2.0% | 0.1000 |
+| 60 | 5929.66s | 106 | Without CoVe (`direct`) | 51 | 8 | 1 | 15.0% | 1.7% | 0.1667 |
+| 60 | 5929.66s | 106 | Factored CoVe final | 56 | 3 | 1 | 6.7% | 1.7% | 0.0833 |
+| 70 | 7091.92s | 118 | Without CoVe (`direct`) | 60 | 9 | 1 | 14.3% | 1.4% | 0.1571 |
+| 70 | 7091.92s | 118 | Factored CoVe final | 65 | 4 | 1 | 7.1% | 1.4% | 0.0857 |
+| 80 | 8133.55s | 132 | Without CoVe (`direct`) | 70 | 9 | 1 | 12.5% | 1.2% | 0.1375 |
+| 80 | 8133.55s | 132 | Factored CoVe final | 74 | 5 | 1 | 7.5% | 1.2% | 0.0875 |
+| 90 | 9228.60s | 148 | Without CoVe (`direct`) | 79 | 10 | 1 | 12.2% | 1.1% | 0.1333 |
+| 90 | 9228.60s | 148 | Factored CoVe final | 82 | 6 | 2 | 8.9% | 2.2% | 0.1111 |
 
-This 10-question sample is much cleaner than the earlier
-`deepseek-coder:1.3b` corrected 10-question run, which had a 50.0% any
-hallucination rate and 50.0% major hallucination rate for direct answers, and a
-50.0% any hallucination rate and 40.0% major hallucination rate for factored
-CoVe. However, within the `deepseek-r1:7b` sample, factored CoVe was worse than
-direct answering on any-hallucination rate. The result is promising for raw
-model quality, but not yet evidence that CoVe improves this Supabase question
-task with `deepseek-r1:7b`.
+Across the corrected `deepseek-r1:7b` 10-90 prefix trials, there were 450
+outputs per mode. Without CoVe had a 12.2% any-hallucination rate, a 1.3%
+major hallucination rate, and an average score of 0.1356. Factored CoVe had a
+9.1% any-hallucination rate, a 1.8% major hallucination rate, and an average
+score of 0.1089.
+
+The pattern is mixed but more encouraging than the earlier smaller-model run:
+factored CoVe was worse for the first 10-30 question prefixes, tied at 40, and
+then reduced any-hallucination rate from 50 through 90 questions. Major
+hallucinations remained rare in both modes, with factored CoVe scoring slightly
+worse on that specific measure because of two score-2 outputs in the full
+90-question prefix.

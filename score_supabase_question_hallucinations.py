@@ -153,6 +153,41 @@ def summarize(results: list[dict[str, Any]]) -> dict[str, Any]:
     return summary
 
 
+def load_existing_scores(path: Path) -> dict[str, dict[str, Any]]:
+    if not path.exists():
+        return {}
+    existing = json.loads(path.read_text(encoding="utf-8"))
+    return {item["id"]: item for item in existing.get("results", [])}
+
+
+def write_scoring_report(
+    output: Path,
+    *,
+    input_file: str,
+    source_model: str | None,
+    judge_model: str,
+    results: list[dict[str, Any]],
+) -> None:
+    scoring_report = {
+        "source_file": input_file,
+        "source_model": source_model,
+        "judge_model": judge_model,
+        "scoring_scale": {
+            "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
+        },
+        "scoring_method": (
+            "Reference-grounded hallucination scoring against public.questions fields: "
+            "answer, answer_source_field, reference_abstract, article_title, ntrs_url, "
+            "doi, and source_topics. Exact/simple-answer checks are deterministic; "
+            "remaining semantic checks use the configured local Ollama judge."
+        ),
+        "results": results,
+        "summary": summarize(results),
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(scoring_report, indent=2) + "\n", encoding="utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Score Supabase question hallucinations.")
     parser.add_argument("input")
@@ -160,20 +195,38 @@ def main() -> None:
     parser.add_argument("--model", default="deepseek-coder:6.7b")
     parser.add_argument("--host", default="http://127.0.0.1:11434")
     parser.add_argument("--num-predict", type=int, default=256)
+    parser.add_argument(
+        "--num-ctx",
+        type=int,
+        default=0,
+        help="Optional Ollama context window size. 0 keeps the model default.",
+    )
     parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--checkpoint-each", action="store_true")
+    parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
 
     report = json.loads(Path(args.input).read_text(encoding="utf-8"))
     items = report["results"][: args.limit or None]
+    output = Path(args.output)
+    existing_scores = load_existing_scores(output) if args.resume else {}
+    ollama_options = {"num_predict": args.num_predict}
+    if args.num_ctx:
+        ollama_options["num_ctx"] = args.num_ctx
+
     call_llm = make_ollama_call_llm(
         model=args.model,
         host=args.host,
         think=False,
-        options={"num_predict": args.num_predict},
+        options=ollama_options,
     )
 
     results = []
     for item in items:
+        if item["id"] in existing_scores:
+            results.append(existing_scores[item["id"]])
+            print(f"{item['id']}: reused existing scores")
+            continue
         mode_scores = []
         for mode_name in ("direct", "factored_cove"):
             answer = get_mode_answer(item, mode_name)
@@ -216,26 +269,23 @@ def main() -> None:
                 for entry in mode_scores
             )
         )
+        if args.checkpoint_each:
+            write_scoring_report(
+                output,
+                input_file=args.input,
+                source_model=report.get("model"),
+                judge_model=args.model,
+                results=results,
+            )
+            print(f"Checkpointed {len(results)} scores to {output}")
 
-    scoring_report = {
-        "source_file": args.input,
-        "source_model": report.get("model"),
-        "judge_model": args.model,
-        "scoring_scale": {
-            "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims"
-        },
-        "scoring_method": (
-            "Reference-grounded hallucination scoring against public.questions fields: "
-            "answer, answer_source_field, reference_abstract, article_title, ntrs_url, "
-            "doi, and source_topics. Exact/simple-answer checks are deterministic; "
-            "remaining semantic checks use the configured local Ollama judge."
-        ),
-        "results": results,
-        "summary": summarize(results),
-    }
-    output = Path(args.output)
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(scoring_report, indent=2) + "\n", encoding="utf-8")
+    write_scoring_report(
+        output,
+        input_file=args.input,
+        source_model=report.get("model"),
+        judge_model=args.model,
+        results=results,
+    )
     print(f"Wrote {output}")
 
 

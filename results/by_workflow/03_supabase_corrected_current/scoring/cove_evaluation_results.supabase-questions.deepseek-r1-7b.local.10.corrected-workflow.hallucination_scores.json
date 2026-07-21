@@ -1,5 +1,5 @@
 {
-  "source_file": "results/by_workflow/03_supabase_corrected_current/evaluations/cove_evaluation_results.supabase-questions.deepseek-r1-7b.local.10.corrected-workflow.json",
+  "source_file": "results/by_workflow/03_supabase_corrected_current/evaluations/cove_evaluation_results.supabase-questions.deepseek-r1-7b.local.90.corrected-workflow.full.json",
   "source_model": "deepseek-r1:7b",
   "judge_model": "deepseek-r1:7b",
   "scoring_scale": {
@@ -360,5 +360,7 @@
       "average_hallucination_score": 0.3
     },
     "average_hallucination_score": 0.2
-  }
+  },
+  "source_full_score_run": "results/by_workflow/03_supabase_corrected_current/scoring/cove_evaluation_results.supabase-questions.deepseek-r1-7b.local.90.corrected-workflow.full.hallucination_scores.json",
+  "prefix_trial_size": 10
 }

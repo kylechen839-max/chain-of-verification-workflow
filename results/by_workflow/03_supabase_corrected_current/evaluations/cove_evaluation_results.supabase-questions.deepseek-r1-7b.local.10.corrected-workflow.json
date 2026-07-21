@@ -631,5 +631,10 @@
         }
       ]
     }
-  ]
+  ],
+  "source_full_run": "results/by_workflow/03_supabase_corrected_current/evaluations/cove_evaluation_results.supabase-questions.deepseek-r1-7b.local.90.corrected-workflow.full.json",
+  "prefix_trial_size": 10,
+  "runtime_seconds_prefix_sum": 939.72,
+  "verification_checks_prefix_sum": 18,
+  "num_ctx": 32768
 }

@@ -52,6 +52,18 @@ def write_report(path: str, report: dict[str, Any]) -> None:
         json.dump(report, file, indent=2)
 
 
+def load_existing_report(path: str) -> dict[str, Any] | None:
+    try:
+        with open(path, encoding="utf-8") as file:
+            report = json.load(file)
+    except FileNotFoundError:
+        return None
+
+    if not isinstance(report, dict) or not isinstance(report.get("results"), list):
+        raise ValueError(f"Existing report at {path} is not a CoVe evaluation report.")
+    return report
+
+
 def answer_direct(question: str, call_llm: Any) -> str:
     return call_llm(
         [
@@ -295,6 +307,12 @@ def main() -> None:
     parser.add_argument("--output", default="results/evaluations/cove_evaluation_results.local.json")
     parser.add_argument("--max-questions", type=int, default=2)
     parser.add_argument("--num-predict", type=int, default=512)
+    parser.add_argument(
+        "--num-ctx",
+        type=int,
+        default=0,
+        help="Optional Ollama context window size. 0 keeps the model default.",
+    )
     parser.add_argument("--limit", type=int, default=0, help="Limit benchmark questions; 0 means all.")
     parser.add_argument("--skip-joint", action="store_true", help="Skip one-call joint CoVe mode.")
     parser.add_argument(
@@ -326,13 +344,22 @@ def main() -> None:
         action="store_true",
         help="Write the output JSON after each completed question.",
     )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Resume from an existing output JSON by skipping already completed question ids.",
+    )
     args = parser.parse_args()
+
+    ollama_options = {"num_predict": args.num_predict}
+    if args.num_ctx:
+        ollama_options["num_ctx"] = args.num_ctx
 
     call_llm = make_ollama_call_llm(
         model=args.model,
         host=args.host,
         think=False,
-        options={"num_predict": args.num_predict},
+        options=ollama_options,
     )
     questions = load_questions(args.questions)
     if args.limit:
@@ -349,20 +376,36 @@ def main() -> None:
         else None
     )
 
-    report: dict[str, Any] = {
-        "model": args.model,
-        "host": args.host,
-        "max_questions": args.max_questions,
-        "num_predict": args.num_predict,
-        "question_file": args.questions,
-        "manual_scoring_scale": {
-            "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
-            "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims",
-        },
-        "results": [],
-    }
+    report: dict[str, Any] | None = load_existing_report(args.output) if args.resume else None
+    if report is None:
+        report = {
+            "model": args.model,
+            "host": args.host,
+            "max_questions": args.max_questions,
+            "num_predict": args.num_predict,
+            "num_ctx": args.num_ctx,
+            "question_file": args.questions,
+            "manual_scoring_scale": {
+                "accuracy": "0=mostly wrong, 1=mixed or partially correct, 2=mostly correct",
+                "hallucination": "0=none obvious, 1=minor/uncertain, 2=major invented claims",
+            },
+            "results": [],
+        }
+    else:
+        report["model"] = args.model
+        report["host"] = args.host
+        report["max_questions"] = args.max_questions
+        report["num_predict"] = args.num_predict
+        report["num_ctx"] = args.num_ctx
+        report["question_file"] = args.questions
+
+    completed_ids = {str(item.get("id")) for item in report["results"]}
 
     for item in questions:
+        if item["id"] in completed_ids:
+            print(f"Skipping completed question {item['id']}")
+            continue
+
         print(f"Question {item['id']}: {item['question']}")
         modes = [
             ("direct", lambda q=item["question"]: answer_direct(q, call_llm)),
